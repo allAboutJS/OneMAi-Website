@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Email</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="flex items-center justify-center h-screen bg-gray-100">
+
+    <div class="bg-white p-6 rounded-lg shadow-md w-96">
+        <h2 class="text-2xl font-semibold mb-4 text-center">Submit Your Email</h2>
+        <form id="email-form">
+            <input type="email" name="email" placeholder="Email Address" required
+                class="w-full mb-4 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button type="submit"
+                class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition">Submit</button>
+        </form>
+        <p id="response-message" class="mt-4 text-center"></p>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxiRydEoeif2ygkmH-d6KkwLB41hNdsQXhBZwIW4tw3w4QrKuYs-v7OpiaHtGcxwhc/exec';
+        const form = document.getElementById('email-form');
+        const responseMessage = document.getElementById('response-message');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const formData = new FormData(form);
+
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => {
+                    responseMessage.textContent = 'Email submitted successfully!';
+                    responseMessage.className = 'text-green-600';
+                    form.reset();
+                })
+                .catch(error => {
+                    responseMessage.textContent = 'Error submitting email!';
+                    responseMessage.className = 'text-red-600';
+                    console.error('Error!', error.message);
+                });
+        });
+    </script>
+
+</body>
+
+</html>
