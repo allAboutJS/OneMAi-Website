@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script>
     tailwind.config = {
@@ -95,11 +94,11 @@
 
         <!-- Auth Buttons (Desktop) -->
         <div class="hidden md:flex md:items-center space-x-4">
-          <a href="https://one-mai-user.vercel.app/signin"
+          <a id="signupEarlyAccessBtn-2" href="https://one-mai-user.vercel.app/signin"
             class="px-4 py-2 text-lg font-medium text-brand-600 hover:text-brand-700 transition duration-300">
             Sign In
           </a>
-          <a href="https://one-mai-user.vercel.app/signup"
+          <a id="signupEarlyAccessBtn-2" href="https://one-mai-user.vercel.app/signup"
             class="px-6 py-2 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700 transition duration-300">
             Register
           </a>
@@ -129,9 +128,9 @@
       <a href="./contact.html"
         class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-brand-600">Contact</a>
       <div class="border-t border-gray-200 px-4 py-3">
-        <a href="https://one-mai-user.vercel.app/signin"
+        <a id="signupEarlyAccessBtn-2" href="https://one-mai-user.vercel.app/signin"
           class="block w-full text-center px-4 py-2 text-lg text-brand-600 hover:bg-gray-100">Sign In</a>
-        <a href="https://one-mai-user.vercel.app/signup"
+        <a id="signupEarlyAccessBtn-2" href="https://one-mai-user.vercel.app/signup"
           class="block w-full text-center mt-2 px-4 py-2 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700">
           Register
         </a>
@@ -139,153 +138,7 @@
     </div>
   </nav>
 
-  <!-- Add padding to the hero section to account for fixed navbar -->
-  <div class="pt-16">
-   
-    <div id="contact" class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Contact Us
-          </h2>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            Have questions? We're here to help. Reach out to us through any of
-            these channels.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <!-- Contact Form -->
-          <div class="bg-white rounded-2xl shadow-lg p-8">
-            <h3 class="text-2xl font-bold text-gray-900 mb-6">
-              Send us a Message
-            </h3>
-            <form id="contactForm" class="space-y-6">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label for="full_name" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
-                  <input type="text" id="full_name" name="full_name" required
-                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
-                    placeholder="Your name" />
-                </div>
-                <div>
-                  <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-                  <input type="email" id="email" name="email" required
-                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
-                    placeholder="your@email.com" />
-                </div>
-              </div>
-      
-              <div>
-                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
-                <textarea id="message" name="message" rows="4" required
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
-                  placeholder="Your message..."></textarea>
-              </div>
-              <button type="submit" id="submitBtn"
-                class="w-full bg-brand-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-brand-700 transition duration-300 flex items-center justify-center">
-                <span id="buttonText">Send Message</span>
-                <svg id="loadingSpinner" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-              </button>
-            </form>
-            
-            <!-- Success Message (hidden by default) -->
-            <div id="successMessage" class="hidden p-6 text-center">
-              <div class="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-6">
-                <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <h2 class="text-2xl font-bold text-gray-900 mb-4">Message Sent Successfully! 🎉</h2>
-              <p class="text-gray-600 mb-8 leading-relaxed">
-                Thank you for reaching out to us. Our support team has received your message and will respond within 24 hours. We appreciate your patience!
-              </p>
-              <button onclick="resetForm()"
-                class="inline-flex items-center px-6 py-3 text-white font-medium rounded-lg hover:opacity-90 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-200 bg-brand-600">
-                Send Another Message
-              </button>
-            </div>
-          </div>
-
-          <!-- Contact Information -->
-          <div class="lg:pl-12">
-            <div class="bg-gradient-to-br from-brand-600 to-brand-700 rounded-2xl p-8 text-white h-full">
-              <h3 class="text-2xl font-bold mb-8">Get in Touch</h3>
-
-              <!-- Contact Details -->
-              <div class="space-y-6 mb-12">
-                <div class="flex items-start">
-                  <div class="flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mt-1" fill="none" viewBox="0 0 24 24"
-                      stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div class="ml-4">
-                    <p class="font-semibold">Email</p>
-                    <a href="mailto:hello@joinonemai.com"
-                      class="text-brand-100 hover:text-white">hello@joinonemai.com</a>
-                  </div>
-                </div>
-                <div class="flex items-start">
-                  <div class="flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mt-1" fill="none" viewBox="0 0 24 24"
-                      stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                  </div>
-                  <div class="ml-4">
-                    <p class="font-semibold">Phone</p>
-                    <a href="tel:+351912351720" class="text-brand-100 hover:text-white">+351 969 519 614</a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Social Media Links -->
-              <div>
-                <h4 class="font-semibold mb-4">Follow Us</h4>
-                <div class="flex space-x-4">
-                  <a href="https://www.linkedin.com/company/joinonemai/"
-                    class="bg-white/10 p-3 rounded-full hover:bg-white/20 transition duration-300">
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path
-                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                    </svg>
-                  </a>
-                  <a href="http://instagram.com/mai.platform/"
-                    class="bg-white/10 p-3 rounded-full hover:bg-white/20 transition duration-300">
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path
-                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                    </svg>
-                  </a>
-                  <a href="https://web.facebook.com/joinonemai?_rdc=1&_rdr#"
-                    class="bg-white/10 p-3 rounded-full hover:bg-white/20 transition duration-300">
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path
-                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.737-.9 10.125-5.864 10.125-11.854z" />
-                    </svg>
-                  </a>
-                  <a href="https://t.me/joinonemai"
-                    class="bg-white/10 p-3 rounded-full hover:bg-white/20 transition duration-300">
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path
-                        d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.26.26-.428.26l.204-3.05 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.87 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.57-4.458c.538-.196 1.006.128.832.941z" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  @yield('page')
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-gray-300">
@@ -403,62 +256,121 @@
           <script>
             document.write(new Date().getFullYear());
           </script>
-         OneMAI. All rights reserved.
+          OneMAI. All rights reserved.
         </p>
         <span class="text-gray-400 text-sm">Developed by:
-          <a href="https://codedr.co" class="text-gray-400 hover:text-white transition-colors duration-300">CodeDr
-            Studio</a></span>
+          <a href="https://codedr.co" class="text-gray-400 hover:text-white transition-colors duration-300">OneM</a></span>
       </div>
     </div>
   </footer>
 
   <script>
-    // Form submission handling
-    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxiRydEoeif2ygkmH-d6KkwLB41hNdsQXhBZwIW4tw3w4QrKuYs-v7OpiaHtGcxwhc/exec';
+    const form = document.getElementById('emailSignupForm');
+    const responseMessage = document.getElementById('response-message');
+
+    form.addEventListener('submit', e => {
       e.preventDefault();
-      
-      const submitBtn = document.getElementById('submitBtn');
-      const buttonText = document.getElementById('buttonText');
-      const loadingSpinner = document.getElementById('loadingSpinner');
-      const form = e.target;
-      
-      // Show loading state
-      submitBtn.disabled = true;
-      buttonText.textContent = 'Sending...';
-      loadingSpinner.classList.remove('hidden');
-      
-      try {
-        const formData = {
-          full_name: form.full_name.value,
-          email: form.email.value,
-          message: form.message.value
-        };
-        
-        // Using the same endpoint as Support.jsx
-        const response = await axios.post("https://api.joinonemai.com/api/support", formData);
-        
-        // Show success message
-        form.classList.add('hidden');
-        document.getElementById('successMessage').classList.remove('hidden');
-      } catch (error) {
-        console.error('Error submitting form:', error);
-        alert('There was an error submitting your message. Please try again.');
-      } finally {
-        // Reset button state
-        submitBtn.disabled = false;
-        buttonText.textContent = 'Send Message';
-        loadingSpinner.classList.add('hidden');
+      const formData = new FormData(form);
+
+      fetch(scriptURL, { method: 'POST', body: formData })
+        .then(response => {
+          responseMessage.textContent = 'Email submitted successfully!';
+          responseMessage.className = 'text-green-600';
+          form.reset();
+        })
+        .catch(error => {
+          responseMessage.textContent = 'Error submitting email!';
+          responseMessage.className = 'text-red-600';
+          console.error('Error!', error.message);
+        });
+    });
+  </script>
+  <script>
+    // Get references to the button, popup, and form
+    const signupEarlyAccessBtn = document.getElementById('signupEarlyAccessBtn');
+    const signupEarlyAccessBtnTwo = document.getElementById('signupEarlyAccessBtn-2');
+    const emailSignupPopup = document.getElementById('emailSignupPopup');
+    const closeEmailPopupBtn = document.getElementById('closeEmailPopupBtn');
+    const emailSignupForm = document.getElementById('emailSignupForm');
+
+    // Show the email signup popup when "Get Started" is clicked
+    signupEarlyAccessBtn.addEventListener('click', () => {
+      emailSignupPopup.classList.remove('hidden');
+    });
+    signupEarlyAccessBtnTwo.addEventListener('click', () => {
+      emailSignupPopup.classList.remove('hidden');
+    });
+
+    // Hide the email signup popup when "Close" is clicked
+    closeEmailPopupBtn.addEventListener('click', () => {
+      emailSignupPopup.classList.add('hidden');
+    });
+
+    // Hide the email signup popup when clicking outside the modal
+    window.addEventListener('click', (event) => {
+      if (event.target === emailSignupPopup) {
+        emailSignupPopup.classList.add('hidden');
       }
     });
-    
-    function resetForm() {
-      const form = document.getElementById('contactForm');
-      const successMessage = document.getElementById('successMessage');
-      
-      form.reset();
-      form.classList.remove('hidden');
-      successMessage.classList.add('hidden');
-    }
+
+    // Handle form submission
+    emailSignupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('emailInput').value;
+
+      // Google Sheets endpoint (replace with your Google Sheets URL)
+      const googleSheetsUrl =
+        'https://docs.google.com/forms/d/e/1Haa5pTjid6gCWZVuXlzgJmCotlosNdH5K8aA24Q5yVw/formResponse';
+      const formData = new FormData();
+      formData.append('entry.123456789', email); // Replace 'entry.123456789' with your Google Form field ID
+
+      fetch(googleSheetsUrl, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors', // Required for Google Forms
+      })
+        .then(() => {
+          alert('Thank you! You will be notified when we launch.');
+          emailSignupPopup.classList.add('hidden');
+          emailSignupForm.reset();
+        })
+        .catch(() => {
+          alert('Something went wrong. Please try again.');
+        });
+    });
+
+    // Get references to the button, popup, and close button
+    const joinCommunityBtn = document.getElementById('joinCommunityBtn');
+    const socialMediaPopup = document.getElementById('socialMediaPopup');
+    const closePopupBtn = document.getElementById('closePopupBtn');
+
+    // Show the popup when "Join Now" is clicked
+    joinCommunityBtn.addEventListener('click', () => {
+      socialMediaPopup.classList.remove('hidden');
+    });
+
+    // Hide the popup when "Close" is clicked
+    closePopupBtn.addEventListener('click', () => {
+      socialMediaPopup.classList.add('hidden');
+    });
+
+    // Hide the popup when clicking outside the modal
+    window.addEventListener('click', (event) => {
+      if (event.target === socialMediaPopup) {
+        socialMediaPopup.classList.add('hidden');
+      }
+    });
+
   </script>
 </body>
 
