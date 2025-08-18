@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/about-us', function () {
+Route::get('/benefits', function () {
     return view('benefits');
 });
 Route::get('/contact', function () {
@@ -34,4 +34,10 @@ Route::get('/cookies', function () {
 Route::get('/terms', function () {
     return view('terms');
 });
+Route::get('/how-it-works', function () {
+    return view('terms');
+});
 
+Route::get('/about', function () {
+    return view('about');
+});

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MAI -Community Financing</title>
+  <title>OneMAI -Community Financing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
@@ -83,7 +83,7 @@
             class="inline-flex items-center px-1 pt-1 text-lg font-medium text-gray-700 hover:text-brand-600 border-b-2 border-transparent hover:border-brand-600">
             Features
           </a>
-          <a href="/about-us"
+          <a href="/about"
             class="inline-flex items-center px-1 pt-1 text-lg font-medium text-gray-700 hover:text-brand-600 border-b-2 border-transparent hover:border-brand-600">
             About us</a>
           <a href="/contact"
@@ -95,11 +95,11 @@
         <!-- Auth Buttons (Desktop) -->
         <div class="hidden md:flex md:items-center space-x-4">
           <a  href="#"
-            class="px-4 py-2 text-lg font-medium text-brand-600 hover:text-brand-700 transition duration-300 signupEarlyAccessBtn-2">
+            class="px-4 py-2 text-lg font-medium text-brand-600 hover:text-brand-700 transition duration-300 signupEarlyAccessBtn">
             Sign In
           </a>
-          <a id="signupEarlyAccessBtn-2" href="#"
-            class="px-6 py-2 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700 transition duration-300 signupEarlyAccessBtn-2">
+          <a  href="#"
+            class="px-6 py-2 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700 transition duration-300 signupEarlyAccessBtn">
             Register
           </a>
         </div>
@@ -123,15 +123,15 @@
         class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-brand-600">Home</a>
       <a href="/features"
         class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-brand-600">Features</a>
-      <a href="/about-us" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-brand-600">About
+      <a href="/about" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-brand-600">About
         us</a>
       <a href="/contact"
         class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-brand-600">Contact</a>
       <div class="border-t border-gray-200 px-4 py-3">
         <a  href="#"
-          class="block w-full text-center px-4 py-2 text-lg text-brand-600 hover:bg-gray-100 signupEarlyAccessBtn-2">Sign In</a>
+          class="block w-full text-center px-4 py-2 text-lg text-brand-600 hover:bg-gray-100 signupEarlyAccessBtn">Sign In</a>
         <a href="#"
-          class="block w-full text-center mt-2 px-4 py-2 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700 signupEarlyAccessBtn-2">
+          class="block w-full text-center mt-2 px-4 py-2 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700 signupEarlyAccessBtn">
           Register
         </a>
       </div>
@@ -139,25 +139,112 @@
   </nav>
 
   @yield('page')
+
   <!-- Email Signup Popup -->
   <div id="emailSignupPopup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
-      <div class="bg-white rounded-lg p-8 max-w-md w-full text-center">
-      <h3 class="text-xl font-bold text-gray-900 mb-6">Sign Up for Early Access</h3>
-      <form id="emailSignupForm" class="space-y-4">
-          <input type="email" id="emailInput" name="email" placeholder="Enter your email"
-          class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
-          required />
-          <button type="submit"
+    <div class="bg-white rounded-lg p-8 max-w-md w-full text-left">
+      <h3 class="text-xl font-bold text-gray-900">Sign Up for Early Access</h3>
+      <p class="mt-2 text-sm text-gray-600">
+        We will only use your data to inform you about OneMAI launch, updates and early perks.*
+      </p>
+
+      <form id="emailSignupForm" class="space-y-4 mt-6">
+        <!-- Name -->
+        <div>
+          <label for="nameInput" class="block text-sm font-medium text-gray-700">
+            Name <span class="text-gray-500">(first name only is enough)</span>
+          </label>
+          <input type="text" id="nameInput" name="name" placeholder="First name" autocomplete="given-name"
+            class="mt-1 w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent" />
+        </div>
+
+        <!-- Email (required) -->
+        <div>
+          <label for="emailInput" class="block text-sm font-medium text-gray-700">
+            Email <span class="text-red-600">(required)</span>
+          </label>
+          <input type="email" id="emailInput" name="email" placeholder="Enter your email" autocomplete="email"
+            class="mt-1 w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
+            required />
+        </div>
+
+        <!-- Country (Portugal pre-selected) -->
+        <div>
+          <label for="countrySelect" class="block text-sm font-medium text-gray-700">Country</label>
+          <select id="countrySelect" name="country"
+            class="mt-1 w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:ring-2 focus:ring-brand-500 focus:border-transparent">
+            <!-- EU countries -->
+            <option value="Austria">Austria</option>
+            <option value="Belgium">Belgium</option>
+            <option value="Bulgaria">Bulgaria</option>
+            <option value="Croatia">Croatia</option>
+            <option value="Cyprus">Cyprus</option>
+            <option value="Czechia">Czechia (Czech Republic)</option>
+            <option value="Denmark">Denmark</option>
+            <option value="Estonia">Estonia</option>
+            <option value="Finland">Finland</option>
+            <option value="France">France</option>
+            <option value="Germany">Germany</option>
+            <option value="Greece">Greece</option>
+            <option value="Hungary">Hungary</option>
+            <option value="Ireland">Ireland</option>
+            <option value="Italy">Italy</option>
+            <option value="Latvia">Latvia</option>
+            <option value="Lithuania">Lithuania</option>
+            <option value="Luxembourg">Luxembourg</option>
+            <option value="Malta">Malta</option>
+            <option value="Netherlands">Netherlands</option>
+            <option value="Poland">Poland</option>
+            <option value="Portugal" selected>Portugal</option>
+            <option value="Romania">Romania</option>
+            <option value="Slovakia">Slovakia</option>
+            <option value="Slovenia">Slovenia</option>
+            <option value="Spain">Spain</option>
+            <option value="Sweden">Sweden</option>
+            <option value="__other">Other (not listed)</option>
+          </select>
+
+          <!-- Shown only if "Other" is selected -->
+          <input type="text" id="countryOtherInput" name="country_other" placeholder="Type your country"
+            autocomplete="country-name"
+            class="mt-3 w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent hidden" />
+          <p class="mt-1 text-xs text-gray-500">
+            If your country isn’t listed, choose “Other (not listed)” and type it.
+          </p>
+        </div>
+
+        <!-- Optional phone -->
+        <div>
+          <label for="phoneInput" class="block text-sm font-medium text-gray-700">
+            Phone number <span class="text-gray-500">(Only if you’d like us to reach you by phone)</span>
+          </label>
+          <input type="tel" id="phoneInput" name="phone" placeholder="+351 ..." autocomplete="tel"
+            class="mt-1 w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent" />
+        </div>
+
+        <!-- Consent checkbox (required) -->
+        <label class="flex items-start space-x-3 text-sm text-gray-700">
+          <input type="checkbox" id="consentEmail" name="consent_email" class="mt-1 h-4 w-4" required />
+          <span>
+            I agree to receive emails about OneMAI early access and perks.
+            See <a href="privacy.html" class="text-blue-600 underline">Privacy Policy</a>.
+          </span>
+        </label>
+
+        <!-- Submit -->
+        <button type="submit"
           class="w-full bg-brand-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-700 transition duration-300">
           Notify Me
-          </button>
-          <p id="response-message" class="mt-4 text-center"></p>
+        </button>
+
+        <p id="response-message" class="mt-2 text-center"></p>
       </form>
+
       <button id="closeEmailPopupBtn"
-          class="mt-4 bg-gray-300 text-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-400 transition duration-300">
-          Close
+        class="mt-4 w-full bg-gray-300 text-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-400 transition duration-300">
+        Close
       </button>
-      </div>
+    </div>
   </div>
 
   <!-- Footer -->
@@ -213,17 +300,17 @@
           <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
           <ul class="space-y-3">
             <li>
-              <a href="#about" class="text-gray-400 hover:text-white transition-colors duration-300">About</a>
+              <a href="/about" class="text-gray-400 hover:text-white transition-colors duration-300">About</a>
             </li>
             <li>
-              <a href="/features" class="text-gray-400 hover:text-white transition-colors duration-300">How It
+              <a href="/how-it-works" class="text-gray-400 hover:text-white transition-colors duration-300">How It
                 Works</a>
             </li>
             <li>
-              <a href="/benefits" class="text-gray-400 hover:text-white transition-colors duration-300">About us</a>
+              <a href="/benefits" class="text-gray-400 hover:text-white transition-colors duration-300">Benefits</a>
             </li>
             <li>
-              <a href="#faq" class="text-gray-400 hover:text-white transition-colors duration-300">FAQ</a>
+              <a href="/faq" class="text-gray-400 hover:text-white transition-colors duration-300">FAQ</a>
             </li>
           </ul>
         </div>
@@ -237,13 +324,15 @@
                 Policy</a>
             </li>
             <li>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Terms of Use</a>
+              <a href="/terms" class="text-gray-400 hover:text-white transition-colors duration-300">Terms of
+                Use</a>
             </li>
             <li>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Cookie Policy</a>
+              <a href="/cookies" class="text-gray-400 hover:text-white transition-colors duration-300">Cookie Policy</a>
             </li>
             <li>
-              <a href="/contact" class="text-gray-400 hover:text-white transition-colors duration-300">Contact Us</a>
+              <a href="https://one-mai-affiliate.vercel.app/support"
+                class="text-gray-400 hover:text-white transition-colors duration-300">Contact Us</a>
             </li>
           </ul>
         </div>
@@ -279,121 +368,137 @@
           OneMAI. All rights reserved.
         </p>
         <span class="text-gray-400 text-sm">Developed by:
-          <a href="https://codedr.co" class="text-gray-400 hover:text-white transition-colors duration-300">OneMai Engineers</a></span>
+          <a href="https://codedr.co" class="text-gray-400 hover:text-white transition-colors duration-300">OneMAi Engineers</a></span>
       </div>
     </div>
   </footer>
 
   <script>
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
+    document.addEventListener('DOMContentLoaded', () => {
+      'use strict';
 
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>
-  <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxiRydEoeif2ygkmH-d6KkwLB41hNdsQXhBZwIW4tw3w4QrKuYs-v7OpiaHtGcxwhc/exec';
-    const form = document.getElementById('emailSignupForm');
-    const responseMessage = document.getElementById('response-message');
+      // ===== Helpers =====
+      const byId = (id) => document.getElementById(id);
+      const openModal = (el) => el && el.classList.remove('hidden');
+      const closeModal = (el) => el && el.classList.add('hidden');
+      const setMsg = (el, text, ok = true) => {
+        if (!el) return;
+        el.textContent = text;
+        el.className = 'mt-2 text-center ' + (ok ? 'text-green-600' : 'text-red-600');
+      };
 
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const formData = new FormData(form);
+      // ===== Mobile menu =====
+      const menuBtn = byId('menu-btn');
+      const mobileMenu = byId('mobile-menu');
+      menuBtn?.addEventListener('click', () => mobileMenu?.classList.toggle('hidden'));
 
-      fetch(scriptURL, { method: 'POST', body: formData })
-        .then(response => {
-          responseMessage.textContent = 'Email submitted successfully!';
-          responseMessage.className = 'text-green-600';
-          form.reset();
-        })
-        .catch(error => {
-          responseMessage.textContent = 'Error submitting email!';
-          responseMessage.className = 'text-red-600';
-          console.error('Error!', error.message);
-        });
-    });
-  </script>
-  <script>
-    // Get references to the button, popup, and form
-    const signupEarlyAccessBtn = document.getElementById('signupEarlyAccessBtn');
-    const signupEarlyAccessBtnTwo = document.getElementsByClassName('signupEarlyAccessBtn-2');
-    const emailSignupPopup = document.getElementById('emailSignupPopup');
-    const closeEmailPopupBtn = document.getElementById('closeEmailPopupBtn');
-    const emailSignupForm = document.getElementById('emailSignupForm');
-
-    // Show the email signup popup when "Get Started" is clicked
-    // signupEarlyAccessBtn.addEventListener('click', () => {
-    //   emailSignupPopup.classList.remove('hidden');
-    // });
-
-    for (let el of signupEarlyAccessBtnTwo) {
-      el.addEventListener('click', () => {
-        emailSignupPopup.classList.remove('hidden');
-        })
-    }
-
-    // Hide the email signup popup when "Close" is clicked
-    closeEmailPopupBtn.addEventListener('click', () => {
-      emailSignupPopup.classList.add('hidden');
-    });
-
-    // Hide the email signup popup when clicking outside the modal
-    window.addEventListener('click', (event) => {
-      if (event.target === emailSignupPopup) {
-        emailSignupPopup.classList.add('hidden');
+      // ===== Early Access popup =====
+      
+      const signupEarlyAccessBtn = document.getElementsByClassName('signupEarlyAccessBtn');
+      const emailSignupPopup = byId('emailSignupPopup');
+      const closeEmailPopupBtn = byId('closeEmailPopupBtn');
+      for (let el of signupEarlyAccessBtn) {
+        el.addEventListener('click', () => {
+           openModal(emailSignupPopup);
+          })
       }
-    });
+      
+      closeEmailPopupBtn?.addEventListener('click', () => closeModal(emailSignupPopup));
+      window.addEventListener('click', (e) => {
+        if (e.target === emailSignupPopup) closeModal(emailSignupPopup);
+        if (e.target === socialMediaPopup) closeModal(socialMediaPopup);
+      });
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeModal(emailSignupPopup);
+          closeModal(socialMediaPopup);
+        }
+      });
 
-    // Handle form submission
-    emailSignupForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+      // ===== Country "Other" toggle =====
+      const countrySelect = byId('countrySelect');
+      const countryOtherInput = byId('countryOtherInput');
 
-      const email = document.getElementById('emailInput').value;
-
-      // Google Sheets endpoint (replace with your Google Sheets URL)
-      const googleSheetsUrl =
-        'https://docs.google.com/forms/d/e/1Haa5pTjid6gCWZVuXlzgJmCotlosNdH5K8aA24Q5yVw/formResponse';
-      const formData = new FormData();
-      formData.append('entry.123456789', email); // Replace 'entry.123456789' with your Google Form field ID
-
-      fetch(googleSheetsUrl, {
-        method: 'POST',
-        body: formData,
-        mode: 'no-cors', // Required for Google Forms
-      })
-        .then(() => {
-          alert('Thank you! You will be notified when we launch.');
-          emailSignupPopup.classList.add('hidden');
-          emailSignupForm.reset();
-        })
-        .catch(() => {
-          alert('Something went wrong. Please try again.');
-        });
-    });
-
-    // Get references to the button, popup, and close button
-    const joinCommunityBtn = document.getElementById('joinCommunityBtn');
-    const socialMediaPopup = document.getElementById('socialMediaPopup');
-    const closePopupBtn = document.getElementById('closePopupBtn');
-
-    // Show the popup when "Join Now" is clicked
-    joinCommunityBtn.addEventListener('click', () => {
-      socialMediaPopup.classList.remove('hidden');
-    });
-
-    // Hide the popup when "Close" is clicked
-    closePopupBtn.addEventListener('click', () => {
-      socialMediaPopup.classList.add('hidden');
-    });
-
-    // Hide the popup when clicking outside the modal
-    window.addEventListener('click', (event) => {
-      if (event.target === socialMediaPopup) {
-        socialMediaPopup.classList.add('hidden');
+      function syncCountryOther() {
+        if (!countrySelect || !countryOtherInput) return;
+        const isOther = countrySelect.value === '__other';
+        countryOtherInput.classList.toggle('hidden', !isOther);
+        countryOtherInput.required = isOther;
+        if (!isOther) countryOtherInput.value = '';
       }
-    });
+      countrySelect?.addEventListener('change', syncCountryOther);
+      syncCountryOther(); // init on load
 
+      // ===== Early Access form submit (Apps Script) =====
+      const emailSignupForm = byId('emailSignupForm');
+      const responseMessage = byId('response-message');
+
+      // Apps Script endpoint (unchanged)
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzQsJECK-BjjsNJedn7pI40973sn1FlT_pCVMM_XXE7yRWtj0z6HTw7OUqmVCKvqp09/exec';
+
+      emailSignupForm?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const name = (byId('nameInput')?.value || '').trim();
+        const email = (byId('emailInput')?.value || '').trim();
+        const phone = (byId('phoneInput')?.value || '').trim();
+        const selected = countrySelect?.value || '';
+        const finalCountry = selected === '__other' ? (countryOtherInput?.value || '').trim() : selected;
+        const consent = byId('consentEmail')?.checked ? 'yes' : 'no';
+
+        // Basic validation
+        if (!email) {
+          setMsg(responseMessage, 'Please enter a valid email.', false);
+          return;
+        }
+        if (selected === '__other' && !finalCountry) {
+          setMsg(responseMessage, 'Please type your country.', false);
+          return;
+        }
+        if (consent !== 'yes') {
+          setMsg(responseMessage, 'Please agree to receive emails to continue.', false);
+          return;
+        }
+
+        // Build payload
+        const formData = new FormData();
+        formData.set('name', name);
+        formData.set('email', email);
+        formData.set('country', finalCountry);
+        if (phone) formData.set('phone', phone);
+        formData.set('consent_email', consent);
+
+        // Pass the sheet ID so the Apps Script knows where to log (if your script supports this)
+        formData.set('sheetId', '1t6Aux71X9CNrDhL_jf0Go9eTSCbTsS7BY3AGv5IzC4');
+
+        console.log('[early-access] payload:', { name, email, country: finalCountry, phone, consent });
+
+        try {
+          const res = await fetch(scriptURL, { method: 'POST', body: formData });
+          if (res.ok) {
+            setMsg(responseMessage, 'Thanks! You’ll be notified at launch.', true);
+            emailSignupForm.reset();
+            // reset country to Portugal if present
+            if (countrySelect) countrySelect.value = 'Portugal';
+            syncCountryOther();
+            setTimeout(() => closeModal(emailSignupPopup), 400);
+          } else {
+            throw new Error('Server responded with an error');
+          }
+        } catch (err) {
+          console.error('[early-access] submit error:', err);
+          setMsg(responseMessage, 'Something went wrong. Please try again.', false);
+        }
+      });
+
+      // ===== Social popup =====
+      const joinCommunityBtn = byId('joinCommunityBtn');
+      const socialMediaPopup = byId('socialMediaPopup');
+      const closePopupBtn = byId('closePopupBtn');
+
+      joinCommunityBtn?.addEventListener('click', () => openModal(socialMediaPopup));
+      closePopupBtn?.addEventListener('click', () => closeModal(socialMediaPopup));
+    });
   </script>
 </body>
 

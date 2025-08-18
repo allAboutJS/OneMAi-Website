@@ -16,7 +16,7 @@
             democratic financial solution
         </p>
         <a href="#" 
-            class="signupEarlyAccessBtn-2 inline-block bg-brand-600 text-white px-4 py-2 rounded-lg text-lg text-center font-semibold hover:bg-brand-700 transition duration-300 ease-in-out transform hover:-translate-y-1 w-50">
+            class="signupEarlyAccessBtn inline-block bg-brand-600 text-white px-4 py-2 rounded-lg text-lg text-center font-semibold hover:bg-brand-700 transition duration-300 ease-in-out transform hover:-translate-y-1 w-50">
             Signup for early Perks.
         </a>
         </div>
@@ -350,8 +350,8 @@
         <p class="text-gray-600 mb-6">
             Be among the first to experience the future of community financing
         </p>
-        <button id="signupEarlyAccessBtn"
-            class="inline-block bg-brand-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-700 transition duration-300">
+        <button 
+            class=" signupEarlyAccessBtn inline-block bg-brand-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-700 transition duration-300">
             Get Started
         </button>
         </div>
