@@ -434,7 +434,7 @@
       const responseMessage = byId('response-message');
 
       // Apps Script endpoint (unchanged)
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbzQsJECK-BjjsNJedn7pI40973sn1FlT_pCVMM_XXE7yRWtj0z6HTw7OUqmVCKvqp09/exec';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyzjYnO2dy0slHRNpXQbj097OlsTqjhoJtVCPxEYCPcXUSHnqU85fFVC6zr_eKPfTff/exec';
 
       emailSignupForm?.addEventListener('submit', async (e) => {
         e.preventDefault();
