@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/style.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script>
@@ -68,25 +68,25 @@
       <div class="flex justify-between h-20">
         <!-- Logo -->
         <div class="flex items-center">
-          <a href="index.html" class="text-2xl font-bold text-brand-600">
+          <a href="/" class="text-2xl font-bold text-brand-600">
             <img src="./images/MAI.png" alt="MAI" class="w-10" />
           </a>
         </div>
 
         <!-- Primary Nav (Desktop) -->
         <div class="hidden md:flex md:items-center md:space-x-4">
-          <a href="index.html#about"
+          <a href="/"
             class="inline-flex items-center px-1 pt-1 text-lg font-medium text-gray-700 hover:text-brand-600 border-b-2 border-transparent hover:border-brand-600">
             Home
           </a>
-          <a href="features.html"
+          <a href="/features"
             class="inline-flex items-center px-1 pt-1 text-lg font-medium text-gray-700 hover:text-brand-600 border-b-2 border-transparent hover:border-brand-600">
             Features
           </a>
-          <a href="benefits.html"
+          <a href="/about-us"
             class="inline-flex items-center px-1 pt-1 text-lg font-medium text-gray-700 hover:text-brand-600 border-b-2 border-transparent hover:border-brand-600">
             About us</a>
-          <a href="./contact.html"
+          <a href="/contact"
             class="inline-flex items-center px-1 pt-1 text-lg font-medium text-gray-700 hover:text-brand-600 border-b-2 border-transparent hover:border-brand-600">
             Contact
           </a>
@@ -94,12 +94,12 @@
 
         <!-- Auth Buttons (Desktop) -->
         <div class="hidden md:flex md:items-center space-x-4">
-          <a id="signupEarlyAccessBtn-2" href="https://one-mai-user.vercel.app/signin"
-            class="px-4 py-2 text-lg font-medium text-brand-600 hover:text-brand-700 transition duration-300">
+          <a  href="#"
+            class="px-4 py-2 text-lg font-medium text-brand-600 hover:text-brand-700 transition duration-300 signupEarlyAccessBtn-2">
             Sign In
           </a>
-          <a id="signupEarlyAccessBtn-2" href="https://one-mai-user.vercel.app/signup"
-            class="px-6 py-2 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700 transition duration-300">
+          <a id="signupEarlyAccessBtn-2" href="#"
+            class="px-6 py-2 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700 transition duration-300 signupEarlyAccessBtn-2">
             Register
           </a>
         </div>
@@ -119,19 +119,19 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu"
       class="hidden md:hidden bg-white shadow-lg absolute top-20 left-0 w-full border-t border-gray-200 z-40">
-      <a href="index.html#about"
+      <a href="/"
         class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-brand-600">Home</a>
-      <a href="features.html"
+      <a href="/features"
         class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-brand-600">Features</a>
-      <a href="benefits.html" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-brand-600">About
+      <a href="/about-us" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-brand-600">About
         us</a>
-      <a href="./contact.html"
+      <a href="/contact"
         class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-brand-600">Contact</a>
       <div class="border-t border-gray-200 px-4 py-3">
-        <a id="signupEarlyAccessBtn-2" href="https://one-mai-user.vercel.app/signin"
-          class="block w-full text-center px-4 py-2 text-lg text-brand-600 hover:bg-gray-100">Sign In</a>
-        <a id="signupEarlyAccessBtn-2" href="https://one-mai-user.vercel.app/signup"
-          class="block w-full text-center mt-2 px-4 py-2 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700">
+        <a  href="#"
+          class="block w-full text-center px-4 py-2 text-lg text-brand-600 hover:bg-gray-100 signupEarlyAccessBtn-2">Sign In</a>
+        <a href="#"
+          class="block w-full text-center mt-2 px-4 py-2 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700 signupEarlyAccessBtn-2">
           Register
         </a>
       </div>
@@ -139,6 +139,26 @@
   </nav>
 
   @yield('page')
+  <!-- Email Signup Popup -->
+  <div id="emailSignupPopup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+      <div class="bg-white rounded-lg p-8 max-w-md w-full text-center">
+      <h3 class="text-xl font-bold text-gray-900 mb-6">Sign Up for Early Access</h3>
+      <form id="emailSignupForm" class="space-y-4">
+          <input type="email" id="emailInput" name="email" placeholder="Enter your email"
+          class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
+          required />
+          <button type="submit"
+          class="w-full bg-brand-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-700 transition duration-300">
+          Notify Me
+          </button>
+          <p id="response-message" class="mt-4 text-center"></p>
+      </form>
+      <button id="closeEmailPopupBtn"
+          class="mt-4 bg-gray-300 text-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-400 transition duration-300">
+          Close
+      </button>
+      </div>
+  </div>
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-gray-300">
@@ -196,11 +216,11 @@
               <a href="#about" class="text-gray-400 hover:text-white transition-colors duration-300">About</a>
             </li>
             <li>
-              <a href="/Features.html" class="text-gray-400 hover:text-white transition-colors duration-300">How It
+              <a href="/features" class="text-gray-400 hover:text-white transition-colors duration-300">How It
                 Works</a>
             </li>
             <li>
-              <a href="benefits.html" class="text-gray-400 hover:text-white transition-colors duration-300">About us</a>
+              <a href="/benefits" class="text-gray-400 hover:text-white transition-colors duration-300">About us</a>
             </li>
             <li>
               <a href="#faq" class="text-gray-400 hover:text-white transition-colors duration-300">FAQ</a>
@@ -213,7 +233,7 @@
           <h4 class="text-lg font-semibold text-white mb-4">Legal</h4>
           <ul class="space-y-3">
             <li>
-              <a href="privacy.html" class="text-gray-400 hover:text-white transition-colors duration-300">Privacy
+              <a href="/privacy" class="text-gray-400 hover:text-white transition-colors duration-300">Privacy
                 Policy</a>
             </li>
             <li>
@@ -223,7 +243,7 @@
               <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Cookie Policy</a>
             </li>
             <li>
-              <a href="#contact" class="text-gray-400 hover:text-white transition-colors duration-300">Contact Us</a>
+              <a href="/contact" class="text-gray-400 hover:text-white transition-colors duration-300">Contact Us</a>
             </li>
           </ul>
         </div>
@@ -259,7 +279,7 @@
           OneMAI. All rights reserved.
         </p>
         <span class="text-gray-400 text-sm">Developed by:
-          <a href="https://codedr.co" class="text-gray-400 hover:text-white transition-colors duration-300">OneM</a></span>
+          <a href="https://codedr.co" class="text-gray-400 hover:text-white transition-colors duration-300">OneMai Engineers</a></span>
       </div>
     </div>
   </footer>
@@ -297,18 +317,21 @@
   <script>
     // Get references to the button, popup, and form
     const signupEarlyAccessBtn = document.getElementById('signupEarlyAccessBtn');
-    const signupEarlyAccessBtnTwo = document.getElementById('signupEarlyAccessBtn-2');
+    const signupEarlyAccessBtnTwo = document.getElementsByClassName('signupEarlyAccessBtn-2');
     const emailSignupPopup = document.getElementById('emailSignupPopup');
     const closeEmailPopupBtn = document.getElementById('closeEmailPopupBtn');
     const emailSignupForm = document.getElementById('emailSignupForm');
 
     // Show the email signup popup when "Get Started" is clicked
-    signupEarlyAccessBtn.addEventListener('click', () => {
-      emailSignupPopup.classList.remove('hidden');
-    });
-    signupEarlyAccessBtnTwo.addEventListener('click', () => {
-      emailSignupPopup.classList.remove('hidden');
-    });
+    // signupEarlyAccessBtn.addEventListener('click', () => {
+    //   emailSignupPopup.classList.remove('hidden');
+    // });
+
+    for (let el of signupEarlyAccessBtnTwo) {
+      el.addEventListener('click', () => {
+        emailSignupPopup.classList.remove('hidden');
+        })
+    }
 
     // Hide the email signup popup when "Close" is clicked
     closeEmailPopupBtn.addEventListener('click', () => {

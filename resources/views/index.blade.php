@@ -15,14 +15,14 @@
             Empowering communities through zero-interest and a secured
             democratic financial solution
         </p>
-        <a href="#" id="signupEarlyAccessBtn-2"
-            class="inline-block bg-brand-600 text-white px-4 py-2 rounded-lg text-lg text-center font-semibold hover:bg-brand-700 transition duration-300 ease-in-out transform hover:-translate-y-1 w-50">
+        <a href="#" 
+            class="signupEarlyAccessBtn-2 inline-block bg-brand-600 text-white px-4 py-2 rounded-lg text-lg text-center font-semibold hover:bg-brand-700 transition duration-300 ease-in-out transform hover:-translate-y-1 w-50">
             Signup for early Perks.
         </a>
         </div>
         <!-- Image Column -->
         <div class="flex items-center justify-center">
-        <img src="images/content.png" alt="Community" class="w-full h-full object-cover" />
+        <img src="/images/content.png" alt="Community" class="w-full h-full object-cover" />
         </div>
     </div>
     </div>
@@ -330,26 +330,7 @@
         innovative financial solutions
     </p>
 
-    <!-- Email Signup Popup -->
-    <div id="emailSignupPopup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
-        <div class="bg-white rounded-lg p-8 max-w-md w-full text-center">
-        <h3 class="text-xl font-bold text-gray-900 mb-6">Sign Up for Early Access</h3>
-        <form id="emailSignupForm" class="space-y-4">
-            <input type="email" id="emailInput" name="email" placeholder="Enter your email"
-            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
-            required />
-            <button type="submit"
-            class="w-full bg-brand-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-700 transition duration-300">
-            Notify Me
-            </button>
-            <p id="response-message" class="mt-4 text-center"></p>
-        </form>
-        <button id="closeEmailPopupBtn"
-            class="mt-4 bg-gray-300 text-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-400 transition duration-300">
-            Close
-        </button>
-        </div>
-    </div>
+    
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
 
