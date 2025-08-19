@@ -12,7 +12,7 @@ import santosImg from "@/assets/images/santos.jpg";
 import startUpLogo from "@/assets/images/partners/start-up.png";
 import eitLogo from "@/assets/images/partners/eit.png";
 import lisbonLogo from "@/assets/images/partners/lisbon.png";
-import HomeImage from "@/assets/firstimage.png"
+import pageimage from "@/assets/firstimage.png"
 
 type TabKey = "users" | "partners";
 
@@ -157,7 +157,7 @@ const Home: React.FC = () => {
       </button>
 
       {/* Hero */}
-      <section className="relative min-h-[80vh] md:h-screen flex items-center justify-center bg-gradient-to-r from-blue-900 to-teal-500">
+      <section className="relative min-h-[70vh] md:h-screen flex items-center justify-center bg-gradient-to-r from-blue-900 to-teal-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Text */}
@@ -175,9 +175,15 @@ const Home: React.FC = () => {
                 Signup for early Perks.
               </button>
             </div>
-            {/* Image */}
-            <div className="flex items-center justify-center">
-              <img src={contentImg} alt="Community" className="w-full h-full object-cover" />
+            {/* Image (optimized for mobile) */}
+            <div className="flex items-center justify-center md:justify-end">
+              <img
+                src={contentImg}
+                alt="Community"
+                className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain rounded-2xl shadow-lg"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
         </div>
@@ -190,19 +196,18 @@ const Home: React.FC = () => {
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">Get started with OneMAI in three simple steps</p>
           </div>
-          <div className="w-full flex justify-center items-center">
-            <img
-              src={HomeImage}
-              alt="Create Community Interface"
-              className="rounded-2xl w-full max-w-[600px] h-auto object-contain"
-            />
-          </div>
+          <img
+            src={pageimage}
+            alt="Community"
+            className="w-full h-auto max-h-[55vh] md:h-[420px] object-contain rounded mx-auto"
+            loading="lazy"
+          />
 
 
-          <div className="space-y-16 mt-5">
+          <div className="space-y-16">
             {/* Step 1 */}
             <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
-              <div className="w-full md:w-1/2 order-2 md:order-1">
+              <div className="w-full md:w-1/2 order-2 md:order-2">
                 <div className="bg-white rounded-2xl shadow-lg p-6">
                   <div className="text-brand-600 mb-4">
                     <span className="inline-block px-4 py-2 rounded-full bg-brand-100 text-brand-600 text-sm font-semibold">
@@ -226,11 +231,18 @@ const Home: React.FC = () => {
                   </ul>
                 </div>
               </div>
-              <div className="order-1 md:order-2">
-                <img src={joinCommunityImg} alt="Create Community Interface" className="rounded-2xl  max-w-[600px] object-contain" />
+              <div className="order-2 md:order-2 w-full flex items-center justify-center">
+                <img
+                  src={joinCommunityImg}
+                  alt="Create Community Interface"
+                  className="rounded-2xl w-full max-w-xs sm:max-w-sm md:max-w-md h-auto object-contain object-center shadow-md"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
-            {/* Step 3 */}
+
+            {/* Step 2 */}
             <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
               <div className="w-full md:w-1/2 order-2 md:order-1">
                 <div className="bg-white rounded-2xl shadow-lg p-6">
@@ -255,14 +267,27 @@ const Home: React.FC = () => {
                   </ul>
                 </div>
               </div>
-              <div className="order-1 md:order-2">
-                <img src={groupImg} alt="Parameters Setup Interface" className="rounded-2xl  max-w-[600px] object-contain" />
+              <div className="order-1 md:order-2 w-full flex items-center justify-center">
+                <img
+                  src={groupImg}
+                  alt="Parameters Setup Interface"
+                  className="rounded-2xl w-full max-w-xs sm:max-w-sm md:max-w-md h-auto object-contain object-center shadow-md"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
-            {/* Step 4 */}
+
+            {/* Step 3 */}
             <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
-              <div>
-                <img src={receiveFundImg} alt="Fund Management Interface" className="rounded-2xl  max-w-[600px] object-contain" />
+              <div className="w-full flex items-center justify-center">
+                <img
+                  src={receiveFundImg}
+                  alt="Fund Management Interface"
+                  className="rounded-2xl w-full max-w-xs sm:max-w-sm md:max-w-md h-auto object-contain object-center shadow-md"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div className="w-full md:w-1/2">
                 <div className="bg-white rounded-2xl shadow-lg p-6">
@@ -628,11 +653,11 @@ const Home: React.FC = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-6 py-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3390D5"
+                className="flex-1 px-6 py-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3390D5]"
               />
               <button
                 type="submit"
-                className="bg-[#3390D5] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#3390D5 transition"
+                className="bg-[#3390D5] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#3390D5] transition"
               >
                 Subscribe
               </button>
@@ -721,7 +746,7 @@ const StoryCard = ({
 }) => (
   <article className="bg-white rounded-2xl shadow-lg overflow-hidden">
     <div className="relative h-64">
-      <img src={img} alt={title} className="w-full h-full object-cover" />
+      <img src={img} alt={title} className="w-full h-full object-cover" loading="lazy" decoding="async" />
       <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
         <h3 className="text-xl font-semibold text-white">{title}</h3>
         <p className="text-gray-200">{role}</p>
@@ -770,7 +795,7 @@ const SvgUserPlus = (props: React.SVGProps<SVGSVGElement>) => (
 );
 const SvgUsers = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0m6 3a2 2 0 11-4 0 2 2 0 014 0M7 10a2 2 0 11-4 0 2 2 0 014 0" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0m6 3a2 2 0 11-4 0 2 2 0 014 0M7 10a2 2 0 11-4 0 2 2 0 114 0" />
   </svg>
 );
 const SvgTelegram = (props: React.SVGProps<SVGSVGElement>) => (
