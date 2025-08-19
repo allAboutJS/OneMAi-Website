@@ -199,7 +199,7 @@ const Home: React.FC = () => {
           </div>
 
 
-          <div className="space-y-16">
+          <div className="space-y-16 mt-5">
             {/* Step 1 */}
             <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
               <div className="w-full md:w-1/2 order-2 md:order-1">
@@ -227,10 +227,9 @@ const Home: React.FC = () => {
                 </div>
               </div>
               <div className="order-1 md:order-2">
-                <img src={joinCommunityImg} alt="Create Community Interface" className="rounded-2xl h-[550px] object-contain" />
+                <img src={joinCommunityImg} alt="Create Community Interface" className="rounded-2xl  max-w-[600px] object-contain" />
               </div>
             </div>
-
             {/* Step 3 */}
             <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
               <div className="w-full md:w-1/2 order-2 md:order-1">
@@ -257,14 +256,13 @@ const Home: React.FC = () => {
                 </div>
               </div>
               <div className="order-1 md:order-2">
-                <img src={groupImg} alt="Parameters Setup Interface" className="rounded-2xl h-[550px] object-contain" />
+                <img src={groupImg} alt="Parameters Setup Interface" className="rounded-2xl  max-w-[600px] object-contain" />
               </div>
             </div>
-
             {/* Step 4 */}
             <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
               <div>
-                <img src={receiveFundImg} alt="Fund Management Interface" className="rounded-2xl h-[550px] object-contain" />
+                <img src={receiveFundImg} alt="Fund Management Interface" className="rounded-2xl  max-w-[600px] object-contain" />
               </div>
               <div className="w-full md:w-1/2">
                 <div className="bg-white rounded-2xl shadow-lg p-6">
