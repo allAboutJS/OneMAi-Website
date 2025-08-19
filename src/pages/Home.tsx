@@ -12,6 +12,7 @@ import santosImg from "@/assets/images/santos.jpg";
 import startUpLogo from "@/assets/images/partners/start-up.png";
 import eitLogo from "@/assets/images/partners/eit.png";
 import lisbonLogo from "@/assets/images/partners/lisbon.png";
+import HomeImage from "@/assets/firstimage.png"
 
 type TabKey = "users" | "partners";
 
@@ -132,9 +133,9 @@ const Home: React.FC = () => {
 
   const EU_COUNTRIES = useMemo(
     () => [
-      "Austria","Belgium","Bulgaria","Croatia","Cyprus","Czechia (Czech Republic)","Denmark","Estonia","Finland",
-      "France","Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands",
-      "Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden",
+      "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czechia (Czech Republic)", "Denmark", "Estonia", "Finland",
+      "France", "Germany", "Greece", "Hungary", "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands",
+      "Poland", "Portugal", "Romania", "Slovakia", "Slovenia", "Spain", "Sweden",
     ],
     []
   );
@@ -189,6 +190,14 @@ const Home: React.FC = () => {
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">Get started with OneMAI in three simple steps</p>
           </div>
+          <div className="w-full flex justify-center items-center">
+            <img
+              src={HomeImage}
+              alt="Create Community Interface"
+              className="rounded-2xl w-full max-w-[600px] h-auto object-contain"
+            />
+          </div>
+
 
           <div className="space-y-16">
             {/* Step 1 */}
@@ -645,17 +654,15 @@ const Home: React.FC = () => {
             <div className="flex justify-center space-x-4 mb-8">
               <button
                 onClick={() => setTab("users")}
-                className={`px-6 py-3 rounded-lg font-semibold transition ${
-                  tab === "users" ? "bg-[#3390D5] text-white" : "bg-gray-100 text-gray-600"
-                }`}
+                className={`px-6 py-3 rounded-lg font-semibold transition ${tab === "users" ? "bg-[#3390D5] text-white" : "bg-gray-100 text-gray-600"
+                  }`}
               >
                 For Users
               </button>
               <button
                 onClick={() => setTab("partners")}
-                className={`px-6 py-3 rounded-lg font-semibold transition ${
-                  tab === "partners" ? "bg-[#3390D5] text-white" : "bg-gray-100 text-gray-600"
-                }`}
+                className={`px-6 py-3 rounded-lg font-semibold transition ${tab === "partners" ? "bg-[#3390D5] text-white" : "bg-gray-100 text-gray-600"
+                  }`}
               >
                 For Partners
               </button>
