@@ -673,50 +673,14 @@ const Home: React.FC = () => {
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">Find answers to common questions about OneMAI</p>
           </div>
-          <div>
-            <div className="flex justify-center space-x-4 mb-8">
-              <button
-                onClick={() => setTab("users")}
-                className={`px-6 py-3 rounded-lg font-semibold transition ${tab === "users" ? "bg-[#3390D5] text-white" : "bg-gray-100 text-gray-600"
-                  }`}
-              >
-                For Users
-              </button>
-              <button
-                onClick={() => setTab("partners")}
-                className={`px-6 py-3 rounded-lg font-semibold transition ${tab === "partners" ? "bg-[#3390D5] text-white" : "bg-gray-100 text-gray-600"
-                  }`}
-              >
-                For Partners
-              </button>
-            </div>
-
-            {tab === "users" && (
-              <div className="space-y-4">
-                <FaqItem id="user-1" openItem={openItem} onToggle={toggleItem} question="What is OneMAI, and how does it work?">
-                  OneMAI is a community-driven financial platform modernizing informal savings systems. Users pool money in
-                  groups and take turns accessing funds, ensuring transparency and security through technology.
-                </FaqItem>
-
-                <FaqItem
-                  id="user-2"
-                  openItem={openItem}
-                  onToggle={toggleItem}
-                  question="How is OneMAI different from traditional savings platforms?"
-                >
-                  Unlike banks or loan services, OneMAI provides customizable savings groups tailored to your needs.
-                </FaqItem>
-              </div>
-            )}
-
-            {tab === "partners" && (
-              <div className="space-y-4">
-                <FaqItem id="partner-1" openItem={openItem} onToggle={toggleItem} question="How can partners collaborate with OneMAI?">
-                  Partners can onboard communities, provide education, and co-design financial products that meet local needs.
-                </FaqItem>
-              </div>
-            )}
-          </div>
+           <div className="mt-10">
+          <Link
+            to="/faq"
+            className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700"
+          >
+            Read FAQs
+          </Link>
+        </div>
         </div>
       </section>
     </div>
