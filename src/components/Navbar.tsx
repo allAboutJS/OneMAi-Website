@@ -91,7 +91,7 @@ export default function Navbar() {
         throw new Error(data?.error || `Request failed (${res.status})`);
       }
 
-      setSubmitMsg({ ok: true, text: "Thanks! You’ll be notified at launch." });
+      setSubmitMsg({ ok: true, text: "Thanks! You'll be notified at launch." });
       // Reset fields
       setName("");
       setEmail("");
@@ -100,11 +100,11 @@ export default function Navbar() {
       setPhone("");
       setConsented(false);
 
-      // Close after a short delay
-      setTimeout(() => {
-        setShowEmailPopup(false);
-        setSubmitMsg(null);
-      }, 400);
+      // REMOVED: Auto-close timeout - let user close manually
+      // setTimeout(() => {
+      //   setShowEmailPopup(false);
+      //   setSubmitMsg(null);
+      // }, 400);
     } catch (err) {
       console.error("[early-access] submit error:", err);
       setSubmitMsg({ ok: false, text: "Something went wrong. Please try again." });
@@ -153,7 +153,7 @@ export default function Navbar() {
               })}
             </div>
 
-            {/* Auth Buttons (Desktop) — open popup */}
+            {/* Auth Buttons (Desktop) – open popup */}
             <div className="hidden md:flex md:items-center space-x-4">
               <button
                 type="button"
@@ -328,7 +328,7 @@ export default function Navbar() {
                       className="mt-3 w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                     />
                     <p className="mt-1 text-xs text-gray-500">
-                      If your country isn’t listed, choose “Other (not listed)” and type it.
+                      If your country isn't listed, choose "Other (not listed)" and type it.
                     </p>
                   </>
                 )}
@@ -337,7 +337,7 @@ export default function Navbar() {
               {/* Phone */}
               <div>
                 <label htmlFor="phoneInput" className="block text-sm font-medium text-gray-700">
-                  Phone number <span className="text-gray-500">(Only if you’d like us to reach you by phone)</span>
+                  Phone number <span className="text-gray-500">(Only if you'd like us to reach you by phone)</span>
                 </label>
                 <input
                   id="phoneInput"
