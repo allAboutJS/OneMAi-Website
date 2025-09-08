@@ -8,6 +8,7 @@ import joinCommunityImg from "@/assets/images/join-a-community.jpeg";
 import groupImg from "@/assets/images/group.jpeg";
 import receiveFundImg from "@/assets/images/receive-fund.jpeg";
 import indian3Img from "@/assets/images/indian-3.jpg";
+import sarah from "@/assets/images/sarah.jpg";
 import santosImg from "@/assets/images/santos.jpg";
 import startUpLogo from "@/assets/images/partners/start-up.png";
 import eitLogo from "@/assets/images/partners/eit.png";
@@ -354,26 +355,17 @@ const Home: React.FC = () => {
               quote={`"OneMAI will help me secure interest-free financing for my small business at Martim Moniz. The community support will grow, and the transparent system will give me peace of mind."`}
               detail="Achieved business expansion goal in 8 months through community funding"
             />
+              <StoryCard
+              img={sarah}
+              title="Sarah&apos;s Journey"
+              role="Community Leader"
+              quote={`" Traditional savings groups were challenging to manage. With OneMAI, everything will be automated and secure.
+                  Our community will surely grow stronger."`}
+              detail="Managing a 50-member savings group successfully for 2 years"
+            />
 
             {/* Story 2 (Video placeholder) */}
-            <article className="bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div className="relative h-64">
-                <video className="w-full h-full object-cover" controls>
-                  Your browser does not support the video tag.
-                </video>
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
-                  <h3 className="text-xl font-semibold text-white">Sarah&apos;s Journey</h3>
-                  <p className="text-gray-200">Community Leader</p>
-                </div>
-              </div>
-              <div className="p-6">
-                <blockquote className="text-gray-600 italic mb-4">
-                  Traditional savings groups were challenging to manage. With OneMAI, everything will be automated and secure.
-                  Our community will surely grow stronger.
-                </blockquote>
-                <p className="text-gray-700">Managing a 50-member savings group successfully for 2 years</p>
-              </div>
-            </article>
+          
 
             {/* Story 3 */}
             <StoryCard
