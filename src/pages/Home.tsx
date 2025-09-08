@@ -200,129 +200,137 @@ const Home: React.FC = () => {
           <img
             src={pageimage}
             alt="Community"
-            className="w-full h-auto max-h-[55vh] md:h-[420px] object-contain rounded mx-auto"
+            className="w-full h-auto mb-3 max-h-[55vh] md:h-[420px] object-contain rounded mx-auto"
             loading="lazy"
           />
 
 
-          <div className="space-y-16">
+  <section className="space-y-20">
             {/* Step 1 */}
-            <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
-              <div className="w-full md:w-1/2 order-2 md:order-2">
-                <div className="bg-white rounded-2xl shadow-lg p-6">
-                  <div className="text-brand-600 mb-4">
-                    <span className="inline-block px-4 py-2 rounded-full bg-brand-100 text-brand-600 text-sm font-semibold">
+            <div className="flex flex-col lg:flex-row justify-center items-center gap-8 lg:gap-16">
+              {/* Text */}
+              <div className="w-full lg:w-4/12 order-2 lg:order-2">
+                <div className="bg-white rounded-2xl shadow-lg p-8">
+                  <div className="text-brand-600 mb-6">
+                    <span className="inline-block px-6 py-3 rounded-full bg-brand-100 text-brand-600 text-lg font-bold">
                       Step 1
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Create and Join a Community</h3>
-                  <p className="text-gray-600 mb-6">
-                    Start by creating your own community or joining an existing one. Connect with like-minded individuals
-                    who share your financial goals.
+                  <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Create and Join a Community</h3>
+                  <p className="text-lg text-gray-500 mb-8 leading-relaxed">
+                    Start by creating your own community or joining an existing one. Connect with like-minded individuals who share your financial goals.
                   </p>
-                  <ul className="space-y-3 text-gray-600">
+                  <ul className="space-y-4 text-gray-500">
                     <li className="flex items-start">
-                      <SvgCheck className="h-6 w-6 text-brand-500 mr-2" />
-                      Create a new community in minutes
+                      <SvgCheck className="h-6 w-6 text-brand-500 mr-3 mt-1" />
+                      <span className="text-base">Create a new community in minutes</span>
                     </li>
                     <li className="flex items-start">
-                      <SvgCheck className="h-6 w-6 text-brand-500 mr-2" />
-                      Join existing communities
+                      <SvgCheck className="h-6 w-6 text-brand-500 mr-3 mt-1" />
+                      <span className="text-base">Join existing communities</span>
                     </li>
                   </ul>
                 </div>
               </div>
-              <div className="order-2 md:order-2 w-full flex items-center justify-center">
+              {/* Image */}
+              <div className="order-1 lg:order-1 w-full lg:w-8/12 flex items-center justify-center">
                 <img
                   src={joinCommunityImg}
                   alt="Create Community Interface"
-                  className="rounded-2xl w-full max-w-xs sm:max-w-sm md:max-w-md h-auto object-contain object-center shadow-md"
+                  className="rounded-3xl w-full h-auto object-contain object-center shadow-2xl max-w-none"
                   loading="lazy"
                   decoding="async"
+                  sizes="(min-width: 1024px) 75vw, 100vw"
                 />
               </div>
             </div>
 
             {/* Step 2 */}
-            <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
-              <div className="w-full md:w-1/2 order-2 md:order-1">
-                <div className="bg-white rounded-2xl shadow-lg p-6">
-                  <div className="text-brand-600 mb-4">
-                    <span className="inline-block px-4 py-2 rounded-full bg-brand-100 text-brand-600 text-sm font-semibold">
+            <div className="flex flex-col lg:flex-row justify-center items-center gap-8 lg:gap-16">
+              {/* Text */}
+              <div className="w-full lg:w-4/12 order-2 lg:order-1">
+                <div className="bg-white rounded-2xl shadow-lg p-8">
+                  <div className="text-brand-600 mb-6">
+                    <span className="inline-block px-6 py-3 rounded-full bg-brand-100 text-brand-600 text-lg font-bold">
                       Step 2
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Set Pooling and Withdrawal Parameters</h3>
-                  <p className="text-gray-600 mb-6">
+                  <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Set Pooling and Withdrawal Parameters</h3>
+                  <p className="text-lg text-gray-500 mb-8 leading-relaxed">
                     Configure contribution amounts, frequency, and withdrawal rules that work for your community.
                   </p>
-                  <ul className="space-y-3 text-gray-600">
+                  <ul className="space-y-4 text-gray-500">
                     <li className="flex items-start">
-                      <SvgCheck className="h-6 w-6 text-brand-500 mr-2" />
-                      Set contribution schedules
+                      <SvgCheck className="h-6 w-6 text-brand-500 mr-3 mt-1" />
+                      <span className="text-base">Set contribution schedules</span>
                     </li>
                     <li className="flex items-start">
-                      <SvgCheck className="h-6 w-6 text-brand-500 mr-2" />
-                      Define withdrawal criteria
+                      <SvgCheck className="h-6 w-6 text-brand-500 mr-3 mt-1" />
+                      <span className="text-base">Define withdrawal criteria</span>
                     </li>
                   </ul>
                 </div>
               </div>
-              <div className="order-1 md:order-2 w-full flex items-center justify-center">
+              {/* Image */}
+              <div className="order-1 lg:order-2 w-full lg:w-8/12 flex items-center justify-center">
                 <img
                   src={groupImg}
                   alt="Parameters Setup Interface"
-                  className="rounded-2xl w-full max-w-xs sm:max-w-sm md:max-w-md h-auto object-contain object-center shadow-md"
+                  className="rounded-3xl w-full h-auto object-contain object-center shadow-2xl max-w-none"
                   loading="lazy"
                   decoding="async"
+                  sizes="(min-width: 1024px) 75vw, 100vw"
                 />
               </div>
             </div>
 
             {/* Step 3 */}
-            <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
-              <div className="w-full flex items-center justify-center">
+            <div className="flex flex-col lg:flex-row justify-center items-center gap-8 lg:gap-16">
+              {/* Image */}
+              <div className="w-full lg:w-8/12 flex items-center justify-center">
                 <img
                   src={receiveFundImg}
                   alt="Fund Management Interface"
-                  className="rounded-2xl w-full max-w-xs sm:max-w-sm md:max-w-md h-auto object-contain object-center shadow-md"
+                  className="rounded-3xl w-full h-auto object-contain object-center shadow-2xl max-w-none"
                   loading="lazy"
                   decoding="async"
+                  sizes="(min-width: 1024px) 75vw, 100vw"
                 />
               </div>
-              <div className="w-full md:w-1/2">
-                <div className="bg-white rounded-2xl shadow-lg p-6">
-                  <div className="text-brand-600 mb-4">
-                    <span className="inline-block px-4 py-2 rounded-full bg-brand-100 text-brand-600 text-sm font-semibold">
+              {/* Text */}
+              <div className="w-full lg:w-4/12">
+                <div className="bg-white rounded-2xl shadow-lg p-8">
+                  <div className="text-brand-600 mb-6">
+                    <span className="inline-block px-6 py-3 rounded-full bg-brand-100 text-brand-600 text-lg font-bold">
                       Step 3
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Pool and Receive Funds</h3>
-                  <p className="text-gray-600 mb-6">
+                  <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Pool and Receive Funds</h3>
+                  <p className="text-lg text-gray-500 mb-8 leading-relaxed">
                     Start contributing to the pool and receive funds according to your community&apos;s established rules.
                   </p>
-                  <ul className="space-y-3 text-gray-600">
+                  <ul className="space-y-4 text-gray-500">
                     <li className="flex items-start">
-                      <SvgCheck className="h-6 w-6 text-brand-500 mr-2" />
-                      Step in profile
+                      <SvgCheck className="h-6 w-6 text-brand-500 mr-3 mt-1" />
+                      <span className="text-base">Step in profile</span>
                     </li>
                     <li className="flex items-start">
-                      <SvgCheck className="h-6 w-6 text-brand-500 mr-2" />
-                      Join or create a community
+                      <SvgCheck className="h-6 w-6 text-brand-500 mr-3 mt-1" />
+                      <span className="text-base">Join or create a community</span>
                     </li>
                     <li className="flex items-start">
-                      <SvgCheck className="h-6 w-6 text-brand-500 mr-2" />
-                      Set parameters
+                      <SvgCheck className="h-6 w-6 text-brand-500 mr-3 mt-1" />
+                      <span className="text-base">Set parameters</span>
                     </li>
                     <li className="flex items-start">
-                      <SvgCheck className="h-6 w-6 text-brand-500 mr-2" />
-                      Pool and receive funds
+                      <SvgCheck className="h-6 w-6 text-brand-500 mr-3 mt-1" />
+                      <span className="text-base">Pool and receive funds</span>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
         </div>
       </section>
 
@@ -355,7 +363,7 @@ const Home: React.FC = () => {
               quote={`"OneMAI will help me secure interest-free financing for my small business at Martim Moniz. The community support will grow, and the transparent system will give me peace of mind."`}
               detail="Achieved business expansion goal in 8 months through community funding"
             />
-              <StoryCard
+            <StoryCard
               img={sarah}
               title="Sarah&apos;s Journey"
               role="Community Leader"
@@ -365,7 +373,7 @@ const Home: React.FC = () => {
             />
 
             {/* Story 2 (Video placeholder) */}
-          
+
 
             {/* Story 3 */}
             <StoryCard
@@ -665,14 +673,14 @@ const Home: React.FC = () => {
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">Find answers to common questions about OneMAI</p>
           </div>
-           <div className="mt-10">
-          <Link
-            to="/faq"
-            className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700"
-          >
-            Read FAQs
-          </Link>
-        </div>
+          <div className="mt-10">
+            <Link
+              to="/faq"
+              className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700"
+            >
+              Read FAQs
+            </Link>
+          </div>
         </div>
       </section>
     </div>
