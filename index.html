@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OneMai</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://www.joinonemai.com/images/MAI.png" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OneMai</title>
+    
+    <!-- Favicon - Multiple formats for better browser compatibility -->
+    <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/doefjylyu/image/upload/v1761045740/MAI_fm6zfk.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/doefjylyu/image/upload/v1761045740/MAI_fm6zfk.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/doefjylyu/image/upload/v1761045740/MAI_fm6zfk.png" />
+    <link rel="apple-touch-icon" href="https://res.cloudinary.com/doefjylyu/image/upload/v1761045740/MAI_fm6zfk.png" />
+    <link rel="shortcut icon" href="https://res.cloudinary.com/doefjylyu/image/upload/v1761045740/MAI_fm6zfk.png" />
+    
+    <!-- Social Media Meta Tags -->
+    <meta property="og:image" content="https://res.cloudinary.com/doefjylyu/image/upload/v1761045740/MAI_fm6zfk.png" />
+    <meta name="twitter:image" content="https://res.cloudinary.com/doefjylyu/image/upload/v1761045740/MAI_fm6zfk.png" />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css" />
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
   
-  <meta property="og:image" content="https://www.joinonemai.com/images/MAI.png" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-  <meta name="twitter:image" content="https://www.joinonemai.com/images/MAI.png" />
-</head>
-
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
-</body>
-
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
