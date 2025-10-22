@@ -5,6 +5,8 @@ import logo from "@/assets/MAI.png";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [modalType, setModalType] = useState<'signin' | 'register'>('signin');
   const location = useLocation();
 
   const links = [
@@ -14,6 +16,28 @@ export default function Navbar() {
     { label: "How it works", href: "/how-it-works" },
     { label: "Support", href: "/contact" },
   ];
+
+  const handleAuthClick = (type: 'signin' | 'register') => {
+    setModalType(type);
+    setShowModal(true);
+    setOpen(false);
+  };
+
+  const handleSelection = (role: 'user' | 'affiliate') => {
+    const urls = {
+      signin: {
+        user: 'https://app.joinonemai.com/signin',
+        affiliate: 'https://x.joinonemai.com/signin'
+      },
+      register: {
+        user: 'https://app.joinonemai.com/signup',
+        affiliate: 'https://x.joinonemai.com/affilator-create-account'
+      }
+    };
+
+    window.location.href = urls[modalType][role];
+    setShowModal(false);
+  };
 
   return (
     <>
@@ -49,18 +73,18 @@ export default function Navbar() {
 
             {/* Auth Buttons (Desktop) */}
             <div className="hidden md:flex md:items-center space-x-4">
-              <a
-                href="https://app.joinonemai.com/signin"
+              <button
+                onClick={() => handleAuthClick('signin')}
                 className="px-4 py-2 text-lg font-medium text-[#3390D5] hover:text-brand-700 transition duration-300"
               >
                 Sign In
-              </a>
-              <a
-                href="https://app.joinonemai.com/signup"
+              </button>
+              <button
+                onClick={() => handleAuthClick('register')}
                 className="px-6 py-2 bg-[#3390D5] text-white rounded-lg font-semibold hover:bg-brand-700 transition duration-300"
               >
                 Register
-              </a>
+              </button>
             </div>
 
             {/* Hamburger (Mobile) */}
@@ -106,20 +130,18 @@ export default function Navbar() {
             })}
 
             <div className="border-t border-gray-200 px-4 py-3">
-              <a
-                href="https://app.joinonemai.com/signin"
-                onClick={() => setOpen(false)}
+              <button
+                onClick={() => handleAuthClick('signin')}
                 className="block w-full text-center px-4 py-2 text-lg text-brand-600 hover:bg-gray-100"
               >
                 Sign In
-              </a>
-              <a
-                href="https://app.joinonemai.com/signup"
-                onClick={() => setOpen(false)}
+              </button>
+              <button
+                onClick={() => handleAuthClick('register')}
                 className="block w-full text-center mt-2 px-4 py-2 bg-[#3390D5] text-white rounded-lg font-semibold hover:bg-brand-700"
               >
                 Register
-              </a>
+              </button>
             </div>
           </div>
         )}
@@ -127,6 +149,67 @@ export default function Navbar() {
 
       {/* Spacer for fixed navbar */}
       <div className="h-20" />
+
+      {/* Selection Modal */}
+      {showModal && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 p-8 relative">
+            {/* Close Button */}
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition"
+              aria-label="Close modal"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Modal Content */}
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                {modalType === 'signin' ? 'Sign In As' : 'Register As'}
+              </h2>
+              <p className="text-gray-600">
+                Choose your account type to continue
+              </p>
+            </div>
+
+            {/* Selection Buttons */}
+            <div className="space-y-4">
+              <button
+                onClick={() => handleSelection('user')}
+                className="w-full py-4 px-6 bg-[#3390D5] text-white rounded-xl font-semibold hover:bg-brand-700 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+              >
+                <div className="flex items-center justify-center space-x-3">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  <span className="text-lg">User Account</span>
+                </div>
+              </button>
+
+              <button
+                onClick={() => handleSelection('affiliate')}
+                className="w-full py-4 px-6 bg-white border-2 border-[#3390D5] text-[#3390D5] rounded-xl font-semibold hover:bg-blue-50 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+              >
+                <div className="flex items-center justify-center space-x-3">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                  <span className="text-lg">Affiliate Account</span>
+                </div>
+              </button>
+            </div>
+
+            <p className="text-sm text-gray-500 text-center mt-6">
+              {modalType === 'signin' 
+                ? 'Select the account type you registered with' 
+                : 'Not sure? Choose User Account for regular access'}
+            </p>
+          </div>
+        </div>
+      )}
     </>
   );
 }
