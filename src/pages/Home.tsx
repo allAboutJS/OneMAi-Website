@@ -174,10 +174,11 @@ const Home: React.FC = () => {
             {/* Text */}
             <div className="flex flex-col justify-center">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
-                Power without the bank.
+                
+                Community Financing for a Better Future
               </h1>
               <p className="text-xl sm:text-2xl text-white mb-8">
-                Community Financing for a Better Future
+               Power without the bank.
               </p>
               <button
                 onClick={() => setShowAuthModal(true)}
