@@ -30,11 +30,11 @@ const Home: React.FC = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Popups
-  const [showEmailPopup, setShowEmailPopup] = useState(false);
+  // Auth Modal (replaces email popup for early perks)
+  const [showAuthModal, setShowAuthModal] = useState(false);
   const [showSocialPopup, setShowSocialPopup] = useState(false);
 
-  // Email form state
+  // Email form state (for newsletter only)
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("Portugal");
@@ -43,6 +43,17 @@ const Home: React.FC = () => {
   const [consented, setConsented] = useState(false);
   const [submitMsg, setSubmitMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Handle auth modal selection
+  const handleAuthSelection = (role: 'user' | 'affiliate') => {
+    const urls = {
+      user: 'https://app.joinonemai.com/signup',
+      affiliate: 'https://x.joinonemai.com/affilator-create-account'
+    };
+
+    window.location.href = urls[role];
+    setShowAuthModal(false);
+  };
 
   // ====== Submit to Google Sheet (mirrors index.html) ======
   const handleEmailSubmit = async (e: React.FormEvent) => {
@@ -104,7 +115,7 @@ const Home: React.FC = () => {
         throw new Error(data?.error || `Request failed (${res.status})`);
       }
 
-      setSubmitMsg({ ok: true, text: "Thanks! You’ll be notified at launch." });
+      setSubmitMsg({ ok: true, text: "Thanks! You'll be notified at launch." });
       // Reset fields to match HTML behavior
       setName("");
       setEmail("");
@@ -115,7 +126,6 @@ const Home: React.FC = () => {
 
       // Close popup slightly after success (UI parity)
       setTimeout(() => {
-        setShowEmailPopup(false);
         setSubmitMsg(null);
       }, 400);
     } catch (err) {
@@ -164,13 +174,13 @@ const Home: React.FC = () => {
             {/* Text */}
             <div className="flex flex-col justify-center">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
-                Community Financing for a Better Future
+                Power without the bank.
               </h1>
               <p className="text-xl sm:text-2xl text-white mb-8">
-                Empowering communities through zero-interest and a secured democratic financial solution
+                Community Financing for a Better Future
               </p>
               <button
-                onClick={() => setShowEmailPopup(true)}
+                onClick={() => setShowAuthModal(true)}
                 className="inline-block bg-[#3390D5] text-white px-4 py-2 rounded-lg text-lg text-center font-semibold hover:bg-brand-700 transition duration-300 ease-in-out transform hover:-translate-y-1 w-50"
               >
                 Signup for early Perks.
@@ -419,143 +429,61 @@ const Home: React.FC = () => {
             Join thousands of communities already benefiting from OneMAI&apos;s innovative financial solutions
           </p>
 
-          {/* Email Signup Popup */}
-          {showEmailPopup && (
-            <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-              <div className="bg-white rounded-lg p-8 max-w-md w-full text-left">
-                <h3 className="text-xl font-bold text-gray-900">Sign Up for Early Access</h3>
-                <p className="mt-2 text-sm text-gray-600">
-                  We will only use your data to inform you about OneMAI launch, updates and early perks.*
-                </p>
+          {/* Auth Modal (User/Affiliate Selection) */}
+          {showAuthModal && (
+            <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black bg-opacity-50">
+              <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 p-8 relative">
+                {/* Close Button */}
+                <button
+                  onClick={() => setShowAuthModal(false)}
+                  className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition"
+                  aria-label="Close modal"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
 
-                <form className="space-y-4 mt-6" onSubmit={handleEmailSubmit}>
-                  {/* Name */}
-                  <div>
-                    <label htmlFor="nameInput" className="block text-sm font-medium text-gray-700">
-                      Name <span className="text-gray-500">(first name only is enough)</span>
-                    </label>
-                    <input
-                      id="nameInput"
-                      type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="First name"
-                      autoComplete="given-name"
-                      className="mt-1 w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
-                    />
-                  </div>
+                {/* Modal Content */}
+                <div className="text-center mb-6">
+                  <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                    Sign Up for Early Perks
+                  </h2>
+                  <p className="text-gray-600">
+                    Choose your account type to get started
+                  </p>
+                </div>
 
-                  {/* Email */}
-                  <div>
-                    <label htmlFor="emailInput" className="block text-sm font-medium text-gray-700">
-                      Email <span className="text-red-600">(required)</span>
-                    </label>
-                    <input
-                      id="emailInput"
-                      type="email"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Enter your email"
-                      autoComplete="email"
-                      className="mt-1 w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
-                    />
-                  </div>
-
-                  {/* Country */}
-                  <div>
-                    <label htmlFor="countrySelect" className="block text-sm font-medium text-gray-700">
-                      Country
-                    </label>
-                    <select
-                      id="countrySelect"
-                      value={country}
-                      onChange={(e) => setCountry(e.target.value)}
-                      className="mt-1 w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:ring-2 focus:ring-brand-500 focus:border-transparent"
-                    >
-                      {EU_COUNTRIES.map((c) => (
-                        <option key={c} value={c}>
-                          {c}
-                        </option>
-                      ))}
-                      <option value="__other">Other (not listed)</option>
-                    </select>
-
-                    {country === "__other" && (
-                      <>
-                        <input
-                          type="text"
-                          placeholder="Type your country"
-                          value={countryOther}
-                          onChange={(e) => setCountryOther(e.target.value)}
-                          autoComplete="country-name"
-                          className="mt-3 w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
-                        />
-                        <p className="mt-1 text-xs text-gray-500">
-                          If your country isn’t listed, choose “Other (not listed)” and type it.
-                        </p>
-                      </>
-                    )}
-                  </div>
-
-                  {/* Phone */}
-                  <div>
-                    <label htmlFor="phoneInput" className="block text-sm font-medium text-gray-700">
-                      Phone number <span className="text-gray-500">(Only if you’d like us to reach you by phone)</span>
-                    </label>
-                    <input
-                      id="phoneInput"
-                      type="tel"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      placeholder="+351 ..."
-                      autoComplete="tel"
-                      className="mt-1 w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
-                    />
-                  </div>
-
-                  {/* Consent */}
-                  <label className="flex items-start space-x-3 text-sm text-gray-700">
-                    <input
-                      type="checkbox"
-                      className="mt-1 h-4 w-4"
-                      checked={consented}
-                      onChange={(e) => setConsented(e.target.checked)}
-                    />
-                    <span>
-                      I agree to receive emails about OneMAI early access and perks. See{" "}
-                      <Link to="/privacy" className="text-blue-600 underline">
-                        Privacy Policy
-                      </Link>
-                      .
-                    </span>
-                  </label>
-
-                  {/* Submit */}
+                {/* Selection Buttons */}
+                <div className="space-y-4">
                   <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-[#3390D5] text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-700 transition disabled:opacity-60"
+                    onClick={() => handleAuthSelection('user')}
+                    className="w-full py-4 px-6 bg-[#3390D5] text-white rounded-xl font-semibold hover:bg-brand-700 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                   >
-                    {isSubmitting ? "Submitting..." : "Notify Me"}
+                    <div className="flex items-center justify-center space-x-3">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                      <span className="text-lg">User Account</span>
+                    </div>
                   </button>
 
-                  {submitMsg && (
-                    <p className={`mt-2 text-center ${submitMsg.ok ? "text-green-600" : "text-red-600"}`}>
-                      {submitMsg.text}
-                    </p>
-                  )}
-                </form>
+                  <button
+                    onClick={() => handleAuthSelection('affiliate')}
+                    className="w-full py-4 px-6 bg-white border-2 border-[#3390D5] text-[#3390D5] rounded-xl font-semibold hover:bg-blue-50 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                  >
+                    <div className="flex items-center justify-center space-x-3">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                      <span className="text-lg">Affiliate Account</span>
+                    </div>
+                  </button>
+                </div>
 
-                <button
-                  onClick={() => {
-                    setShowEmailPopup(false);
-                    setSubmitMsg(null);
-                  }}
-                  className="mt-4 w-full bg-gray-300 text-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-400 transition"
-                >
-                  Close
-                </button>
+                <p className="text-sm text-gray-500 text-center mt-6">
+                  Not sure? Choose User Account for regular access
+                </p>
               </div>
             </div>
           )}
@@ -623,7 +551,7 @@ const Home: React.FC = () => {
               <h3 className="text-xl font-bold text-gray-900 mb-4">Early Access</h3>
               <p className="text-gray-600 mb-6">Be among the first to experience the future of community financing</p>
               <button
-                onClick={() => setShowEmailPopup(true)}
+                onClick={() => setShowAuthModal(true)}
                 className="inline-block bg-[#3390D5] text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-700 transition"
               >
                 Get Started
@@ -649,19 +577,27 @@ const Home: React.FC = () => {
           {/* Newsletter (static) */}
           <div className="mt-16 max-w-xl mx-auto">
             <h3 className="text-xl font-semibold text-white mb-6">Stay Updated with Our Progress</h3>
-            <form className="flex flex-col sm:flex-row gap-4" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col sm:flex-row gap-4" onSubmit={handleEmailSubmit}>
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 className="flex-1 px-6 py-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3390D5]"
               />
               <button
                 type="submit"
-                className="bg-[#3390D5] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#3390D5] transition"
+                disabled={isSubmitting}
+                className="bg-[#3390D5] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#3390D5] transition disabled:opacity-60"
               >
-                Subscribe
+                {isSubmitting ? "Subscribing..." : "Subscribe"}
               </button>
             </form>
+            {submitMsg && (
+              <p className={`mt-4 text-center ${submitMsg.ok ? "text-green-300" : "text-red-300"}`}>
+                {submitMsg.text}
+              </p>
+            )}
           </div>
         </div>
       </section>
@@ -759,7 +695,7 @@ const SvgUserPlus = (props: React.SVGProps<SVGSVGElement>) => (
 );
 const SvgUsers = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0m6 3a2 2 0 11-4 0 2 2 0 014 0M7 10a2 2 0 11-4 0 2 2 0 114 0" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0m6 3a2 2 0 11-4 0 2 2 0 014 0M7 10a2 2 0 11-4 0 2 2 0 014 0" />
   </svg>
 );
 const SvgTelegram = (props: React.SVGProps<SVGSVGElement>) => (
