@@ -178,7 +178,7 @@ const Home: React.FC = () => {
                 Community Financing for a Better Future
               </h1>
               <p className="text-xl sm:text-2xl text-white mb-8">
-               Power without the bank.
+               Empowering communities through Rotational savings
               </p>
               <button
                 onClick={() => setShowAuthModal(true)}
