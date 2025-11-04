@@ -3,6 +3,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function About() {
+  // Smoothly jump back to top on internal navigation
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <main className="font-outfit">
       {/* Hero */}
@@ -97,7 +102,7 @@ export default function About() {
               works, it often faces challenges—lack of structure, risks of mismanagement, and little accountability.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              OneMAI takes this age-old practice and modernizes it for today’s world. By combining technology, transparency,
+              OneMAI takes this age-old practice and modernizes it for today's world. By combining technology, transparency,
               and regulatory compliance, we offer a digital platform where saving together is safe, automated, and scalable.
               With OneMAI, trust is built into the system.
             </p>
@@ -138,9 +143,9 @@ export default function About() {
             </p>
           </div>
           <div className="mt-4 md:mt-0">
-
             <Link
               to="/how-it-works"
+              onClick={scrollToTop}
               className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700"
             >
               How It Works

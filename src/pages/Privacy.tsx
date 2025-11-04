@@ -101,7 +101,7 @@ export default function Privacy() {
         </ul>
         <p className="text-gray-700 mb-6">
           To exercise these rights, email{" "}
-          <a href="mailto:hello@joinonemai.com" className="underline">hello@jjoinonemai.com</a>.
+          <a href="mailto:hello@joinonemai.com" className="underline">hello@joinonemai.com</a>.
         </p>
 
         <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Use of Cookies &amp; Tracking</h2>

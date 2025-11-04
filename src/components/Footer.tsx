@@ -1,11 +1,73 @@
 // src/components/Footer.tsx
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
+const SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbyzjYnO2dy0slHRNpXQbj097OlsTqjhoJtVCPxEYCPcXUSHnqU85fFVC6zr_eKPfTff/exec";
 
 export default function Footer() {
   // Smoothly jump back to top on internal navigation
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Newsletter state
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState<{ ok: boolean; text: string } | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!email.trim()) {
+      setMessage({ ok: false, text: "Please enter a valid email." });
+      return;
+    }
+
+    const payload = {
+      name: "",
+      email: email.trim(),
+      country: "",
+      phone: "",
+      consent_email: "yes",
+    };
+
+    const body = new URLSearchParams(payload).toString();
+
+    try {
+      setIsSubmitting(true);
+      setMessage(null);
+
+      const res = await fetch(SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+        body,
+      });
+
+      const raw = await res.text();
+      let data: any;
+      try {
+        data = JSON.parse(raw);
+      } catch {
+        data = { success: false, raw };
+      }
+
+      if (!res.ok || data?.success === false) {
+        throw new Error(data?.error || `Request failed (${res.status})`);
+      }
+
+      setMessage({ ok: true, text: "Thanks! You'll be notified at launch." });
+      setEmail("");
+
+      setTimeout(() => {
+        setMessage(null);
+      }, 4000);
+    } catch (err) {
+      console.error("[footer-subscribe] submit error:", err);
+      setMessage({ ok: false, text: "Something went wrong. Please try again." });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -157,20 +219,29 @@ export default function Footer() {
 
           <form
             className="flex flex-col sm:flex-row gap-4 max-w-2xl"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
           >
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               className="flex-1 px-4 py-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:ring-2 focus:border-transparent focus:ring-[#3390D5] placeholder-gray-400"
+              required
             />
             <button
               type="submit"
-              className="px-6 py-3 bg-[#3390D5] text-white rounded-lg font-semibold hover:opacity-90 transition duration-300"
+              disabled={isSubmitting}
+              className="px-6 py-3 bg-[#3390D5] text-white rounded-lg font-semibold hover:opacity-90 transition duration-300 disabled:opacity-60"
             >
-              Subscribe
+              {isSubmitting ? "Subscribing..." : "Subscribe"}
             </button>
           </form>
+          {message && (
+            <p className={`mt-3 text-sm ${message.ok ? "text-green-400" : "text-red-400"}`}>
+              {message.text}
+            </p>
+          )}
         </div>
       </div>
 
