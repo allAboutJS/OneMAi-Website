@@ -1,14 +1,18 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
+# robots.txt for OneMAI
+# https://app.joinonemai.com/robots.txt
 
 User-agent: *
 Allow: /
+
+# Sitemap location
+Sitemap: https://app.joinonemai.com/sitemap.xml
+
+# Crawl delay (optional - adjust if needed)
+# Crawl-delay: 1
+
+# Disallow specific paths (uncomment if you have pages you want to hide from search engines)
+# Disallow: /admin/
+# Disallow: /api/
+# Disallow: /private/
+# Disallow: /dashboard/
+# Disallow: /*.json$
