@@ -367,14 +367,14 @@ const Home: React.FC = () => {
               title="Arjun's Story"
               role="Small Business Owner"
               quote={`"OneMAI helped me secure interest-free financing for my small business at Martim Moniz. The community support grew, and the transparent system gave me peace of mind."`}
-              detail="This is Arjun’s story (small business owner)"
+              detail=""
             />
             <StoryCard
               img={sarah}
               title="Sarah&apos;s Journey"
               role="Community Leader"
               quote={`" Traditional savings groups had always been challenging to manage. With OneMAI, everything became automated and secure. Our community grew stronger."`}
-              detail="Sarah’s journey"
+              detail=""
             />
 
             {/* Story 2 (Video placeholder) */}
