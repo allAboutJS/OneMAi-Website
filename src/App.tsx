@@ -10,6 +10,7 @@ import Services from "./pages/Services";
 import Benefit from "./pages/Benefit";
 import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
 import HowItWorks from "./pages/HowItWorks";
 import Cookies from "./pages/Cookies";
@@ -34,12 +35,13 @@ const App = () => (
             <Route path="/benefit" element={<Benefit />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/cookies" element={<Cookies />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
-            <Route path="/faq" element={<Faq/>  }/>
+            <Route path="/faq" element={<Faq />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

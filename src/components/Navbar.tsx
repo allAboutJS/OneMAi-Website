@@ -13,6 +13,7 @@ export default function Navbar() {
     { label: "Home", href: "/" },
     { label: "Benefits", href: "/benefit" },
     { label: "About", href: "/about" },
+    { label: "Blog", href: "/blog" },
     { label: "How it works", href: "/how-it-works" },
     { label: "Support", href: "/contact" },
   ];
@@ -59,11 +60,10 @@ export default function Navbar() {
                   <Link
                     key={label}
                     to={href}
-                    className={`inline-flex items-center px-3 py-2 text-lg font-medium rounded-lg transition-all duration-200 ${
-                      isActive
+                    className={`inline-flex items-center px-3 py-2 text-lg font-medium rounded-lg transition-all duration-200 ${isActive
                         ? "text-white bg-[#3390D5] shadow-md"
                         : "text-gray-700 hover:text-brand-600 hover:bg-blue-50"
-                    }`}
+                      }`}
                   >
                     {label}
                   </Link>
@@ -118,11 +118,10 @@ export default function Navbar() {
                   key={label}
                   to={href}
                   onClick={() => setOpen(false)}
-                  className={`block px-4 py-3 text-lg font-medium transition-all duration-200 ${
-                    isActive
+                  className={`block px-4 py-3 text-lg font-medium transition-all duration-200 ${isActive
                       ? "text-white bg-[#3390D5] shadow-inner font-semibold"
                       : "text-gray-700 hover:bg-blue-50 hover:text-brand-600"
-                  }`}
+                    }`}
                 >
                   {label}
                 </Link>
@@ -203,8 +202,8 @@ export default function Navbar() {
             </div>
 
             <p className="text-sm text-gray-500 text-center mt-6">
-              {modalType === 'signin' 
-                ? 'Select the account type you registered with' 
+              {modalType === 'signin'
+                ? 'Select the account type you registered with'
                 : 'Not sure? Choose User Account for regular access'}
             </p>
           </div>
