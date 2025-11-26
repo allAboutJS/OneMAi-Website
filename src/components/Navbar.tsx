@@ -13,8 +13,8 @@ export default function Navbar() {
     { label: "Home", href: "/" },
     { label: "Benefits", href: "/benefit" },
     { label: "About", href: "/about" },
-    { label: "Blog", href: "/blog" },
     { label: "How it works", href: "/how-it-works" },
+    { label: "Blog", href: "/blog" },
     { label: "Support", href: "/contact" },
   ];
 
@@ -61,8 +61,8 @@ export default function Navbar() {
                     key={label}
                     to={href}
                     className={`inline-flex items-center px-3 py-2 text-lg font-medium rounded-lg transition-all duration-200 ${isActive
-                        ? "text-white bg-[#3390D5] shadow-md"
-                        : "text-gray-700 hover:text-brand-600 hover:bg-blue-50"
+                      ? "text-white bg-[#3390D5] shadow-md"
+                      : "text-gray-700 hover:text-brand-600 hover:bg-blue-50"
                       }`}
                   >
                     {label}
@@ -119,8 +119,8 @@ export default function Navbar() {
                   to={href}
                   onClick={() => setOpen(false)}
                   className={`block px-4 py-3 text-lg font-medium transition-all duration-200 ${isActive
-                      ? "text-white bg-[#3390D5] shadow-inner font-semibold"
-                      : "text-gray-700 hover:bg-blue-50 hover:text-brand-600"
+                    ? "text-white bg-[#3390D5] shadow-inner font-semibold"
+                    : "text-gray-700 hover:bg-blue-50 hover:text-brand-600"
                     }`}
                 >
                   {label}
