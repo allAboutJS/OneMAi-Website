@@ -17,141 +17,42 @@ export default function FAQPage() {
   const [query, setQuery] = useState("");
   const topRef = useRef<HTMLDivElement>(null);
 
-  // Data
-  const usersQA = useMemo<QA[]>(
-    () => [
-      {
-        id: "user-1",
-        question: "What is OneMAI, and how does it work?",
-        answer:
-          "OneMAI modernizes group savings (ROSCAs). Members contribute on a schedule and take transparent, turn-based payouts with rules the group agrees upfront.",
-      },
-      {
-        id: "user-2",
-        question: "How is OneMAI different from traditional savings platforms?",
-        answer:
-          "It’s community-first: customizable groups, crystal-clear rules, transparent ledgers, reminders, and optional safeguards—without heavy bank-style interest.",
-      },
-      {
-        id: "user-3",
-        question: "Is OneMAI secure?",
-        answer:
-          "Yes. We use strong encryption, auditable records, and operate with licensed/insured banking partners for custody where applicable.",
-      },
-      {
-        id: "user-4",
-        question: "Can I create my own savings group?",
-        answer:
-          "Absolutely. Spin up a group, invite members you trust, set contribution amounts, frequency, rotation order, and payout logic.",
-      },
-      {
-        id: "user-5",
-        question: "What happens if someone misses or defaults on a payment?",
-        answer:
-          "Automated reminders, contribution history, and group-defined safeguards (e.g., buffer funds or order penalties) help reduce defaults.",
-      },
-      {
-        id: "user-6",
-        question: "Are there any fees?",
-        answer:
-          "A small service/withdrawal fee may apply depending on your group setup (typically 0.5–2%). You’ll always see fees up front.",
-      },
-      {
-        id: "user-7",
-        question: "Can I use OneMAI outside the EU?",
-        answer:
-          "Yes, many features work globally. Some options depend on regional regulations and partner availability.",
-      },
-      {
-        id: "user-8",
-        question: "Do I need a minimum balance to join?",
-        answer:
-          "No platform minimum. Your group’s rules define contribution amounts and cadence.",
-      },
-      {
-        id: "user-9",
-        question: "How are payout orders determined?",
-        answer:
-          "First-come, rotation, bidding, or merit-based—whatever your group chooses. The order is transparent to everyone.",
-      },
-      {
-        id: "user-10",
-        question: "How do I leave a group?",
-        answer:
-          "Follow your group’s exit rules. Any outstanding contributions or payouts must be settled before leaving.",
-      },
-      {
-        id: "user-11",
-        question: "Can I be in multiple groups at once?",
-        answer:
-          "Yes. You can join or create multiple groups and manage them separately within your dashboard.",
-      },
-      {
-        id: "user-12",
-        question: "What notifications will I receive?",
-        answer:
-          "Contribution reminders, payout alerts, rule changes, and group announcements—customizable in your settings.",
-      },
-    ],
-    []
-  );
+  // Data State
+  const [faqItems, setFaqItems] = useState<QA[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const partnersQA = useMemo<QA[]>(
-    () => [
-      {
-        id: "partner-1",
-        question: "How can partners collaborate with OneMAI?",
-        answer:
-          "Onboard communities, co-design group templates, provide financial education, and roll out programs across teams or regions.",
-      },
-      {
-        id: "partner-2",
-        question: "How does OneMAI handle compliance and data protection?",
-        answer:
-          "We align to applicable financial/privacy regulations (e.g., GDPR), enforce access controls, and maintain audit trails.",
-      },
-      {
-        id: "partner-3",
-        question: "What analytics do partners get?",
-        answer:
-          "Engagement metrics, contribution performance, payout timelines, and impact insights—exportable for reporting.",
-      },
-      {
-        id: "partner-4",
-        question: "Does OneMAI provide onboarding and training?",
-        answer:
-          "Yes—live sessions, documentation, and ongoing support during pilot and scale-up phases.",
-      },
-      {
-        id: "partner-5",
-        question: "Can partners customize the platform?",
-        answer:
-          "Yes. Configure group rules, contribution models, payout logic, eligibility checks, and dashboards to fit your needs.",
-      },
-      {
-        id: "partner-6",
-        question: "What integrations are available (HR / payroll / SSO)?",
-        answer:
-          "We support SSO and standard HR/payroll exports. Additional integrations can be scoped during onboarding.",
-      },
-      {
-        id: "partner-7",
-        question: "What’s the typical rollout timeline?",
-        answer:
-          "A focused pilot can start in 2–4 weeks after alignment on scope, data needs, and success metrics.",
-      },
-      {
-        id: "partner-8",
-        question: "How do we get started?",
-        answer:
-          "Reach out to scope a pilot. We’ll define objectives, launch with a cohort, review outcomes, and scale.",
-      },
-    ],
-    []
-  );
+  // Fetch Data
+  useEffect(() => {
+    const fetchFaqs = async () => {
+      try {
+        const response = await fetch('https://api.joinonemai.com/api/app/fetch-knowledge-base');
+        if (!response.ok) {
+          throw new Error('Failed to fetch FAQs');
+        }
+        const data = await response.json();
+        // Map API response to QA type if needed, assuming data.knowledgeBaseItems is the array
+        const mappedItems = (data.knowledgeBaseItems || []).map((item: any) => ({
+          id: item._id,
+          question: item.question,
+          answer: item.answer,
+        }));
+        setFaqItems(mappedItems);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'An error occurred');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFaqs();
+  }, []);
 
   // Filtering
-  const activeList = tab === "users" ? usersQA : partnersQA;
+  // Since we don't have categories from API yet, we'll show all items for now
+  // or we could just ignore the tabs. Let's show all items in "users" tab for now.
+  const activeList = faqItems;
+
   const filteredList = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return activeList;
@@ -169,10 +70,10 @@ export default function FAQPage() {
     const applyHash = () => {
       const h = window.location.hash.replace("#", "");
       if (!h) return;
-      const isUser = h.startsWith("user-");
-      const isPartner = h.startsWith("partner-");
-      if (isUser) setTab("users");
-      if (isPartner) setTab("partners");
+      // const isUser = h.startsWith("user-");
+      // const isPartner = h.startsWith("partner-");
+      // if (isUser) setTab("users");
+      // if (isPartner) setTab("partners");
       setOpenItem(h);
       // Slight delay to ensure content is rendered before scrolling
       requestAnimationFrame(() => {
@@ -180,10 +81,12 @@ export default function FAQPage() {
         if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     };
-    applyHash();
+    if (!loading) {
+      applyHash();
+    }
     window.addEventListener("hashchange", applyHash);
     return () => window.removeEventListener("hashchange", applyHash);
-  }, []);
+  }, [loading]);
 
   // Back to top visibility
   const [showTop, setShowTop] = useState(false);
@@ -209,11 +112,27 @@ export default function FAQPage() {
             typeof qa.answer === "string"
               ? qa.answer
               : // If answer is JSX, strip tags naive:
-                (React.isValidElement(qa.answer) ? renderNodeText(qa.answer) : ""),
+              (React.isValidElement(qa.answer) ? renderNodeText(qa.answer) : ""),
         },
       })),
     };
   }, [filteredList]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen py-20 flex justify-center items-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#3390D5]"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen py-20 flex justify-center items-center text-red-500">
+        Error: {error}
+      </div>
+    );
+  }
 
   return (
     <main className="bg-white">
@@ -234,7 +153,7 @@ export default function FAQPage() {
         <div ref={topRef} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12">
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">Frequently Asked Questions</h1>
           <p className="mt-3 text-gray-600 text-lg">
-            Quick answers about OneMAI for users and partners.
+            Quick answers about OneMAI.
           </p>
         </div>
       </section>
@@ -243,7 +162,8 @@ export default function FAQPage() {
       <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-            <div className="flex justify-center gap-3">
+            {/* Tabs removed for now as API doesn't distinguish */}
+            {/* <div className="flex justify-center gap-3">
               <TabButton
                 active={tab === "users"}
                 onClick={() => {
@@ -264,7 +184,8 @@ export default function FAQPage() {
               >
                 For Partners
               </TabButton>
-            </div>
+            </div> */}
+            <div className="flex-1"></div>
 
             <SearchInput value={query} onChange={setQuery} placeholder="Search FAQs..." />
           </div>
