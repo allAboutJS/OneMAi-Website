@@ -1,92 +1,54 @@
-// src/pages/FAQ.tsx
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useState, useMemo, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 /* --------------------------------- Types --------------------------------- */
-type TabKey = "users" | "partners";
-
 type QA = {
-  id: string; // unique per page (e.g., "user-1")
+  id: string;
   question: string;
   answer: string | React.ReactNode;
 };
 
 /* ------------------------------- Page Setup ------------------------------- */
 export default function FAQPage() {
-  const [tab, setTab] = useState<TabKey>("users");
   const [openItem, setOpenItem] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const topRef = useRef<HTMLDivElement>(null);
 
-  // Data State
-  const [faqItems, setFaqItems] = useState<QA[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  // Fetch Data
-  useEffect(() => {
-    const fetchFaqs = async () => {
-      try {
-        const response = await fetch('https://api.joinonemai.com/api/app/fetch-knowledge-base');
-        if (!response.ok) {
-          throw new Error('Failed to fetch FAQs');
-        }
-        const data = await response.json();
-        // Map API response to QA type if needed, assuming data.knowledgeBaseItems is the array
-        const mappedItems = (data.knowledgeBaseItems || []).map((item: any) => ({
-          id: item._id,
-          question: item.question,
-          answer: item.answer,
-        }));
-        setFaqItems(mappedItems);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'An error occurred');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchFaqs();
-  }, []);
-
-  // Filtering
-  // Since we don't have categories from API yet, we'll show all items for now
-  // or we could just ignore the tabs. Let's show all items in "users" tab for now.
-  const activeList = faqItems;
+  // Static Data
+  const faqItems: QA[] = [
+    {
+      id: "general-1",
+      question: "What is OneMAi?",
+      answer: "OneMAi is a comprehensive platform designed to streamline your workflow and enhance productivity with AI-driven tools.",
+    },
+    {
+      id: "general-2",
+      question: "How do I get started?",
+      answer: "Simply sign up for an account, and you can immediately start exploring our features. We offer a guided tour to help you get acquainted.",
+    },
+    {
+      id: "general-3",
+      question: "Is there a free trial?",
+      answer: "Yes, we offer a 14-day free trial for all new users so you can experience the full power of OneMAi before committing.",
+    },
+    {
+      id: "general-4",
+      question: "How can I contact support?",
+      answer: "You can reach our support team via the contact page or by emailing support@joinonemai.com.",
+    },
+  ];
 
   const filteredList = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return activeList;
-    return activeList.filter(
+    if (!q) return faqItems;
+    return faqItems.filter(
       (item) =>
         item.question.toLowerCase().includes(q) ||
         (typeof item.answer === "string"
           ? item.answer.toLowerCase().includes(q)
           : false)
     );
-  }, [activeList, query]);
-
-  // Open by hash on load or when hash changes
-  useEffect(() => {
-    const applyHash = () => {
-      const h = window.location.hash.replace("#", "");
-      if (!h) return;
-      // const isUser = h.startsWith("user-");
-      // const isPartner = h.startsWith("partner-");
-      // if (isUser) setTab("users");
-      // if (isPartner) setTab("partners");
-      setOpenItem(h);
-      // Slight delay to ensure content is rendered before scrolling
-      requestAnimationFrame(() => {
-        const el = document.getElementById(h);
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    };
-    if (!loading) {
-      applyHash();
-    }
-    window.addEventListener("hashchange", applyHash);
-    return () => window.removeEventListener("hashchange", applyHash);
-  }, [loading]);
+  }, [faqItems, query]);
 
   // Back to top visibility
   const [showTop, setShowTop] = useState(false);
@@ -96,43 +58,6 @@ export default function FAQPage() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  // Build FAQ Schema for visible list (SEO)
-  const jsonLd = useMemo(() => {
-    const qaForSchema = filteredList.slice(0, 15); // cap for size
-    return {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: qaForSchema.map((qa) => ({
-        "@type": "Question",
-        name: qa.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            typeof qa.answer === "string"
-              ? qa.answer
-              : // If answer is JSX, strip tags naive:
-              (React.isValidElement(qa.answer) ? renderNodeText(qa.answer) : ""),
-        },
-      })),
-    };
-  }, [filteredList]);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen py-20 flex justify-center items-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#3390D5]"></div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen py-20 flex justify-center items-center text-red-500">
-        Error: {error}
-      </div>
-    );
-  }
 
   return (
     <main className="bg-white">
@@ -153,8 +78,16 @@ export default function FAQPage() {
         <div ref={topRef} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12">
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">Frequently Asked Questions</h1>
           <p className="mt-3 text-gray-600 text-lg">
-            Quick answers about OneMAI.
+            Common questions about OneMAi.
           </p>
+          <div className="mt-6">
+            <Link
+              to="/knowledge-base"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-[#3390D5] hover:bg-blue-700"
+            >
+              Visit Knowledge Base
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -162,31 +95,7 @@ export default function FAQPage() {
       <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-            {/* Tabs removed for now as API doesn't distinguish */}
-            {/* <div className="flex justify-center gap-3">
-              <TabButton
-                active={tab === "users"}
-                onClick={() => {
-                  setTab("users");
-                  setOpenItem(null);
-                  setQuery("");
-                }}
-              >
-                For Users
-              </TabButton>
-              <TabButton
-                active={tab === "partners"}
-                onClick={() => {
-                  setTab("partners");
-                  setOpenItem(null);
-                  setQuery("");
-                }}
-              >
-                For Partners
-              </TabButton>
-            </div> */}
             <div className="flex-1"></div>
-
             <SearchInput value={query} onChange={setQuery} placeholder="Search FAQs..." />
           </div>
         </div>
@@ -207,12 +116,6 @@ export default function FAQPage() {
                 onToggle={() => {
                   const next = openItem === qa.id ? null : qa.id;
                   setOpenItem(next);
-                  // update hash for deep-linking
-                  if (next) {
-                    history.replaceState(null, "", `#${qa.id}`);
-                  } else {
-                    history.replaceState(null, "", " ");
-                  }
                 }}
               >
                 {qa.answer}
@@ -221,40 +124,11 @@ export default function FAQPage() {
           )}
         </div>
       </section>
-
-      {/* JSON-LD for SEO */}
-      <script
-        type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
     </main>
   );
 }
 
 /* ------------------------------ UI Building ------------------------------- */
-
-function TabButton({
-  active,
-  onClick,
-  children,
-}: {
-  active: boolean;
-  onClick: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      onClick={onClick}
-      className={[
-        "px-5 py-2 rounded-lg font-semibold transition",
-        active ? "bg-[#3390D5] text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200",
-      ].join(" ")}
-    >
-      {children}
-    </button>
-  );
-}
 
 function SearchInput({
   value,
@@ -376,14 +250,4 @@ function ArrowUpIcon(props: React.SVGProps<SVGSVGElement>) {
       <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7 7 7M12 3v18" />
     </svg>
   );
-}
-
-/* ------------------------------ Helper Utils ----------------------------- */
-// Naive renderer to extract text from a ReactNode for schema
-function renderNodeText(node: React.ReactNode): string {
-  if (node == null || typeof node === "boolean") return "";
-  if (typeof node === "string" || typeof node === "number") return String(node);
-  if (Array.isArray(node)) return node.map(renderNodeText).join(" ");
-  if (React.isValidElement(node)) return renderNodeText(node.props.children);
-  return "";
 }
