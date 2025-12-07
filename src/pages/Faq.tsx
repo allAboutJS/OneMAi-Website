@@ -18,8 +18,8 @@ export default function FAQPage() {
   const faqItems: QA[] = [
     {
       id: "general-1",
-      question: "What is OneMAi?",
-      answer: "OneMAi is a comprehensive platform designed to streamline your workflow and enhance productivity with AI-driven tools.",
+      question: "What is OneMAI?",
+      answer: "OneMAI is a comprehensive platform designed to streamline your workflow and enhance productivity with AI-driven tools.",
     },
     {
       id: "general-2",
@@ -29,12 +29,12 @@ export default function FAQPage() {
     {
       id: "general-3",
       question: "Is there a free trial?",
-      answer: "Yes, we offer a 14-day free trial for all new users so you can experience the full power of OneMAi before committing.",
+      answer: "Yes, we offer a 14-day free trial for all new users so you can experience the full power of OneMAI before committing.",
     },
     {
       id: "general-4",
       question: "How can I contact support?",
-      answer: "You can reach our support team via the contact page or by emailing support@joinonemai.com.",
+      answer: "You can reach our support team via the contact page or by emailing support@joinOneMAI.com.",
     },
   ];
 
@@ -78,7 +78,7 @@ export default function FAQPage() {
         <div ref={topRef} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12">
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">Frequently Asked Questions</h1>
           <p className="mt-3 text-gray-600 text-lg">
-            Common questions about OneMAi.
+            Common questions about OneMAI.
           </p>
           <div className="mt-6">
             <Link
