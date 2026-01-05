@@ -179,7 +179,7 @@ const Home: React.FC = () => {
                 onClick={() => setShowAuthModal(true)}
                 className="inline-block bg-[#3390D5] text-white px-4 py-2 rounded-lg text-lg text-center font-semibold hover:bg-brand-700 transition duration-300 ease-in-out transform hover:-translate-y-1 w-50"
               >
-                Signup for early Perks.
+                Create your savings Circle.
               </button>
             </div>
             {/* Image (optimized for mobile) */}
