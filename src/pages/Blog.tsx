@@ -113,10 +113,9 @@ const Blog = () => {
                   <h2 className="text-2xl md:text-3xl font-bold mb-4">
                     {featuredPost.title}
                   </h2>
-                  <div
-                    className="text-muted-foreground mb-6 line-clamp-3"
-                    dangerouslySetInnerHTML={{ __html: featuredPost.content }}
-                  />
+                  <div className="text-muted-foreground mb-6 line-clamp-3 text-sm">
+                    {featuredPost.content.replace(/[#*`>\[\](]/g, '').slice(0, 200)}...
+                  </div>
 
                   <div className="flex items-center space-x-4 mb-6 text-sm text-muted-foreground">
                     <div className="flex items-center space-x-1">
@@ -165,10 +164,9 @@ const Blog = () => {
                 </CardHeader>
 
                 <CardContent className="pt-0">
-                  <div
-                    className="text-muted-foreground text-sm mb-4 line-clamp-3"
-                    dangerouslySetInnerHTML={{ __html: post.content }}
-                  />
+                  <div className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                    {post.content.replace(/[#*`>\[\](]/g, '').slice(0, 150)}...
+                  </div>
 
                   <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
                     <div className="flex items-center space-x-1">

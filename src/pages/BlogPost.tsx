@@ -2,6 +2,8 @@ import { useLocation, useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, User, ArrowLeft } from "lucide-react";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface Post {
     _id: string;
@@ -70,18 +72,35 @@ const BlogPost = () => {
                     </div>
                 </div>
 
-                <div className="rounded-2xl overflow-hidden mb-12 shadow-elegant">
+                <div className="rounded-2xl overflow-hidden mb-12 shadow-elegant aspect-video">
                     <img
                         src={getImageUrl(post.image)}
                         alt={post.title}
-                        className="w-full h-[400px] object-cover"
+                        className="w-full h-full object-cover"
                     />
                 </div>
 
-                <div
-                    className="prose prose-lg dark:prose-invert max-w-none"
-                    dangerouslySetInnerHTML={{ __html: post.content }}
-                />
+                <div className="prose prose-lg dark:prose-invert max-w-none">
+                    <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
+                        components={{
+                            h1: ({ node, ...props }) => <h1 className="text-3xl font-bold mb-6 mt-8" {...props} />,
+                            h2: ({ node, ...props }) => <h2 className="text-2xl font-bold mb-4 mt-8" {...props} />,
+                            p: ({ node, ...props }) => <p className="mb-6 leading-relaxed whitespace-pre-wrap" {...props} />,
+                            blockquote: ({ node, ...props }) => (
+                                <blockquote className="border-l-4 border-blue-500 pl-4 py-2 my-6 italic bg-muted/30 rounded-r-lg" {...props} />
+                            ),
+                            ul: ({ node, ...props }) => <ul className="list-disc pl-6 mb-6 space-y-2" {...props} />,
+                            ol: ({ node, ...props }) => <ol className="list-decimal pl-6 mb-6 space-y-2" {...props} />,
+                            li: ({ node, ...props }) => <li className="mb-1" {...props} />,
+                            a: ({ node, ...props }) => <a className="text-blue-500 hover:text-blue-600 underline transition-colors" target="_blank" rel="noopener noreferrer" {...props} />,
+                            strong: ({ node, ...props }) => <strong className="font-bold text-foreground" {...props} />,
+                            em: ({ node, ...props }) => <em className="italic" {...props} />,
+                        }}
+                    >
+                        {post.content}
+                    </ReactMarkdown>
+                </div>
             </div>
         </div>
     );
