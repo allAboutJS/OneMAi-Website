@@ -1,9 +1,10 @@
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useLocation, useNavigate, Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, User, ArrowLeft } from "lucide-react";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { useEffect, useState } from "react";
 
 interface Post {
     _id: string;
@@ -17,14 +18,52 @@ interface Post {
 }
 
 const BlogPost = () => {
+    const { id } = useParams();
     const location = useLocation();
     const navigate = useNavigate();
-    const post = location.state as Post;
+    const [post, setPost] = useState<Post | null>(location.state as Post || null);
+    const [loading, setLoading] = useState(!post);
+    const [error, setError] = useState<string | null>(null);
 
-    if (!post) {
+    useEffect(() => {
+        if (!post && id) {
+            const fetchPost = async () => {
+                setLoading(true);
+                try {
+                    const response = await fetch('https://api.joinonemai.com/api/app/fetch-posts');
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch posts');
+                    }
+                    const data = await response.json();
+                    const foundPost = data.posts.find((p: Post) => p._id === id);
+                    if (foundPost) {
+                        setPost(foundPost);
+                    } else {
+                        setError('Post not found');
+                    }
+                } catch (err) {
+                    setError(err instanceof Error ? err.message : 'An error occurred');
+                } finally {
+                    setLoading(false);
+                }
+            };
+
+            fetchPost();
+        }
+    }, [id, post]);
+
+    if (loading) {
+        return (
+            <div className="min-h-screen py-20 flex justify-center items-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+            </div>
+        );
+    }
+
+    if (error || !post) {
         return (
             <div className="min-h-screen py-20 flex flex-col justify-center items-center">
-                <h1 className="text-2xl font-bold mb-4">Post not found</h1>
+                <h1 className="text-2xl font-bold mb-4">{error || "Post not found"}</h1>
                 <Button onClick={() => navigate('/blog')}>Back to Blog</Button>
             </div>
         );
