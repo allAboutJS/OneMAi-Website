@@ -102,7 +102,7 @@ const BlogPost = () => {
                     <div className="flex items-center space-x-6 text-muted-foreground mb-8">
                         <div className="flex items-center space-x-2">
                             <User className="h-5 w-5" />
-                            <span>One Mai Team</span>
+                            <span>One MAI Team</span>
                         </div>
                         <div className="flex items-center space-x-2">
                             <Calendar className="h-5 w-5" />

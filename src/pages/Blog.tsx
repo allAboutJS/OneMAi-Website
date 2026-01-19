@@ -84,8 +84,7 @@ const Blog = () => {
             </span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Stay updated with the latest trends, tips, and insights from the world
-            of web development, design, and digital marketing.
+            Ideas and insights on community finance, entrepreneurship, and building for impact.
           </p>
         </div>
 
@@ -120,7 +119,7 @@ const Blog = () => {
                   <div className="flex items-center space-x-4 mb-6 text-sm text-muted-foreground">
                     <div className="flex items-center space-x-1">
                       <User className="h-4 w-4" />
-                      <span>One Mai Team</span>
+                      <span>One MAI Team</span>
                     </div>
                     <div className="flex items-center space-x-1">
                       <Calendar className="h-4 w-4" />
@@ -171,7 +170,7 @@ const Blog = () => {
                   <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
                     <div className="flex items-center space-x-1">
                       <User className="h-3 w-3" />
-                      <span>One Mai Team</span>
+                      <span>One MAI Team</span>
                     </div>
                     <div className="flex items-center space-x-1">
                       <Calendar className="h-3 w-3" />

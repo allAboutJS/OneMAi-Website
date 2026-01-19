@@ -14,7 +14,14 @@ import startUpLogo from "@/assets/images/partners/start-up.png";
 import eitLogo from "@/assets/images/partners/eit.png";
 import lisbonLogo from "@/assets/images/partners/lisbon.png";
 import pageimage from "@/assets/firstimage.png"
-
+import communityHandsImg from "@/assets/images/community-hands-stacked.png";
+import diverseCommunityImg from "@/assets/images/diverse-community-selfie.png";
+// Swiper
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCards, Autoplay, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-cards';
+import 'swiper/css/pagination';
 type TabKey = "users" | "partners";
 
 const SCRIPT_URL =
@@ -173,13 +180,13 @@ const Home: React.FC = () => {
                 Community Financing for a Better Future
               </h1>
               <p className="text-xl sm:text-2xl text-white mb-8">
-               Empowering communities through Rotational savings
+                Build <span className="italic">Wealth</span> with your community
               </p>
               <button
                 onClick={() => setShowAuthModal(true)}
                 className="inline-block bg-[#3390D5] text-white px-4 py-2 rounded-lg text-lg text-center font-semibold hover:bg-brand-700 transition duration-300 ease-in-out transform hover:-translate-y-1 w-50"
               >
-                Create your savings Circle.
+                Start a Circle
               </button>
             </div>
             {/* Image (optimized for mobile) */}
@@ -211,7 +218,7 @@ const Home: React.FC = () => {
           />
 
 
-  <section className="space-y-20">
+          <section className="space-y-20">
             {/* Step 1 */}
             <div className="flex flex-col lg:flex-row justify-center items-center gap-8 lg:gap-16">
               {/* Text */}
@@ -261,7 +268,7 @@ const Home: React.FC = () => {
                       Step 2
                     </span>
                   </div>
-                  <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Set Pooling and Withdrawal Parameters</h3>
+                  <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Set Contribution and Payout Parameters</h3>
                   <p className="text-lg text-gray-500 mb-8 leading-relaxed">
                     Configure contribution amounts, frequency, and withdrawal rules that work for your community.
                   </p>
@@ -311,9 +318,9 @@ const Home: React.FC = () => {
                       Step 3
                     </span>
                   </div>
-                  <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Pool and Receive Funds</h3>
+                  <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Contribute and Receive Funds</h3>
                   <p className="text-lg text-gray-500 mb-8 leading-relaxed">
-                    Start contributing to the pool and receive funds according to your community&apos;s established rules.
+                    Begin contributing and receive funds in line with your community’s established rules.
                   </p>
                   <ul className="space-y-4 text-gray-500">
                     <li className="flex items-start">
@@ -330,7 +337,7 @@ const Home: React.FC = () => {
                     </li>
                     <li className="flex items-start">
                       <SvgCheck className="h-6 w-6 text-brand-500 mr-3 mt-1" />
-                      <span className="text-base">Pool and receive funds</span>
+                      <span className="text-base">Contribute and receive funds</span>
                     </li>
                   </ul>
                 </div>
@@ -340,13 +347,25 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Survey Results */}
-      <section className="mt-20 bg-white rounded-3xl p-8 lg:p-12 shadow-lg text-center">
-        <h3 className="text-2xl font-bold text-gray-900 mb-8">Community Impact Survey</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <Stat value="850+" label="Already signed up for OneMAI release" />
-          <Stat value="80%" label="Believe OneMAI will be more reliable than traditional rotational savings method" />
-          <Stat value="50+" label="Direct and indirect Jobs" />
+      {/* Financial Home Section */}
+      <section className="relative h-[80vh] min-h-[600px] w-full mt-20">
+        <div className="absolute inset-0">
+          <img
+            src={diverseCommunityImg}
+            alt="Diverse Community"
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 max-w-5xl leading-tight tracking-tight">
+            A financial home shaped by people and shared purpose.
+          </h2>
+          <p className="text-2xl md:text-3xl text-gray-200 mt-4 font-serif italic">
+            One community at a time.
+          </p>
         </div>
       </section>
 
@@ -354,40 +373,52 @@ const Home: React.FC = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Success Stories</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Listened</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real stories from our community members who transformed their financial future
+              to what our customers have to say
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Story 1 */}
-            <StoryCard
-              img={indian3Img}
-              title="Arjun's Story"
-              role="Small Business Owner"
-              quote={`"OneMAI helped me secure interest-free financing for my small business at Martim Moniz. The community support grew, and the transparent system gave me peace of mind."`}
-              detail=""
-            />
-            <StoryCard
-              img={sarah}
-              title="Sarah&apos;s Journey"
-              role="Community Leader"
-              quote={`" Traditional savings groups had always been challenging to manage. With OneMAI, everything became automated and secure. Our community grew stronger."`}
-              detail=""
-            />
-
-            {/* Story 2 (Video placeholder) */}
-
-
-            {/* Story 3 */}
-            <StoryCard
-              img={santosImg}
-              title="Santos's Success"
-              role="Student"
-              quote={`"Before OneMAI, I struggled with traditional rotating savings groups. Now, I can easily track contributions and access funds when needed."`}
-              detail="Funded education through community support"
-            />
+          <div className="flex justify-center items-center w-full px-4 overflow-hidden py-8">
+            <Swiper
+              effect={'cards'}
+              grabCursor={true}
+              modules={[EffectCards, Autoplay, Pagination]}
+              pagination={{ clickable: true }}
+              autoplay={{
+                delay: 3500,
+                disableOnInteraction: false,
+              }}
+              className="w-full md:w-[90%] max-w-[1400px]"
+            >
+              <SwiperSlide className="rounded-2xl shadow-xl">
+                <StoryCard
+                  img={indian3Img}
+                  title="Arjun's Story"
+                  role="Small Business Owner"
+                  quote={`"OneMAI helped me secure interest-free financing for my small business at Martim Moniz. The community support grew, and the transparent system gave me peace of mind."`}
+                  detail=""
+                />
+              </SwiperSlide>
+              <SwiperSlide className="rounded-2xl shadow-xl">
+                <StoryCard
+                  img={sarah}
+                  title="Sarah&apos;s Journey"
+                  role="Community Leader"
+                  quote={`" Traditional savings groups had always been challenging to manage. With OneMAI, everything became automated and secure. Our community grew stronger."`}
+                  detail=""
+                />
+              </SwiperSlide>
+              <SwiperSlide className="rounded-2xl shadow-xl">
+                <StoryCard
+                  img={santosImg}
+                  title="Santos's Success"
+                  role="Student"
+                  quote={`"Before OneMAI, I struggled with traditional rotating savings groups. Now, I can easily track contributions and access funds when needed."`}
+                  detail="Funded education through community support"
+                />
+              </SwiperSlide>
+            </Swiper>
           </div>
         </div>
       </section>
@@ -403,25 +434,14 @@ const Home: React.FC = () => {
       </section>
 
       {/* CTA + Newsletter */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-brand-600 to-brand-800">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <svg className="h-full w-full" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-            <path
-              d="M-22.4-10.4l15.5 15.5L-22.4 20.6l15.5 15.5L-22.4 51.6l15.5 15.5L-22.4 82.6l15.5 15.5L-22.4 113.6l15.5 15.5L-22.4 144.6l15.5 15.5"
-              stroke="currentColor"
-              strokeWidth="2"
-              fill="none"
-            />
-          </svg>
-        </div>
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-white">
 
         <div className="relative max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-8">
-            Ready to Transform Your Community&apos;s Financial Future?
+          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-8">
+            Powered by communities, strengthened by trust.
           </h2>
-          <p className="text-xl text-brand-100 mb-12 max-w-3xl mx-auto">
-            Join thousands of communities already benefiting from OneMAI&apos;s innovative financial solutions
+          <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+            Our circles grow through trusted anchors
           </p>
 
           {/* Auth Modal (User/Affiliate Selection) */}
@@ -537,35 +557,38 @@ const Home: React.FC = () => {
           )}
 
           {/* CTA cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {/* Sign Up Card */}
-            <div className="bg-white rounded-xl shadow-lg p-8 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <div className="text-brand-600 mb-4">
-                <SvgUserPlus className="h-12 w-12 mx-auto" />
+          {/* Trusted Anchors Section */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-2xl">
+            {/* Left Card - Text */}
+            <div className="bg-[#1f2937] p-10 md:p-16 flex flex-col justify-center relative overflow-hidden">
+              {/* Decorative background shape */}
+              <div className="absolute -left-10 -bottom-10 w-64 h-64 bg-gray-800 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+              <div className="absolute -right-10 -top-10 w-64 h-64 bg-gray-700 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+
+              <div className="relative z-10">
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif text-white leading-tight mb-8">
+                  Create an income stream while helping your community save.
+                </h3>
+                <p className="text-lg text-gray-300 mb-8 font-light">
+                  Ready ?
+                </p>
+                <button
+                  onClick={() => handleAuthSelection('affiliate')}
+                  className="inline-block bg-gray-100 text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-white transition transform hover:-translate-y-1 shadow-lg"
+                >
+                  Become an Affiliate
+                </button>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Early Access</h3>
-              <p className="text-gray-600 mb-6">Be among the first to experience the future of community financing</p>
-              <button
-                onClick={() => setShowAuthModal(true)}
-                className="inline-block bg-[#3390D5] text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-700 transition"
-              >
-                Get Started
-              </button>
             </div>
 
-            {/* Join Community Card */}
-            <div className="bg-white rounded-xl shadow-lg p-8 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <div className="text-brand-600 mb-4">
-                <SvgUsers className="h-12 w-12 mx-auto" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Join the Community</h3>
-              <p className="text-gray-600 mb-6">Connect with like-minded individuals and start your financial journey</p>
-              <button
-                onClick={() => setShowSocialPopup(true)}
-                className="inline-block bg-[#3390D5] text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-700 transition"
-              >
-                Join Now
-              </button>
+            {/* Right Card - Image */}
+            <div className="relative min-h-[400px]">
+              <img
+                src={communityHandsImg}
+                alt="Community Hands Stacked"
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
           </div>
 
@@ -640,17 +663,42 @@ const StoryCard = ({
   quote: string;
   detail: string;
 }) => (
-  <article className="bg-white rounded-2xl shadow-lg overflow-hidden">
-    <div className="relative h-64">
-      <img src={img} alt={title} className="w-full h-full object-cover" loading="lazy" decoding="async" />
-      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
-        <h3 className="text-xl font-semibold text-white">{title}</h3>
-        <p className="text-gray-200">{role}</p>
+  <article className="bg-[#3b82f6] rounded-[2rem] shadow-xl overflow-hidden flex flex-col md:flex-row h-full min-h-[400px]">
+    {/* Left Content */}
+    <div className="flex-1 p-8 md:p-12 flex flex-col justify-center text-white relative">
+      {/* Decorative shape */}
+      <div className="absolute top-0 right-0 w-32 h-32 bg-[#2563eb] rounded-bl-full z-0 opacity-50 transform translate-x-8 -translate-y-8"></div>
+
+      <blockquote className="text-xl md:text-2xl italic font-light leading-relaxed mb-8 relative z-10">
+        {quote}
+      </blockquote>
+
+      <div className="mt-auto relative z-10">
+        <h3 className="text-xl md:text-2xl font-bold mb-1">{title}</h3>
+        <p className="text-blue-100 uppercase tracking-wider text-sm font-semibold">{role}</p>
+        {detail && <p className="text-blue-200 text-sm mt-2">{detail}</p>}
       </div>
     </div>
-    <div className="p-6">
-      <blockquote className="text-gray-600 italic mb-4">{quote}</blockquote>
-      <p className="text-gray-700">{detail}</p>
+
+    {/* Right Image */}
+    <div className="md:w-5/12 lg:w-4/12 relative min-h-[300px] md:min-h-full">
+      {/* Curve overlay for smooth transition */}
+      <div className="absolute top-0 bottom-0 left-0 w-16 md:w-24 bg-gradient-to-r from-[#3b82f6] to-transparent z-10"></div>
+
+      {/* SVG Mask for the curve effect */}
+      <div className="absolute top-0 bottom-0 left-[-1px] z-20 text-[#3b82f6] hidden md:block">
+        <svg height="100%" width="80" viewBox="0 0 50 100" preserveAspectRatio="none">
+          <path d="M0,0 C30,20 50,50 50,100 L0,100 Z" fill="currentColor" transform="scale(-1, 1) translate(-50, 0)" />
+        </svg>
+      </div>
+
+      <img
+        src={img}
+        alt={title}
+        className="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
   </article>
 );
