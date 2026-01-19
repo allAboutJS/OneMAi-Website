@@ -1,14 +1,20 @@
 {
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/images/*.{png,jpg,gif,svg,webp}", "/static/*", "/manifest.json"]
+    "exclude": [
+      "/images/*.{png,jpg,gif,svg,webp}",
+      "/static/*",
+      "/manifest.json"
+    ]
   },
   "mimeTypes": {
     ".js": "application/javascript",
     ".css": "text/css"
   },
   "responseOverrides": {
-    "404": { "rewrite": "/index.html" }
+    "404": {
+      "rewrite": "/index.html"
+    }
   },
   "routes": [
     {
@@ -24,7 +30,7 @@
       }
     },
     {
-      "route": "/static/*",
+      "route": "/assets/*",
       "headers": {
         "Cache-Control": "public, max-age=31536000, immutable"
       }
