@@ -1,13 +1,43 @@
 // src/pages/HowItWorks.tsx
 import React from "react";
 import { Link } from "react-router-dom";
+import Users from "@/assets/images/users.avif";
 
 export default function HowItWorks() {
   return (
     <main className="">
-      {/* Steps */}
+      {/* Hero Section with Background Image */}
+      <section className="relative min-h-[40vh] md:min-h-[50vh] flex items-center bg-gray-900">
+        {/* Background Image */}
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src={Users}
+            alt="Two people looking at their phones"
+            className="w-full h-full object-cover"
+          />
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 md:py-24 w-full text-white">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+              How OneMAI Works
+            </h1>
+            <p className="text-lg sm:text-xl md:text-2xl opacity-95 leading-relaxed">
+              Step-by-step to group savings, transparent coordination, and secure payouts.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Content Section */}
       <section className="max-w-7xl mx-auto px-6 py-14">
-        <h1 className="text-3xl md:text-4xl font-extrabold mb-8">How OneMAI Works</h1>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            A Seamless Experience — <span className="text-[#3390D5]">Driven by Trust</span>
+          </h2>
+        </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white shadow rounded-xl p-6">
@@ -57,7 +87,7 @@ export default function HowItWorks() {
         <div className="mt-10">
           <Link
             to="/faq"
-            className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700"
+            className="inline-block px-6 py-3 bg-[#3390D5] text-white rounded-lg font-semibold hover:bg-blue-700"
           >
             Read FAQs
           </Link>

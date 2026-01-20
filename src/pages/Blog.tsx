@@ -1,7 +1,8 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Clock, ArrowRight, User } from "lucide-react";
+import { Calendar, Clock, ArrowRight, User, Share2 } from "lucide-react";
+import { toast } from "sonner";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -119,7 +120,7 @@ const Blog = () => {
                   <div className="flex items-center space-x-4 mb-6 text-sm text-muted-foreground">
                     <div className="flex items-center space-x-1">
                       <User className="h-4 w-4" />
-                      <span>One MAI Team</span>
+                      <span>OneMAITeam</span>
                     </div>
                     <div className="flex items-center space-x-1">
                       <Calendar className="h-4 w-4" />
@@ -127,11 +128,26 @@ const Blog = () => {
                     </div>
                   </div>
 
-                  <Link to={`/blog/${featuredPost._id}`} state={featuredPost}>
-                    <Button className="bg-gradient-primary border-0 w-fit">
-                      Read More <ArrowRight className="ml-2 h-4 w-4" />
+                  <div className="flex items-center gap-4">
+                    <Link to={`/blog/${featuredPost._id}`} state={featuredPost}>
+                      <Button className="bg-gradient-primary border-0 w-fit">
+                        Read More <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </Link>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="rounded-full h-10 w-10 border-blue-100 text-blue-600 hover:bg-blue-50 transition-colors"
+                      onClick={() => {
+                        const url = `${window.location.origin}/blog/${featuredPost._id}`;
+                        navigator.clipboard.writeText(url);
+                        toast.success("Link copied to clipboard!");
+                      }}
+                      title="Copy sharing link"
+                    >
+                      <Share2 className="h-4 w-4" />
                     </Button>
-                  </Link>
+                  </div>
                 </CardContent>
               </div>
             </Card>
@@ -170,7 +186,7 @@ const Blog = () => {
                   <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
                     <div className="flex items-center space-x-1">
                       <User className="h-3 w-3" />
-                      <span>One MAI Team</span>
+                      <span>OneMAITeam</span>
                     </div>
                     <div className="flex items-center space-x-1">
                       <Calendar className="h-3 w-3" />
@@ -180,10 +196,23 @@ const Blog = () => {
 
                   <div className="flex items-center justify-between">
                     <Link to={`/blog/${post._id}`} state={post}>
-                      <Button variant="ghost" size="sm">
+                      <Button variant="ghost" size="sm" className="hover:text-blue-600">
                         Read More <ArrowRight className="ml-1 h-3 w-3" />
                       </Button>
                     </Link>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-8 w-8 text-muted-foreground hover:text-blue-600"
+                      onClick={() => {
+                        const url = `${window.location.origin}/blog/${post._id}`;
+                        navigator.clipboard.writeText(url);
+                        toast.success("Link copied to clipboard!");
+                      }}
+                      title="Copy link"
+                    >
+                      <Share2 className="h-3.5 w-3.5" />
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
