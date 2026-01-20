@@ -30,6 +30,9 @@ export interface RegionData {
 import indian3Img from "../assets/images/indian-3.jpg";
 import sarah from "../assets/images/sarah.jpg";
 import santosImg from "../assets/images/santos.jpg";
+import chidi from "../assets/images/chidi.png";
+import amaka from "../assets/images/amaka.png";
+import tunde from "../assets/images/tunde.png";
 
 export const REGIONS: Record<Region, RegionData> = {
     EU: {
@@ -45,7 +48,7 @@ export const REGIONS: Record<Region, RegionData> = {
             linkedin: 'https://www.linkedin.com/company/joinonemai/',
             telegram: 'https://t.me/joinonemai',
         },
-        heroTitle: 'Community Financing for a Better Future',
+        heroTitle: 'Community Financing for a Better Future in Europe',
         heroSubtitle: 'Build Wealth with your community',
         testimonials: [
             {
@@ -88,21 +91,21 @@ export const REGIONS: Record<Region, RegionData> = {
         heroSubtitle: 'Build Wealth with your community in Nigeria',
         testimonials: [
             {
-                img: indian3Img,
+                img: chidi,
                 title: "Chidi's Story",
                 role: "Trader in Lagos",
                 quote: `"OneMAI has transformed how we do Ajo in our market. It's secure, transparent, and we don't have to worry about anyone running away with our money."`,
                 detail: "",
             },
             {
-                img: sarah,
+                img: amaka,
                 title: "Amaka's Journey",
                 role: "Micro-entrepreneur",
                 quote: `"Raising capital for my business in Abuja used to be impossible. Through my OneMAI circle, I got the funds I needed without interest."`,
                 detail: "",
             },
             {
-                img: santosImg,
+                img: tunde,
                 title: "Tunde's Success",
                 role: "Tech Professional",
                 quote: `"I used OneMAI to save with my friends for a professional certification. The platform made it so easy to manage our contributions."`,

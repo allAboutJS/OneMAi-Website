@@ -120,7 +120,7 @@ const Home: React.FC = () => {
         throw new Error(data?.error || `Request failed (${res.status})`);
       }
 
-      setSubmitMsg({ ok: true, text: "Thanks! You'll be notified at launch." });
+      setSubmitMsg({ ok: true, text: "You’re officially on the inside. Expect insights, updates, and a few surprises from OneMAI." });
       // Reset fields to match HTML behavior
       setName("");
       setEmail("");
