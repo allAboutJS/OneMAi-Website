@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useRegion } from "../context/RegionContext";
 
 const Support = () => {
+    const { regionData } = useRegion();
     const [form, setForm] = useState({
         name: '',
         email: '',
@@ -116,7 +118,7 @@ const Support = () => {
                         {/* Primary Contact Options */}
                         <div className="flex flex-col sm:flex-row gap-4 mb-6">
                             <a
-                                href="mailto:hello@joinonemai.com"
+                                href={`mailto:${regionData.contactEmail}`}
                                 className="flex-1 inline-flex items-center justify-center px-6 py-3 text-white font-medium rounded-lg transition duration-200 hover:opacity-90"
                                 style={{ backgroundColor: '#3390d5' }}
                             >
@@ -127,7 +129,7 @@ const Support = () => {
                             </a>
 
                             <a
-                                href="https://wa.me/351910548549"
+                                href={regionData.whatsappLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex-1 inline-flex items-center justify-center px-6 py-3 text-white font-medium rounded-lg transition duration-200 hover:opacity-90"
@@ -222,7 +224,7 @@ const Support = () => {
                             </svg>
                         </div>
                         <h3 className="font-semibold text-gray-900 mb-2">Email Support</h3>
-                        <p className="text-sm text-gray-600">hello@joinonemai.com</p>
+                        <p className="text-sm text-gray-600">{regionData.contactEmail}</p>
                     </div>
 
                     <div className="bg-white rounded-lg p-6 shadow-md text-center">

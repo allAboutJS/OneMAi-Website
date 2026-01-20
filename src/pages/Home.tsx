@@ -1,6 +1,7 @@
 // src/pages/Home.tsx
 import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { useRegion } from "../context/RegionContext";
 
 // ---------- Image assets ----------
 import contentImg from "@/assets/images/content.png";
@@ -28,6 +29,7 @@ const SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbyzjYnO2dy0slHRNpXQbj097OlsTqjhoJtVCPxEYCPcXUSHnqU85fFVC6zr_eKPfTff/exec"; // Google Apps Script endpoint
 
 const Home: React.FC = () => {
+  const { regionData } = useRegion();
   // Back-to-top
   const [showTop, setShowTop] = useState(false);
   useEffect(() => {
@@ -177,10 +179,14 @@ const Home: React.FC = () => {
             {/* Text */}
             <div className="flex flex-col justify-center">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
-                Community Financing for a Better Future
+                {regionData.heroTitle}
               </h1>
               <p className="text-xl sm:text-2xl text-white mb-8">
-                Build <span className="italic">Wealth</span> with your community
+                {regionData.heroSubtitle.includes("Wealth") ? (
+                  <>
+                    {regionData.heroSubtitle.split("Wealth")[0]}<span className="italic">Wealth</span>{regionData.heroSubtitle.split("Wealth")[1]}
+                  </>
+                ) : regionData.heroSubtitle}
               </p>
               <button
                 onClick={() => setShowAuthModal(true)}
@@ -366,6 +372,16 @@ const Home: React.FC = () => {
           <p className="text-2xl md:text-3xl text-gray-200 mt-4 font-serif italic">
             One community at a time.
           </p>
+
+          {/* Join the Movement Button */}
+          <a
+            href="https://linktr.ee/joinonemai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-10 px-8 py-4 bg-white text-black font-bold rounded-full text-lg transition-all duration-300 hover:bg-gray-200 hover:scale-105 shadow-lg"
+          >
+            Join the Movement
+          </a>
         </div>
       </section>
 
@@ -373,7 +389,7 @@ const Home: React.FC = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Listened</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Listen</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               to what our customers have to say
             </p>
@@ -391,33 +407,17 @@ const Home: React.FC = () => {
               }}
               className="w-full md:w-[90%] max-w-[1400px]"
             >
-              <SwiperSlide className="rounded-2xl shadow-xl">
-                <StoryCard
-                  img={indian3Img}
-                  title="Arjun's Story"
-                  role="Small Business Owner"
-                  quote={`"OneMAI helped me secure interest-free financing for my small business at Martim Moniz. The community support grew, and the transparent system gave me peace of mind."`}
-                  detail=""
-                />
-              </SwiperSlide>
-              <SwiperSlide className="rounded-2xl shadow-xl">
-                <StoryCard
-                  img={sarah}
-                  title="Sarah&apos;s Journey"
-                  role="Community Leader"
-                  quote={`" Traditional savings groups had always been challenging to manage. With OneMAI, everything became automated and secure. Our community grew stronger."`}
-                  detail=""
-                />
-              </SwiperSlide>
-              <SwiperSlide className="rounded-2xl shadow-xl">
-                <StoryCard
-                  img={santosImg}
-                  title="Santos's Success"
-                  role="Student"
-                  quote={`"Before OneMAI, I struggled with traditional rotating savings groups. Now, I can easily track contributions and access funds when needed."`}
-                  detail="Funded education through community support"
-                />
-              </SwiperSlide>
+              {regionData.testimonials.map((story, idx) => (
+                <SwiperSlide key={idx} className="rounded-2xl shadow-xl">
+                  <StoryCard
+                    img={story.img}
+                    title={story.title}
+                    role={story.role}
+                    quote={story.quote}
+                    detail={story.detail}
+                  />
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
         </div>
@@ -631,7 +631,7 @@ const Home: React.FC = () => {
           <div className="mt-10">
             <Link
               to="/faq"
-              className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700"
+              className="inline-block px-6 py-3 bg-[#3390D5] text-white rounded-lg font-semibold hover:bg-[#3390D5]"
             >
               Read FAQs
             </Link>
