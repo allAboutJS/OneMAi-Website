@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 
 import benefitsHero from "@/assets/images/benefits-hero.png";
+import communityIllustration from "@/assets/images/community.png";
 
 export default function Benefits() {
   // Back-to-top visibility
@@ -58,10 +59,10 @@ export default function Benefits() {
       <section id="benefits" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Benefits of OneMAI</h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              Creating value for individuals and organizations
-            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+              A trusted tradition - <br />
+              <span className="text-[#3390D5] font-semibold">Strengthened by Technology</span>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
@@ -80,8 +81,8 @@ export default function Benefits() {
                   text="Eliminate traditional loan burdens with interest-free financial solutions."
                 />
                 <BenefitItem
-                  title="Secured Rotational Savings"
-                  text="Safe and transparent pooled savings with blockchain security."
+                  title="Built for trust and transparency"
+                  text="Every contribution and transfer is visible, traceable, and protected by modern security standards."
                 />
                 <BenefitItem
                   title="Financial Literacy Tools"
@@ -125,9 +126,104 @@ export default function Benefits() {
           </div>
         </div>
       </section>
+
+      {/* Community & Safety Section */}
+      <section className="bg-[#3390D5] text-white pt-10 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-y-0 md:gap-x-12 mb-8">
+            <div className="space-y-4">
+              <div className="w-10 h-10 border border-white/30 rounded-lg flex items-center justify-center">
+                <SvgShield className="w-6 h-6" />
+              </div>
+              <p className="text-lg font-medium leading-snug max-w-[240px]">
+                Funds protected in licensed custodial accounts
+              </p>
+            </div>
+
+            <div className="space-y-4 md:border-l md:border-white/20 md:pl-12">
+              <div className="w-10 h-10 border border-white/30 rounded-lg flex items-center justify-center">
+                <SvgWallet className="w-6 h-6" />
+              </div>
+              <p className="text-lg font-medium leading-snug max-w-[240px]">
+                Automated contributions and scheduled payouts
+              </p>
+            </div>
+
+            <div className="space-y-4 md:border-l md:border-white/20 md:pl-12">
+              <div className="w-10 h-10 border border-white/30 rounded-lg flex items-center justify-center">
+                <SvgKey className="w-6 h-6" />
+              </div>
+              <p className="text-lg font-medium leading-snug max-w-[240px]">
+                Insurance protection in case a member misses a payment
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-y-0 md:gap-x-12 mb-4">
+            <div className="space-y-4">
+              <div className="w-10 h-10 border border-white/30 rounded-lg flex items-center justify-center">
+                <SvgSearch className="w-6 h-6" />
+              </div>
+              <p className="text-lg font-medium leading-snug max-w-[240px]">
+                Complete transparency for every member
+              </p>
+            </div>
+
+            <div className="space-y-4 md:border-l md:border-white/20 md:pl-12">
+              <div className="w-10 h-10 border border-white/30 rounded-lg flex items-center justify-center">
+                <SvgHandshake className="w-6 h-6" />
+              </div>
+              <p className="text-lg font-medium leading-snug max-w-[240px]">
+                Simple onboarding for groups and community leaders
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Illustration - Moved outside to be full-bleed and closer to text */}
+        <div className="relative mt-0">
+          <img
+            src={communityIllustration}
+            alt="Diverse Community"
+            className="w-full h-auto object-contain block"
+            style={{ marginBottom: '-2px' }} // Prevent tiny gap
+          />
+        </div>
+      </section>
     </main>
   );
 }
+
+const SvgShield: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+  </svg>
+);
+
+const SvgWallet: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+  </svg>
+);
+
+const SvgKey: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+  </svg>
+);
+
+const SvgSearch: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+  </svg>
+);
+
+const SvgHandshake: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.706l.83-6a2 2 0 00-2-2.294H14zM7 11V7a2 2 0 012-2h4a2 2 0 012 2v4M7 11H4v11h3V11z" />
+  </svg>
+);
 
 /* -------------------- Small building blocks -------------------- */
 
