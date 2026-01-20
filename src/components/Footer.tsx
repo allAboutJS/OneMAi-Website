@@ -59,7 +59,7 @@ export default function Footer() {
         throw new Error(data?.error || `Request failed (${res.status})`);
       }
 
-      setMessage({ ok: true, text: "Thanks! You'll be notified at launch." });
+      setMessage({ ok: true, text: "You’re officially on the inside. Expect insights, updates, and a few surprises from OneMAI." });
       setEmail("");
 
       setTimeout(() => {
@@ -258,19 +258,8 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="bg-gray-800">
-        <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-center gap-2">
           <p className="text-gray-400 text-sm">© {new Date().getFullYear()} OneMAI. All rights reserved.</p>
-          <span className="text-gray-400 text-sm">
-            Developed by:{" "}
-            <a
-              href="https://codedr.co"
-              className="text-gray-400 hover:text-white transition-colors duration-300"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              CodeDr Studio
-            </a>
-          </span>
         </div>
       </div>
     </footer>
