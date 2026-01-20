@@ -13,8 +13,8 @@ export default function About() {
     <main className="font-outfit">
       {/* Hero */}
       <section className="bg-gradient-to-r from-blue-900 to-cyan-500 text-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 py-12 md:py-20 lg:py-24">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-6 py-8 md:py-12 lg:py-16">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             {/* Left Content */}
             <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
@@ -43,46 +43,58 @@ export default function About() {
         </div>
       </section>
 
-      {/* What we facilitate */}
-      <section className="max-w-7xl mx-auto px-6 py-14">
-        <div className="max-w-4xl mx-auto">
-          {/* What we facilitate — Group Power, Personal Gains */}
-          <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 md:p-12 text-center">
-            <h3 className="text-2xl md:text-3xl font-bold mb-6">What we facilitate — <span className="text-[#3390D5]">Group Power, Personal Gains</span></h3>
-            <div className="grid sm:grid-cols-2 gap-6 text-left">
-              <div className="flex items-center gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center text-[#3390D5]">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
-                </div>
-                <span className="text-gray-700 font-medium">Transparent and secure system</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center text-[#3390D5]">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
-                </div>
-                <span className="text-gray-700 font-medium">Recognized by Startup Portugal</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center text-[#3390D5]">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
-                </div>
-                <span className="text-gray-700 font-medium">Engaged with regulators</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center text-[#3390D5]">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
-                </div>
-                <span className="text-gray-700 font-medium">Backed by banking partners</span>
+      {/* Story and Facilitation Section */}
+      <section className="max-w-7xl mx-auto px-6 py-12">
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
+          {/* Our Story */}
+          <div className="lg:col-span-7 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Our Story</h2>
+            <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
+              <p>
+                Imran is a member of Lisbon Project, and he is from Morrocco. Imran is a brilliant young man with a drive for
+                entrepreneurship, but Imran does not have any access to alternative funds to help him drive his proposed
+                4,000 Euros venture. With OneMAI, Imran will achieve this overtime within his own group.
+              </p>
+              <p>
+                Across European communities, people have long relied on informal savings groups to pool funds and support one
+                another, especially people who have their credit history in other continents of the world.
+              </p>
+              <p>
+                OneMAI takes this age-old practice and modernizes it for today's world. By combining technology and transparency, we offer a digital platform where saving together is safe, automated, and scalable.
+              </p>
+            </div>
+          </div>
+
+          {/* What we facilitate Card */}
+          <div className="lg:col-span-5">
+            <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-8">
+              <h3 className="text-2xl font-bold mb-6 text-gray-900 leading-tight">
+                What we facilitate — <br />
+                <span className="text-[#3390D5]">Group Power, Personal Gains</span>
+              </h3>
+              <div className="space-y-4">
+                {[
+                  "Transparent and secure system",
+                  "Recognized by Startup Portugal",
+                  "Engaged with regulators",
+                  "Backed by banking partners"
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center text-[#3390D5]">
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                    </div>
+                    <span className="text-gray-700 font-medium">{item}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mission */}
-      <section className="bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 py-14">
-          <div className="grid gap-10 md:grid-cols-2 items-start">
+      <section className="bg-gray-50 py-8">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid gap-8 md:grid-cols-2 items-start">
             <div>
               <h2 className="text-2xl md:text-3xl font-bold mb-4">Our Mission</h2>
               <p className="text-gray-700 leading-relaxed">
@@ -114,33 +126,11 @@ export default function About() {
         </div>
       </section>
 
-      {/* Our Story */}
-      <section className="max-w-7xl mx-auto px-6 py-14">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-900">Our Story</h2>
-          <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
-            <p>
-              Imran is a member of Lisbon Project, and he is from Morrocco. Imran is a brilliant young man with a drive for
-              entrepreneurship, but Imran does not have any access to alternative funds to help him drive his proposed
-              4,000 Euros venture. With OneMAI, Imran will achieve this overtime within his own group.
-            </p>
-            <p>
-              Across European communities, people have long relied on informal savings groups to pool funds and support one
-              another, especially people who have their credit history in other continents of the world. While this system
-              works, it often faces challenges such as lack of structure, risks of mismanagement, and little accountability.
-            </p>
-            <p>
-              OneMAI takes this age-old practice and modernizes it for today's world. By combining technology, transparency,
-              and regulatory compliance, we offer a digital platform where saving together is safe, automated, and scalable.
-              With OneMAI, trust is built into the system.
-            </p>
-          </div>
-        </div>
-      </section>
+
 
       {/* CTA */}
-      <section className="max-w-7xl mx-auto px-6 pb-16">
-        <div className="bg-blue-50 border border-blue-100 rounded-xl p-8 flex flex-col md:flex-row md:items-center md:justify-between">
+      <section className="max-w-7xl mx-auto px-6 pb-8">
+        <div className="bg-blue-50 border border-blue-100 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between">
           <div>
             <h3 className="text-2xl font-bold mb-2">Join Us</h3>
             <p className="text-gray-700">
