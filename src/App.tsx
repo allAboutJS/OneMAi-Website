@@ -21,7 +21,11 @@ import Faq from './pages/Faq'
 import KnowledgeBase from './pages/KnowledgeBase'
 import NotFound from "./pages/NotFound";
 
+import ScrollToTop from "./components/ScrollToTop";
+
 const queryClient = new QueryClient();
+
+
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -29,6 +33,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <RegionProvider>
           <Layout>
             <Routes>
