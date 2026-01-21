@@ -1,10 +1,16 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Clock, ArrowRight, User, Share2 } from "lucide-react";
+import { Calendar, Clock, ArrowRight, User, Share2, Twitter, Facebook, Linkedin, Link as LinkIcon, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface Post {
   _id: string;
@@ -16,6 +22,32 @@ interface Post {
   updatedAt: string;
   __v: number;
 }
+
+const shareUrl = (platform: string, url: string, title: string) => {
+  const encodedUrl = encodeURIComponent(url);
+  const encodedTitle = encodeURIComponent(title);
+
+  let shareLink = '';
+
+  switch (platform) {
+    case 'twitter':
+      shareLink = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
+      break;
+    case 'facebook':
+      shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+      break;
+    case 'linkedin':
+      shareLink = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+      break;
+    case 'whatsapp':
+      shareLink = `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`;
+      break;
+  }
+
+  if (shareLink) {
+    window.open(shareLink, '_blank', 'width=600,height=400');
+  }
+};
 
 const Blog = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -134,19 +166,39 @@ const Blog = () => {
                         Read More <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     </Link>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="rounded-full h-10 w-10 border-blue-100 text-blue-600 hover:bg-blue-50 transition-colors"
-                      onClick={() => {
-                        const url = `${window.location.origin}/blog/${featuredPost._id}`;
-                        navigator.clipboard.writeText(url);
-                        toast.success("Link copied to clipboard!");
-                      }}
-                      title="Copy sharing link"
-                    >
-                      <Share2 className="h-4 w-4" />
-                    </Button>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          className="rounded-full h-10 w-10 border-blue-100 text-blue-600 hover:bg-blue-50 transition-colors"
+                          title="Share"
+                        >
+                          <Share2 className="h-4 w-4" />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="end">
+                        <DropdownMenuItem onClick={() => shareUrl('twitter', `${window.location.origin}/blog/${featuredPost._id}`, featuredPost.title)}>
+                          <Twitter className="h-4 w-4 mr-2" /> Twitter
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => shareUrl('facebook', `${window.location.origin}/blog/${featuredPost._id}`, featuredPost.title)}>
+                          <Facebook className="h-4 w-4 mr-2" /> Facebook
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => shareUrl('linkedin', `${window.location.origin}/blog/${featuredPost._id}`, featuredPost.title)}>
+                          <Linkedin className="h-4 w-4 mr-2" /> LinkedIn
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => shareUrl('whatsapp', `${window.location.origin}/blog/${featuredPost._id}`, featuredPost.title)}>
+                          <MessageCircle className="h-4 w-4 mr-2" /> WhatsApp
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => {
+                          const url = `${window.location.origin}/blog/${featuredPost._id}`;
+                          navigator.clipboard.writeText(url);
+                          toast.success("Link copied to clipboard!");
+                        }}>
+                          <LinkIcon className="h-4 w-4 mr-2" /> Copy Link
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
                   </div>
                 </CardContent>
               </div>
@@ -200,19 +252,39 @@ const Blog = () => {
                         Read More <ArrowRight className="ml-1 h-3 w-3" />
                       </Button>
                     </Link>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="h-8 w-8 text-muted-foreground hover:text-blue-600"
-                      onClick={() => {
-                        const url = `${window.location.origin}/blog/${post._id}`;
-                        navigator.clipboard.writeText(url);
-                        toast.success("Link copied to clipboard!");
-                      }}
-                      title="Copy link"
-                    >
-                      <Share2 className="h-3.5 w-3.5" />
-                    </Button>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="h-8 w-8 text-muted-foreground hover:text-blue-600"
+                          title="Share"
+                        >
+                          <Share2 className="h-3.5 w-3.5" />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="end">
+                        <DropdownMenuItem onClick={() => shareUrl('twitter', `${window.location.origin}/blog/${post._id}`, post.title)}>
+                          <Twitter className="h-4 w-4 mr-2" /> Twitter
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => shareUrl('facebook', `${window.location.origin}/blog/${post._id}`, post.title)}>
+                          <Facebook className="h-4 w-4 mr-2" /> Facebook
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => shareUrl('linkedin', `${window.location.origin}/blog/${post._id}`, post.title)}>
+                          <Linkedin className="h-4 w-4 mr-2" /> LinkedIn
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => shareUrl('whatsapp', `${window.location.origin}/blog/${post._id}`, post.title)}>
+                          <MessageCircle className="h-4 w-4 mr-2" /> WhatsApp
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => {
+                          const url = `${window.location.origin}/blog/${post._id}`;
+                          navigator.clipboard.writeText(url);
+                          toast.success("Link copied to clipboard!");
+                        }}>
+                          <LinkIcon className="h-4 w-4 mr-2" /> Copy Link
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
                   </div>
                 </CardContent>
               </Card>
