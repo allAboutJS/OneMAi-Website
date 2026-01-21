@@ -138,13 +138,13 @@ export default function About() {
             </p>
           </div>
           <div className="mt-4 md:mt-0">
-            <Link
-              to="/how-it-works"
+            <a
+              href="https://linktr.ee/joinonemai"
               onClick={scrollToTop}
               className="px-6 py-3 bg-[#3390D5] text-white rounded-lg font-semibold hover:bg-blue-700"
             >
-              How It Works
-            </Link>
+              Join the Movement
+            </a>
           </div>
         </div>
       </section>
