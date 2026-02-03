@@ -1,42 +1,16 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-
-/* --------------------------------- Types --------------------------------- */
-type QA = {
-  id: string;
-  question: string;
-  answer: string | React.ReactNode;
-};
+import { useRegion } from "../context/RegionContext";
 
 /* ------------------------------- Page Setup ------------------------------- */
 export default function FAQPage() {
+  const { regionData } = useRegion();
   const [openItem, setOpenItem] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const topRef = useRef<HTMLDivElement>(null);
 
-  // Static Data
-  const faqItems: QA[] = [
-    {
-      id: "general-1",
-      question: "What is OneMAI?",
-      answer: "OneMAI is a comprehensive platform designed to streamline your workflow and enhance productivity with AI-driven tools.",
-    },
-    {
-      id: "general-2",
-      question: "How do I get started?",
-      answer: "Simply sign up for an account, and you can immediately start exploring our features. We offer a guided tour to help you get acquainted.",
-    },
-    {
-      id: "general-3",
-      question: "Is there a free trial?",
-      answer: "Yes, we offer a 14-day free trial for all new users so you can experience the full power of OneMAI before committing.",
-    },
-    {
-      id: "general-4",
-      question: "How can I contact support?",
-      answer: "You can reach our support team via the contact page or by emailing support@joinOneMAI.com.",
-    },
-  ];
+  // Dynamic Data from Region
+  const faqItems = regionData.faqs;
 
   const filteredList = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -76,9 +50,9 @@ export default function FAQPage() {
       {/* Hero (compact) */}
       <section className="bg-gray-50 border-b">
         <div ref={topRef} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">Frequently Asked Questions</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">{regionData.faqHeroTitle}</h1>
           <p className="mt-3 text-gray-600 text-lg">
-            Common questions about OneMAI.
+            {regionData.faqHeroSubtitle}
           </p>
           <div className="mt-6">
             <Link

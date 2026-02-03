@@ -8,6 +8,115 @@ export interface Testimonial {
     detail: string;
 }
 
+export type QA = {
+    id: string;
+    question: string;
+    answer: string;
+};
+
+export interface HowItWorksStep {
+    title: string;
+    text: string;
+}
+
+export interface HowItWorksContent {
+    heroTitle: string;
+    heroSubtitle: string;
+    sectionTitle: string;
+    steps: HowItWorksStep[];
+    responsibilities: {
+        title: string;
+        items: string[];
+    };
+    disputes: {
+        title: string;
+        items: string[];
+    };
+}
+
+export interface BenefitPoint {
+    title: string;
+    text: string;
+}
+
+export interface BenefitCategory {
+    title: string;
+    items: BenefitPoint[];
+}
+
+export interface BenefitsContent {
+    heroTitle: string;
+    heroSubtitle: string;
+    sectionTitle: string;
+    userBenefits: BenefitCategory;
+    orgBenefits: BenefitCategory;
+    safetyPoints: string[];
+}
+
+export interface AboutContent {
+    heroTitle: string;
+    heroSubtitle: string;
+    storyTitle: string;
+    storyParagraphs: string[];
+    facilitationTitle: string;
+    facilitationSubtitle: string;
+    facilitationItems: string[];
+    missionTitle: string;
+    missionText: string;
+    valuesTitle: string;
+    valuesList: { label: string; text: string }[];
+    ctaTitle: string;
+    ctaText: string;
+}
+
+export interface HomeContent {
+    howItWorksSubtitle: string;
+    howItWorksSteps: {
+        step: string;
+        title: string;
+        description: string;
+        points: string[];
+    }[];
+    financialHome: {
+        title: string;
+        subtitle: string;
+        buttonText: string;
+    };
+    testimonialsText: {
+        title: string;
+        subtitle: string;
+    };
+    partnersTitle: string;
+    poweredByTitle: string;
+    poweredBySubtitle: string;
+    trustedAnchorsCard: {
+        title: string;
+        readyText: string;
+        buttonText: string;
+    };
+    newsletter: {
+        title: string;
+        placeholder: string;
+        buttonText: string;
+    };
+    faq: {
+        title: string;
+        subtitle: string;
+        buttonText: string;
+    };
+    authModal: {
+        title: string;
+        subtitle: string;
+        userAccount: string;
+        affiliateAccount: string;
+        footer: string;
+    };
+    socialPopup: {
+        title: string;
+        closeButton: string;
+    };
+}
+
 export interface RegionData {
     region: Region;
     domain: string;
@@ -24,7 +133,28 @@ export interface RegionData {
     };
     heroTitle: string;
     heroSubtitle: string;
+    faqHeroTitle: string;
+    faqHeroSubtitle: string;
+    faqs: QA[];
+    howItWorks: HowItWorksContent;
+    benefits: BenefitsContent;
+    about: AboutContent;
+    home: HomeContent;
+    ctaTitle: string;
+    ctaText: string;
     testimonials: Testimonial[];
+    images: {
+        hero: string;
+        communityJoin: string;
+        communityParams: string;
+        communityFunds: string;
+        financialHome: string;
+        trustedAnchors: string;
+        aboutHero: string;
+        benefitsHero: string;
+        benefitsIllustration: string;
+        howItWorksHero: string;
+    };
 }
 
 import indian3Img from "../assets/images/indian-3.jpg";
@@ -34,9 +164,32 @@ import chidi from "../assets/images/chidi.png";
 import amaka from "../assets/images/amaka.png";
 import tunde from "../assets/images/tunde.png";
 
+// Default images for GLOBAL/EU
+import contentImg from "@/assets/images/content.png";
+import groupImg from "@/assets/images/groups.png";
+import receiveFundImg from "@/assets/images/receive-fund.jpeg";
+import createGroupImg from "@/assets/images/create-group.png";
+import communityHandsImg from "@/assets/images/community-hands-stacked.png";
+import diverseCommunityImg from "@/assets/images/diverse-community-selfie.png";
+import phoneImage from "@/assets/images/phone-image.png";
+import benefitsHeroImg from "@/assets/images/benefits-hero.png";
+import communityIllustration from "@/assets/images/community.png";
+import howItWorksHeroImg from "@/assets/images/users.avif";
+
+// Localized images for Nigeria
+import nigerianHero from "../assets/images/nigerian-festive-hero.png";
+import nigerianCommunity from "../assets/images/nigerian-community.jpeg";
+import nigerianHands from "../assets/images/nigerian-hands.png";
+import nigerianBenefitsHero from "../assets/images/nigerian-benefits-hero.png";
+import nigerianBenefitsIllustration from "../assets/images/nigerian-benefits-illustration.png";
+import nigerianHowItWorksHero from "../assets/images/nigerian-howitworks-hero.png";
+
+
 export const REGIONS: Record<Region, RegionData> = {
     EU: {
         region: 'EU',
+        ctaTitle: 'Join Us',
+        ctaText: 'You don’t have to do it alone. Coordinate money with people you trust in a clear and secure way.',
         domain: '.eu',
         name: 'Europe',
         contactEmail: 'hello@joinonemai.com',
@@ -50,6 +203,184 @@ export const REGIONS: Record<Region, RegionData> = {
         },
         heroTitle: 'Community Financing for a Better Future in Europe',
         heroSubtitle: 'Build Wealth with your community',
+        faqHeroTitle: 'Frequently Asked Questions (Europe)',
+        faqHeroSubtitle: 'Managing community finance securely in the European landscape.',
+        faqs: [
+            {
+                id: 'eu-1',
+                question: 'How is OneMAI helpful for expats in Europe?',
+                answer: 'OneMAI provides a structured way for expats to build financial resilience through community support, mirroring trusted informal practices with modern legal and technical safeguards.'
+            },
+            {
+                id: 'eu-2',
+                question: 'Is community financing legal in Europe?',
+                answer: 'Yes, OneMAI works with regulated financial partners to ensure all transactions are compliant with European financial regulations.'
+            },
+            {
+                id: 'eu-3',
+                question: 'Are there any fees for using OneMAI?',
+                answer: 'OneMAI charges a small, transparent platform fee to cover security, processing, and maintenance. There are no hidden interest rates.'
+            },
+            {
+                id: 'eu-4',
+                question: 'Is my personal data protected?',
+                answer: 'Absolutely. We are fully GDPR compliant. Your data is encrypted and used solely for providing our services and ensuring platform security.'
+            }
+        ],
+        howItWorks: {
+            heroTitle: 'How OneMAI Works',
+            heroSubtitle: 'Step-by-step to group savings, transparent coordination, and secure payouts in Europe.',
+            sectionTitle: 'A Seamless Experience — Driven by Trust',
+            steps: [
+                {
+                    title: '1) Verify & Set Up',
+                    text: 'Create an account and complete KYC. This unlocks group participation and helps prevent fraud.'
+                },
+                {
+                    title: '2) Join or Create a Group',
+                    text: 'Groups define members, fixed contribution amount, payout order, start/end dates, and default rules.'
+                },
+                {
+                    title: '3) Automate Contributions and Payout',
+                    text: 'Payments run on schedule through approved processors. Rotation payouts follow the agreed order.'
+                }
+            ],
+            responsibilities: {
+                title: 'Responsibilities',
+                items: [
+                    'Admins: set fair rules, monitor payments, coordinate, and mediate issues.',
+                    'Members: pay on time, respect payout order, and communicate early if issues arise.'
+                ]
+            },
+            disputes: {
+                title: 'Defaults & Disputes',
+                items: [
+                    'Delays trigger reminders; repeated defaults can pause or reorder payouts and restrict access.',
+                    'Resolve in-group first → escalate to admin → escalate to OneMAI with logs for mediation.'
+                ]
+            }
+        },
+        benefits: {
+            heroTitle: 'Benefits',
+            heroSubtitle: 'Unlock collective financial power and build a stronger future with OneMAI in Europe.',
+            sectionTitle: 'A Trusted Tradition - Strengthened by Technology',
+            userBenefits: {
+                title: 'For Users',
+                items: [
+                    { title: 'Access to Zero-interest Financing', text: 'Eliminate traditional loan burdens with interest-free financial solutions.' },
+                    { title: 'Built for Trust and Transparency', text: 'Every contribution and transfer is visible, traceable, and protected by modern security standards.' },
+                    { title: 'Financial Literacy Tools', text: 'Access educational resources and tools for better financial management.' },
+                    { title: 'Community Support', text: 'Join a network of like-minded individuals working towards financial goals.' }
+                ]
+            },
+            orgBenefits: {
+                title: 'For Companies & Organizations',
+                items: [
+                    { title: 'Employee Financial Welfare', text: 'Support your employees\' financial well-being with innovative solutions.' },
+                    { title: 'Improved Retention', text: 'Enhance employee loyalty through financial support programs.' },
+                    { title: 'Enhanced Productivity', text: 'Boost workplace performance by reducing financial stress.' },
+                    { title: 'Analytics and Insight', text: 'Access detailed reports on financial wellness programs.' }
+                ]
+            },
+            safetyPoints: [
+                'Funds protected in licensed custodial accounts',
+                'Automated contributions and scheduled payouts',
+                'Insurance protection in case a member misses a payment',
+                'Complete transparency for every member',
+                'Simple onboarding for groups and community leaders'
+            ]
+        },
+        about: {
+            heroTitle: 'OneMAI The Story',
+            heroSubtitle: 'Inspired by long-standing community finance practices, OneMAI brings structure, transparency, and security to how groups coordinate money today — without complexity and with full traceability.',
+            storyTitle: 'Our Story',
+            storyParagraphs: [
+                'Imran is a member of Lisbon Project, and he is from Morrocco. Imran is a brilliant young man with a drive for entrepreneurship, but Imran does not have any access to alternative funds to help him drive his proposed 4,000 Euros venture. With OneMAI, Imran will achieve this overtime within his own group.',
+                'Across European communities, people have long relied on informal savings groups to pool funds and support one another, especially people who have their credit history in other continents of the world.',
+                'OneMAI takes this age-old practice and modernizes it for today\'s world. By combining technology and transparency, we offer a digital platform where saving together is safe, automated, and scalable.'
+            ],
+            facilitationTitle: 'What we facilitate —',
+            facilitationSubtitle: 'Group Power, Personal Gains',
+            facilitationItems: [
+                'Transparent and secure system',
+                'Recognized by Startup Portugal',
+                'Engaged with regulators',
+                'Backed by banking partners'
+            ],
+            missionTitle: 'Our Mission',
+            missionText: 'To make financial inclusion practical through transparent, community-powered financial coordination built on trust, clarity, and access.',
+            valuesTitle: 'Our Values',
+            valuesList: [
+                { label: 'Trust', text: 'built into every interaction' },
+                { label: 'Transparency', text: 'no hidden charges, no confusion' },
+                { label: 'Community', text: 'because together, we go further' },
+                { label: 'Inclusion', text: 'financial access for everyone' },
+                { label: 'Innovation', text: 'modern solutions for timeless practices' }
+            ],
+            ctaTitle: 'Join Us',
+            ctaText: 'You don’t have to do it alone. Coordinate money with people you trust in a clear and secure way.'
+        },
+        home: {
+            howItWorksSubtitle: 'Get started with OneMAI in three simple steps',
+            howItWorksSteps: [
+                {
+                    step: 'Step 1',
+                    title: 'Create and Join a Community',
+                    description: 'Start by creating your own community or joining an existing one. Connect with like-minded individuals who share your financial goals.',
+                    points: ['Create a new community in minutes', 'Join existing communities']
+                },
+                {
+                    step: 'Step 2',
+                    title: 'Set Contribution and Payout Parameters',
+                    description: 'Configure contribution amounts, frequency, and withdrawal rules that work for your community.',
+                    points: ['Set contribution schedules', 'Define withdrawal criteria']
+                },
+                {
+                    step: 'Step 3',
+                    title: 'Contribute and Receive Funds',
+                    description: 'Begin contributing and receive funds in line with your community’s established rules.',
+                    points: ['Step in profile', 'Join or create a community', 'Set parameters', 'Contribute and receive funds']
+                }
+            ],
+            financialHome: {
+                title: 'A financial home shaped by people and shared purpose.',
+                subtitle: 'One community at a time.',
+                buttonText: 'Join the Movement'
+            },
+            testimonialsText: {
+                title: 'Listen',
+                subtitle: 'to what our customers have to say'
+            },
+            partnersTitle: 'Partners',
+            poweredByTitle: 'Powered by communities, strengthened by trust.',
+            poweredBySubtitle: 'Our circles grow through trusted anchors',
+            trustedAnchorsCard: {
+                title: 'Create an income stream while helping your community save.',
+                readyText: 'Ready ?',
+                buttonText: 'Become an Affiliate'
+            },
+            newsletter: {
+                title: 'Stay Updated with Our Progress',
+                placeholder: 'Enter your email',
+                buttonText: 'Subscribe'
+            },
+            faq: {
+                title: 'Frequently Asked Questions',
+                subtitle: 'Find answers to common questions about OneMAI',
+                buttonText: 'Read FAQs'
+            },
+            authModal: {
+                title: 'Sign Up for Early Perks',
+                subtitle: 'Choose your account type to get started',
+                userAccount: 'User Account',
+                affiliateAccount: 'Affiliate Account',
+                footer: 'Not sure? Choose User Account for regular access'
+            },
+            socialPopup: {
+                title: 'Join Us On Social Media',
+                closeButton: 'Close'
+            }
+        },
         testimonials: [
             {
                 img: indian3Img,
@@ -73,9 +404,23 @@ export const REGIONS: Record<Region, RegionData> = {
                 detail: "Funded education through community support",
             },
         ],
+        images: {
+            hero: contentImg,
+            communityJoin: createGroupImg,
+            communityParams: groupImg,
+            communityFunds: receiveFundImg,
+            financialHome: diverseCommunityImg,
+            trustedAnchors: communityHandsImg,
+            aboutHero: phoneImage,
+            benefitsHero: benefitsHeroImg,
+            benefitsIllustration: communityIllustration,
+            howItWorksHero: howItWorksHeroImg,
+        }
     },
     NG: {
         region: 'NG',
+        ctaTitle: 'Start Your Circle',
+        ctaText: 'Bring your Ajo group online and experience the ease of automated coordination and secure payouts.',
         domain: '.ng',
         name: 'Nigeria',
         contactEmail: 'ng@joinonemai.com',
@@ -89,6 +434,209 @@ export const REGIONS: Record<Region, RegionData> = {
         },
         heroTitle: "Community Financing for Nigeria's Future",
         heroSubtitle: 'Build Wealth with your community in Nigeria',
+        faqHeroTitle: 'Frequently Asked Questions (Nigeria)',
+        faqHeroSubtitle: 'Modernizing Ajo and Esusu with security and transparency.',
+        faqs: [
+            {
+                id: "general-1",
+                question: "What is OneMAI?",
+                answer: "OneMAI is a digital platform that helps people organise money together in a simple and trusted way. It is built for people who save, contribute or support each other as a group, like ajo, esusu, thrift, but with better structure and visibility .",
+            },
+            {
+                id: "general-2",
+                question: "How do I get started?",
+                answer: "Simply sign up on the OneMAI website, verify your details, create a group or join one with an invite, agree on how much and when to contribute, start contributing and tracking payments. We offer a guided tour to help you get acquainted.",
+            },
+            {
+                id: "general-3",
+                question: "Is there a free trial?",
+                answer: "Yes, we offer a 14-day free trial for all new users so you can experience the platform before committing.",
+            },
+            {
+                id: "general-4",
+                question: "How can I contact support?",
+                answer: "You can reach our support team via the contact page or by emailing support@joinOneMAI.com.",
+            },
+            {
+                id: "ng-money-hold",
+                question: "Does OneMAI hold my money?",
+                answer: "No. OneMAI does not hold your money",
+            },
+            {
+                id: "ng-payment-fail",
+                question: "What happens if a payment fails?",
+                answer: "if a payment fails, nothing is lost. The payment will simply not go through and the money will remain with the sender.",
+            },
+            {
+                id: "ng-access",
+                question: "Can I use OneMAI from anywhere in Nigeria?",
+                answer: "Yes you can, as long as you have a phone and internet access.",
+            },
+            {
+                id: "ng-password",
+                question: "What if I forget my password?",
+                answer: "just tap “forgot password” on the login screen and follow the steps to reset it using your phone number or email and you’ll be back into your account in few minutes.",
+            },
+            {
+                id: "ng-multi-group",
+                question: "Can I belong to more than one group?",
+                answer: "Yes, you can join or create multiple groups at the same time and track each one seperately on OneMAI.",
+            },
+        ],
+        howItWorks: {
+            heroTitle: 'How OneMAI Works',
+            heroSubtitle: 'Step-by-step to group savings (Ajo/Esusu/Thrift), transparent coordination, and secure payouts in Nigeria.',
+            sectionTitle: 'A Structured Way to Ajo — Driven by Trust',
+            steps: [
+                {
+                    title: '1) Verify & Set Up',
+                    text: 'Create an account and complete KYC. This ensures only trusted members participate in your Ajo circles.'
+                },
+                {
+                    title: '2) Join or Create a Thrift/Ajo Circle',
+                    text: 'Define members, monthly/weekly contribution, payout order, and circle rules clearly in the app.'
+                },
+                {
+                    title: '3) Automate Contributions and Receive Funds',
+                    text: 'Payments are collected automatically. Your payout is sent directly to your bank when it is your turn.'
+                }
+            ],
+            responsibilities: {
+                title: 'Circle Responsibilities',
+                items: [
+                    'Admins: set fair rules, monitor circle health, and coordinate with members.',
+                    'Members: pay on time, respect the rotation order, and maintain community trust.'
+                ]
+            },
+            disputes: {
+                title: 'Defaults & Resolution',
+                items: [
+                    'Payment delays trigger reminders; repeated defaults restrict access and can pause payouts.',
+                    'Resolve within your circle → escalate to admin → OneMAI logs provide evidence for mediation.'
+                ]
+            }
+        },
+        benefits: {
+            heroTitle: 'Benefits of OneMAI',
+            heroSubtitle: 'Harness the power of community to build wealth and financial security in Nigeria.',
+            sectionTitle: 'Modernizing Ajo & Esusu - Strengthened by Technology',
+            userBenefits: {
+                title: 'For Individuals & Groups',
+                items: [
+                    { title: 'Access to Zero-interest Capital', text: 'Get access to bulk funds for business or personal needs without the burden of high interest rates.' },
+                    { title: 'Eliminate "Runaway" Risks', text: 'Every contribution is tracked and payouts are automated, ensuring maximum security for your Ajo.' },
+                    { title: 'Build Your Credit Profile', text: 'Formalize your informal savings history to unlock better financial opportunities in the future.' },
+                    { title: 'Community Financial Safety Net', text: 'A trusted environment where members support each other to reach financial milestones.' }
+                ]
+            },
+            orgBenefits: {
+                title: 'For Cooperatives & Employers',
+                items: [
+                    { title: 'Automated Cooperative Management', text: 'Digitalize your cooperative society or staff thrift group for better efficiency and less paperwork.' },
+                    { title: 'Employee Financial Stability', text: 'Help your staff manage their finances better through structured group savings.' },
+                    { title: 'Reduced Administrative Stress', text: 'Focus on growth while our platform handles collections and payout schedules.' },
+                    { title: 'Transparent Record Keeping', text: 'Real-time dashboards for all contributions and payout cycles.' }
+                ]
+            },
+            safetyPoints: [
+                'Funds protected through licensed financial partners',
+                'Automated bank collections and direct payouts',
+                'Security frameworks to handle missed payments',
+                'Full visibility into every Ajo cycle progress',
+                'Easy onboarding with your phone number and BVN verification'
+            ]
+        },
+        about: {
+            heroTitle: 'OneMAI The Story',
+            heroSubtitle: 'Deeply rooted in the Nigerian tradition of group savings, OneMAI brings structure, transparency, and digital security to Ajo, Esusu, and Thrift coordination.',
+            storyTitle: 'Our Story',
+            storyParagraphs: [
+                'Tunde is a trader in Ariaria Market, Aba. He has participated in Ajo circles for years to grow his business capital. However, he always worried about the lack of records and the risk of a collector "disappearing." With OneMAI, Tunde now manages his market union\'s contributions with full digital transparency.',
+                'Across Nigeria, millions of people rely on Ajo and Esusu to save and access bulk funds. It is a powerful community engine, but one that often lacks formal protection.',
+                'OneMAI honors this tradition by providing the digital layer it deserves. We combine the trust of your existing community with the security of modern financial technology, ensuring every Naira is accounted for and every payout is protected.'
+            ],
+            facilitationTitle: 'What we facilitate —',
+            facilitationSubtitle: 'Traditional Trust, Digital Security',
+            facilitationItems: [
+                'Automated bank contributions',
+                'Transparent payout schedules',
+                'BVN-verified members',
+                'Licensed custodial protection'
+            ],
+            missionTitle: 'Our Mission',
+            missionText: 'To modernize community finance in Nigeria through transparent, community-powered coordination built on trust and accessibility.',
+            valuesTitle: 'Our Values',
+            valuesList: [
+                { label: 'Integrity', text: 'honoring every contribution' },
+                { label: 'Transparency', text: 'real-time visibility for every member' },
+                { label: 'Community', text: 'strengthening the bonds that build wealth' },
+                { label: 'Security', text: 'protecting group funds with technology' },
+                { label: 'Prosperity', text: 'helping every Nigerian reach their goals' }
+            ],
+            ctaTitle: 'Start Your Circle',
+            ctaText: 'Bring your Ajo group online and experience the ease of automated coordination and secure payouts.'
+        },
+        home: {
+            howItWorksSubtitle: 'Get started with OneMAI in three simple steps',
+            howItWorksSteps: [
+                {
+                    step: 'Step 1',
+                    title: 'Create and Join an Ajo Circle',
+                    description: 'Start by creating your own Ajo circle or joining an existing one. Connect with like-minded individuals who share your financial goals.',
+                    points: ['Create a new circle in minutes', 'Join existing thrift circles']
+                },
+                {
+                    step: 'Step 2',
+                    title: 'Set Contribution and Payout Parameters',
+                    description: 'Configure contribution amounts, frequency, and withdrawal rules that work for your community.',
+                    points: ['Set contribution schedules', 'Define withdrawal criteria']
+                },
+                {
+                    step: 'Step 3',
+                    title: 'Contribute and Receive Funds',
+                    description: 'Begin contributing and receive funds in line with your community’s established rules.',
+                    points: ['Step in profile', 'Join or create a circle', 'Set parameters', 'Contribute and receive funds']
+                }
+            ],
+            financialHome: {
+                title: 'A financial home shaped by people and shared purpose.',
+                subtitle: 'One community at a time.',
+                buttonText: 'Join the Movement'
+            },
+            testimonialsText: {
+                title: 'Listen',
+                subtitle: 'to what our customers have to say'
+            },
+            partnersTitle: 'Partners',
+            poweredByTitle: 'Powered by communities, strengthened by trust.',
+            poweredBySubtitle: 'Our circles grow through trusted anchors',
+            trustedAnchorsCard: {
+                title: 'Create an income stream while helping your community save.',
+                readyText: 'Ready ?',
+                buttonText: 'Become an Affiliate'
+            },
+            newsletter: {
+                title: 'Stay Updated with Our Progress',
+                placeholder: 'Enter your email',
+                buttonText: 'Subscribe'
+            },
+            faq: {
+                title: 'Frequently Asked Questions',
+                subtitle: 'Find answers to common questions about OneMAI',
+                buttonText: 'Read FAQs'
+            },
+            authModal: {
+                title: 'Sign Up for Early Perks',
+                subtitle: 'Choose your account type to get started',
+                userAccount: 'User Account',
+                affiliateAccount: 'Affiliate Account',
+                footer: 'Not sure? Choose User Account for regular access'
+            },
+            socialPopup: {
+                title: 'Join Us On Social Media',
+                closeButton: 'Close'
+            }
+        },
         testimonials: [
             {
                 img: chidi,
@@ -112,9 +660,23 @@ export const REGIONS: Record<Region, RegionData> = {
                 detail: "Achieved career goals through group saving",
             },
         ],
+        images: {
+            hero: nigerianHero,
+            communityJoin: createGroupImg,
+            communityParams: groupImg,
+            communityFunds: receiveFundImg,
+            financialHome: nigerianCommunity,
+            trustedAnchors: nigerianHands,
+            aboutHero: phoneImage,
+            benefitsHero: nigerianBenefitsHero,
+            benefitsIllustration: communityIllustration,
+            howItWorksHero: nigerianHowItWorksHero,
+        }
     },
     GLOBAL: {
         region: 'GLOBAL',
+        ctaTitle: 'Join Us',
+        ctaText: 'You don’t have to do it alone. Coordinate money with people you trust in a clear and secure way.',
         domain: '.com',
         name: 'Global',
         contactEmail: 'hello@joinonemai.com',
@@ -128,6 +690,179 @@ export const REGIONS: Record<Region, RegionData> = {
         },
         heroTitle: 'Community Financing for a Better Future',
         heroSubtitle: 'Build Wealth with your community',
+        faqHeroTitle: 'Frequently Asked Questions',
+        faqHeroSubtitle: 'Common questions about the OneMAI global community.',
+        faqs: [
+            {
+                id: 'global-1',
+                question: 'What is OneMAI?',
+                answer: 'OneMAI is a global platform for community-powered financial coordination, making collective saving and financing safe and accessible for everyone.'
+            },
+            {
+                id: 'global-2',
+                question: 'How do I create a new circle?',
+                answer: 'Once you sign up, simply click on "Start a Circle," define your payout order, contribution amounts, and invite your trusted community members.'
+            },
+            {
+                id: 'global-3',
+                question: 'Who can I invite to my circle?',
+                answer: 'You can invite anyone you trust. OneMAI is built on community trust, so it works best with friends, family, or professional networks.'
+            }
+        ],
+        howItWorks: {
+            heroTitle: 'How OneMAI Works',
+            heroSubtitle: 'Step-by-step to group savings, transparent coordination, and secure payouts.',
+            sectionTitle: 'A Seamless Experience — Driven by Trust',
+            steps: [
+                {
+                    title: '1) Verify & Set Up',
+                    text: 'Create an account and complete KYC. This unlocks group participation and helps prevent fraud.'
+                },
+                {
+                    title: '2) Join or Create a Group',
+                    text: 'Groups define members, fixed contribution amount, payout order, start/end dates, and default rules.'
+                },
+                {
+                    title: '3) Automate Contributions and Payout',
+                    text: 'Payments run on schedule through approved processors. Rotation payouts follow the agreed order.'
+                }
+            ],
+            responsibilities: {
+                title: 'Responsibilities',
+                items: [
+                    'Admins: set fair rules, monitor payments, coordinate, and mediate issues.',
+                    'Members: pay on time, respect payout order, and communicate early if issues arise.'
+                ]
+            },
+            disputes: {
+                title: 'Defaults & Disputes',
+                items: [
+                    'Delays trigger reminders; repeated defaults can pause or reorder payouts and restrict access.',
+                    'Resolve in-group first → escalate to admin → escalate to OneMAI with logs for mediation.'
+                ]
+            }
+        },
+        benefits: {
+            heroTitle: 'Benefits',
+            heroSubtitle: 'Unlock collective financial power and build a stronger future with OneMAI.',
+            sectionTitle: 'A Trusted Tradition - Strengthened by Technology',
+            userBenefits: {
+                title: 'For Users',
+                items: [
+                    { title: 'Access to Zero-interest Financing', text: 'Eliminate traditional loan burdens with interest-free financial solutions.' },
+                    { title: 'Built for Trust and Transparency', text: 'Every contribution and transfer is visible, traceable, and protected by modern security standards.' },
+                    { title: 'Financial Literacy Tools', text: 'Access educational resources and tools for better financial management.' },
+                    { title: 'Community Support', text: 'Join a network of like-minded individuals working towards financial goals.' }
+                ]
+            },
+            orgBenefits: {
+                title: 'For Companies & Organizations',
+                items: [
+                    { title: 'Employee Financial Welfare', text: 'Support your employees\' financial well-being with innovative solutions.' },
+                    { title: 'Improved Retention', text: 'Enhance employee loyalty through financial support programs.' },
+                    { title: 'Enhanced Productivity', text: 'Boost workplace performance by reducing financial stress.' },
+                    { title: 'Analytics and Insight', text: 'Access detailed reports on financial wellness programs.' }
+                ]
+            },
+            safetyPoints: [
+                'Funds protected in licensed custodial accounts',
+                'Automated contributions and scheduled payouts',
+                'Insurance protection in case a member misses a payment',
+                'Complete transparency for every member',
+                'Simple onboarding for groups and community leaders'
+            ]
+        },
+        about: {
+            heroTitle: 'OneMAI The Story',
+            heroSubtitle: 'Inspired by long-standing community finance practices, OneMAI brings structure, transparency, and security to how groups coordinate money today — without complexity and with full traceability.',
+            storyTitle: 'Our Story',
+            storyParagraphs: [
+                'Around the world, people have long relied on informal savings groups to pool funds and support one another. It is a timeless practice built on community trust and collective ambition.',
+                'However, these traditional groups often lack modern structure, making them hard to manage at scale and difficult to verify for formal financial institutions.',
+                'OneMAI takes this age-old practice and modernizes it for today\'s world. By combining technology and transparency, we offer a digital platform where saving together is safe, automated, and scalable for everyone, everywhere.'
+            ],
+            facilitationTitle: 'What we facilitate —',
+            facilitationSubtitle: 'Group Power, Personal Gains',
+            facilitationItems: [
+                'Transparent and secure coordination',
+                'Automated contribution tracking',
+                'Full visibility into group health',
+                'Secure payout rotations'
+            ],
+            missionTitle: 'Our Mission',
+            missionText: 'To make financial inclusion practical through transparent, community-powered financial coordination built on trust, clarity, and access.',
+            valuesTitle: 'Our Values',
+            valuesList: [
+                { label: 'Trust', text: 'built into every interaction' },
+                { label: 'Transparency', text: 'no hidden charges, no confusion' },
+                { label: 'Community', text: 'because together, we go further' },
+                { label: 'Inclusion', text: 'financial access for everyone' },
+                { label: 'Innovation', text: 'modern solutions for timeless practices' }
+            ],
+            ctaTitle: 'Join Us',
+            ctaText: 'You don’t have to do it alone. Coordinate money with people you trust in a clear and secure way.'
+        },
+        home: {
+            howItWorksSubtitle: 'Get started with OneMAI in three simple steps',
+            howItWorksSteps: [
+                {
+                    step: 'Step 1',
+                    title: 'Create and Join a Community',
+                    description: 'Start by creating your own community or joining an existing one. Connect with like-minded individuals who share your financial goals.',
+                    points: ['Create a new community in minutes', 'Join existing communities']
+                },
+                {
+                    step: 'Step 2',
+                    title: 'Set Contribution and Payout Parameters',
+                    description: 'Configure contribution amounts, frequency, and withdrawal rules that work for your community.',
+                    points: ['Set contribution schedules', 'Define withdrawal criteria']
+                },
+                {
+                    step: 'Step 3',
+                    title: 'Contribute and Receive Funds',
+                    description: 'Begin contributing and receive funds in line with your community’s established rules.',
+                    points: ['Step in profile', 'Join or create a community', 'Set parameters', 'Contribute and receive funds']
+                }
+            ],
+            financialHome: {
+                title: 'A financial home shaped by people and shared purpose.',
+                subtitle: 'One community at a time.',
+                buttonText: 'Join the Movement'
+            },
+            testimonialsText: {
+                title: 'Listen',
+                subtitle: 'to what our customers have to say'
+            },
+            partnersTitle: 'Partners',
+            poweredByTitle: 'Powered by communities, strengthened by trust.',
+            poweredBySubtitle: 'Our circles grow through trusted anchors',
+            trustedAnchorsCard: {
+                title: 'Create an income stream while helping your community save.',
+                readyText: 'Ready ?',
+                buttonText: 'Become an Affiliate'
+            },
+            newsletter: {
+                title: 'Stay Updated with Our Progress',
+                placeholder: 'Enter your email',
+                buttonText: 'Subscribe'
+            },
+            faq: {
+                title: 'Frequently Asked Questions',
+                subtitle: 'Find answers to common questions about OneMAI',
+                buttonText: 'Read FAQs'
+            },
+            authModal: {
+                title: 'Sign Up for Early Perks',
+                subtitle: 'Choose your account type to get started',
+                userAccount: 'User Account',
+                affiliateAccount: 'Affiliate Account',
+                footer: 'Not sure? Choose User Account for regular access'
+            },
+            socialPopup: {
+                title: 'Join Us On Social Media',
+                closeButton: 'Close'
+            }
+        },
         testimonials: [
             {
                 img: indian3Img,
@@ -151,5 +886,17 @@ export const REGIONS: Record<Region, RegionData> = {
                 detail: "Funded education through community support",
             },
         ],
+        images: {
+            hero: contentImg,
+            communityJoin: createGroupImg,
+            communityParams: groupImg,
+            communityFunds: receiveFundImg,
+            financialHome: diverseCommunityImg,
+            trustedAnchors: communityHandsImg,
+            aboutHero: phoneImage,
+            benefitsHero: benefitsHeroImg,
+            benefitsIllustration: communityIllustration,
+            howItWorksHero: howItWorksHeroImg,
+        }
     },
 };

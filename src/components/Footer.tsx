@@ -169,7 +169,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  to="/benefit"
+                  to="/benefits"
                   onClick={scrollToTop}
                   className="text-gray-400 hover:text-white transition-colors duration-300"
                 >

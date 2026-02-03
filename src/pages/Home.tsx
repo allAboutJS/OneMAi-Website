@@ -6,17 +6,13 @@ import { useRegion } from "../context/RegionContext";
 // ---------- Image assets ----------
 import contentImg from "@/assets/images/content.png";
 import joinCommunityImg from "@/assets/images/join-a-community.jpeg";
-import groupImg from "@/assets/images/group.jpeg";
+import groupImg from "@/assets/images/groups.png";
 import receiveFundImg from "@/assets/images/receive-fund.jpeg";
-import indian3Img from "@/assets/images/indian-3.jpg";
-import sarah from "@/assets/images/sarah.jpg";
-import santosImg from "@/assets/images/santos.jpg";
 import startUpLogo from "@/assets/images/partners/start-up.png";
 import eitLogo from "@/assets/images/partners/eit.png";
 import lisbonLogo from "@/assets/images/partners/lisbon.png";
 import pageimage from "@/assets/firstimage.png"
-import communityHandsImg from "@/assets/images/community-hands-stacked.png";
-import diverseCommunityImg from "@/assets/images/diverse-community-selfie.png";
+
 // Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCards, Autoplay, Pagination } from 'swiper/modules';
@@ -60,7 +56,11 @@ const Home: React.FC = () => {
       affiliate: 'https://x.joinonemai.com/affilator-create-account'
     };
 
-    window.location.href = urls[role];
+    if (role === 'affiliate') {
+      window.open(urls[role], '_blank');
+    } else {
+      window.location.href = urls[role];
+    }
     setShowAuthModal(false);
   };
 
@@ -147,6 +147,13 @@ const Home: React.FC = () => {
   const toggleItem = (id: string) => setOpenItem((prev) => (prev === id ? null : id));
   useEffect(() => setOpenItem(null), [tab]);
 
+  const h = regionData.home;
+  const stepImages = [
+    regionData.images.communityJoin,
+    regionData.images.communityParams,
+    regionData.images.communityFunds
+  ];
+
   const EU_COUNTRIES = useMemo(
     () => [
       "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czechia (Czech Republic)", "Denmark", "Estonia", "Finland",
@@ -192,14 +199,14 @@ const Home: React.FC = () => {
                 onClick={() => setShowAuthModal(true)}
                 className="inline-block bg-[#3390D5] text-white px-4 py-2 rounded-lg text-lg text-center font-semibold hover:bg-brand-700 transition duration-300 ease-in-out transform hover:-translate-y-1 w-50"
               >
-                Start a Circle
+                {regionData.ctaTitle}
               </button>
             </div>
             {/* Image (optimized for mobile) */}
             <div className="flex items-center justify-center md:justify-end">
               <img
-                src={contentImg}
-                alt="Community"
+                src={regionData.images.hero}
+                alt={regionData.heroTitle}
                 className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain rounded-2xl shadow-lg"
                 loading="lazy"
                 decoding="async"
@@ -214,141 +221,53 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Get started with OneMAI in three simple steps</p>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">{h.howItWorksSubtitle}</p>
           </div>
           <img
             src={pageimage}
-            alt="Community"
+            alt="How OneMAI Works"
             className="w-full h-auto mb-3 max-h-[55vh] md:h-[420px] object-contain rounded mx-auto"
             loading="lazy"
           />
 
-
           <section className="space-y-20">
-            {/* Step 1 */}
-            <div className="flex flex-col lg:flex-row justify-center items-center gap-8 lg:gap-16">
-              {/* Text */}
-              <div className="w-full lg:w-4/12 order-2 lg:order-2">
-                <div className="bg-white rounded-2xl shadow-lg p-8">
-                  <div className="text-brand-600 mb-6">
-                    <span className="inline-block px-6 py-3 rounded-full bg-brand-100 text-brand-600 text-lg font-bold">
-                      Step 1
-                    </span>
+            {h.howItWorksSteps.map((step, idx) => (
+              <div key={idx} className="flex flex-col lg:flex-row justify-center items-center gap-8 lg:gap-16">
+                {/* Text */}
+                <div className={`w-full lg:w-4/12 order-2 ${idx % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
+                  <div className="bg-white rounded-2xl shadow-lg p-8">
+                    <div className="text-brand-600 mb-6">
+                      <span className="inline-block px-6 py-3 rounded-full bg-brand-100 text-brand-600 text-lg font-bold">
+                        {step.step}
+                      </span>
+                    </div>
+                    <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">{step.title}</h3>
+                    <p className="text-lg text-gray-500 mb-8 leading-relaxed">
+                      {step.description}
+                    </p>
+                    <ul className="space-y-4 text-gray-500">
+                      {step.points.map((pt, pIdx) => (
+                        <li key={pIdx} className="flex items-start">
+                          <SvgCheck className="h-6 w-6 text-brand-500 mr-3 mt-1" />
+                          <span className="text-base">{pt}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Create and Join a Community</h3>
-                  <p className="text-lg text-gray-500 mb-8 leading-relaxed">
-                    Start by creating your own community or joining an existing one. Connect with like-minded individuals who share your financial goals.
-                  </p>
-                  <ul className="space-y-4 text-gray-500">
-                    <li className="flex items-start">
-                      <SvgCheck className="h-6 w-6 text-brand-500 mr-3 mt-1" />
-                      <span className="text-base">Create a new community in minutes</span>
-                    </li>
-                    <li className="flex items-start">
-                      <SvgCheck className="h-6 w-6 text-brand-500 mr-3 mt-1" />
-                      <span className="text-base">Join existing communities</span>
-                    </li>
-                  </ul>
+                </div>
+                {/* Image */}
+                <div className={`order-1 ${idx % 2 === 0 ? 'lg:order-1' : 'lg:order-2'} w-full lg:w-8/12 flex items-center justify-center`}>
+                  <img
+                    src={stepImages[idx]}
+                    alt={step.title}
+                    className="rounded-3xl w-full h-auto object-contain object-center shadow-2xl max-w-none"
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(min-width: 1024px) 75vw, 100vw"
+                  />
                 </div>
               </div>
-              {/* Image */}
-              <div className="order-1 lg:order-1 w-full lg:w-8/12 flex items-center justify-center">
-                <img
-                  src={joinCommunityImg}
-                  alt="Create Community Interface"
-                  className="rounded-3xl w-full h-auto object-contain object-center shadow-2xl max-w-none"
-                  loading="lazy"
-                  decoding="async"
-                  sizes="(min-width: 1024px) 75vw, 100vw"
-                />
-              </div>
-            </div>
-
-            {/* Step 2 */}
-            <div className="flex flex-col lg:flex-row justify-center items-center gap-8 lg:gap-16">
-              {/* Text */}
-              <div className="w-full lg:w-4/12 order-2 lg:order-1">
-                <div className="bg-white rounded-2xl shadow-lg p-8">
-                  <div className="text-brand-600 mb-6">
-                    <span className="inline-block px-6 py-3 rounded-full bg-brand-100 text-brand-600 text-lg font-bold">
-                      Step 2
-                    </span>
-                  </div>
-                  <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Set Contribution and Payout Parameters</h3>
-                  <p className="text-lg text-gray-500 mb-8 leading-relaxed">
-                    Configure contribution amounts, frequency, and withdrawal rules that work for your community.
-                  </p>
-                  <ul className="space-y-4 text-gray-500">
-                    <li className="flex items-start">
-                      <SvgCheck className="h-6 w-6 text-brand-500 mr-3 mt-1" />
-                      <span className="text-base">Set contribution schedules</span>
-                    </li>
-                    <li className="flex items-start">
-                      <SvgCheck className="h-6 w-6 text-brand-500 mr-3 mt-1" />
-                      <span className="text-base">Define withdrawal criteria</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              {/* Image */}
-              <div className="order-1 lg:order-2 w-full lg:w-8/12 flex items-center justify-center">
-                <img
-                  src={groupImg}
-                  alt="Parameters Setup Interface"
-                  className="rounded-3xl w-full h-auto object-contain object-center shadow-2xl max-w-none"
-                  loading="lazy"
-                  decoding="async"
-                  sizes="(min-width: 1024px) 75vw, 100vw"
-                />
-              </div>
-            </div>
-
-            {/* Step 3 */}
-            <div className="flex flex-col lg:flex-row justify-center items-center gap-8 lg:gap-16">
-              {/* Image */}
-              <div className="w-full lg:w-8/12 flex items-center justify-center">
-                <img
-                  src={receiveFundImg}
-                  alt="Fund Management Interface"
-                  className="rounded-3xl w-full h-auto object-contain object-center shadow-2xl max-w-none"
-                  loading="lazy"
-                  decoding="async"
-                  sizes="(min-width: 1024px) 75vw, 100vw"
-                />
-              </div>
-              {/* Text */}
-              <div className="w-full lg:w-4/12">
-                <div className="bg-white rounded-2xl shadow-lg p-8">
-                  <div className="text-brand-600 mb-6">
-                    <span className="inline-block px-6 py-3 rounded-full bg-brand-100 text-brand-600 text-lg font-bold">
-                      Step 3
-                    </span>
-                  </div>
-                  <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Contribute and Receive Funds</h3>
-                  <p className="text-lg text-gray-500 mb-8 leading-relaxed">
-                    Begin contributing and receive funds in line with your community’s established rules.
-                  </p>
-                  <ul className="space-y-4 text-gray-500">
-                    <li className="flex items-start">
-                      <SvgCheck className="h-6 w-6 text-brand-500 mr-3 mt-1" />
-                      <span className="text-base">Step in profile</span>
-                    </li>
-                    <li className="flex items-start">
-                      <SvgCheck className="h-6 w-6 text-brand-500 mr-3 mt-1" />
-                      <span className="text-base">Join or create a community</span>
-                    </li>
-                    <li className="flex items-start">
-                      <SvgCheck className="h-6 w-6 text-brand-500 mr-3 mt-1" />
-                      <span className="text-base">Set parameters</span>
-                    </li>
-                    <li className="flex items-start">
-                      <SvgCheck className="h-6 w-6 text-brand-500 mr-3 mt-1" />
-                      <span className="text-base">Contribute and receive funds</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            ))}
           </section>
         </div>
       </section>
@@ -357,8 +276,8 @@ const Home: React.FC = () => {
       <section className="relative h-[80vh] min-h-[600px] w-full mt-20">
         <div className="absolute inset-0">
           <img
-            src={diverseCommunityImg}
-            alt="Diverse Community"
+            src={regionData.images.financialHome}
+            alt={h.financialHome.title}
             className="w-full h-full object-cover"
             loading="lazy"
           />
@@ -367,10 +286,10 @@ const Home: React.FC = () => {
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 max-w-5xl leading-tight tracking-tight">
-            A financial home shaped by people and shared purpose.
+            {h.financialHome.title}
           </h2>
           <p className="text-2xl md:text-3xl text-gray-200 mt-4 font-serif italic">
-            One community at a time.
+            {h.financialHome.subtitle}
           </p>
 
           {/* Join the Movement Button */}
@@ -380,7 +299,7 @@ const Home: React.FC = () => {
             rel="noopener noreferrer"
             className="mt-10 px-8 py-4 bg-white text-black font-bold rounded-full text-lg transition-all duration-300 hover:bg-gray-200 hover:scale-105 shadow-lg"
           >
-            Join the Movement
+            {h.financialHome.buttonText}
           </a>
         </div>
       </section>
@@ -389,9 +308,9 @@ const Home: React.FC = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Listen</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">{h.testimonialsText.title}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              to what our customers have to say
+              {h.testimonialsText.subtitle}
             </p>
           </div>
 
@@ -425,7 +344,7 @@ const Home: React.FC = () => {
 
       {/* Partners */}
       <section className="bg-gray-50 rounded-2xl p-8 md:p-12">
-        <h1 className="text-xl font-semibold text-gray-900 text-center mb-8">Partners</h1>
+        <h1 className="text-xl font-semibold text-gray-900 text-center mb-8">{h.partnersTitle}</h1>
         <div className="flex flex-wrap justify-center items-center gap-8 opacity-75">
           <img src={startUpLogo} alt="Start-up" className="max-h-20 grayscale hover:grayscale-0 transition-all" />
           <img src={eitLogo} alt="EIT" className="max-h-20 grayscale hover:grayscale-0 transition-all" />
@@ -435,13 +354,12 @@ const Home: React.FC = () => {
 
       {/* CTA + Newsletter */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-white">
-
         <div className="relative max-w-7xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-black mb-8">
-            Powered by communities, strengthened by trust.
+            {h.poweredByTitle}
           </h2>
           <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
-            Our circles grow through trusted anchors
+            {h.poweredBySubtitle}
           </p>
 
           {/* Auth Modal (User/Affiliate Selection) */}
@@ -462,10 +380,10 @@ const Home: React.FC = () => {
                 {/* Modal Content */}
                 <div className="text-center mb-6">
                   <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                    Sign Up for Early Perks
+                    {h.authModal.title}
                   </h2>
                   <p className="text-gray-600">
-                    Choose your account type to get started
+                    {h.authModal.subtitle}
                   </p>
                 </div>
 
@@ -479,7 +397,7 @@ const Home: React.FC = () => {
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                       </svg>
-                      <span className="text-lg">User Account</span>
+                      <span className="text-lg">{h.authModal.userAccount}</span>
                     </div>
                   </button>
 
@@ -491,13 +409,13 @@ const Home: React.FC = () => {
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                       </svg>
-                      <span className="text-lg">Affiliate Account</span>
+                      <span className="text-lg">{h.authModal.affiliateAccount}</span>
                     </div>
                   </button>
                 </div>
 
                 <p className="text-sm text-gray-500 text-center mt-6">
-                  Not sure? Choose User Account for regular access
+                  {h.authModal.footer}
                 </p>
               </div>
             </div>
@@ -507,7 +425,7 @@ const Home: React.FC = () => {
           {showSocialPopup && (
             <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
               <div className="bg-white rounded-lg p-8 max-w-md w-full text-center">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">Join Us On Social Media</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-6">{h.socialPopup.title}</h3>
                 <div className="flex justify-center space-x-6">
                   <a
                     href="https://www.linkedin.com/company/joinonemai/"
@@ -550,7 +468,7 @@ const Home: React.FC = () => {
                   onClick={() => setShowSocialPopup(false)}
                   className="mt-6 bg-[#3390D5] text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-700 transition"
                 >
-                  Close
+                  {h.socialPopup.closeButton}
                 </button>
               </div>
             </div>
@@ -567,16 +485,16 @@ const Home: React.FC = () => {
 
               <div className="relative z-10">
                 <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif text-white leading-tight mb-8">
-                  Create an income stream while helping your community save.
+                  {h.trustedAnchorsCard.title}
                 </h3>
                 <p className="text-lg text-gray-300 mb-8 font-light">
-                  Ready ?
+                  {h.trustedAnchorsCard.readyText}
                 </p>
                 <button
                   onClick={() => handleAuthSelection('affiliate')}
                   className="inline-block bg-gray-100 text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-white transition transform hover:-translate-y-1 shadow-lg"
                 >
-                  Become an Affiliate
+                  {h.trustedAnchorsCard.buttonText}
                 </button>
               </div>
             </div>
@@ -584,7 +502,7 @@ const Home: React.FC = () => {
             {/* Right Card - Image */}
             <div className="relative min-h-[400px]">
               <img
-                src={communityHandsImg}
+                src={regionData.images.trustedAnchors}
                 alt="Community Hands Stacked"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
@@ -594,13 +512,13 @@ const Home: React.FC = () => {
 
           {/* Newsletter (static) */}
           <div className="mt-16 max-w-xl mx-auto">
-            <h3 className="text-xl font-semibold text-white mb-6">Stay Updated with Our Progress</h3>
+            <h3 className="text-xl font-semibold text-white mb-6">{h.newsletter.title}</h3>
             <form className="flex flex-col sm:flex-row gap-4" onSubmit={handleEmailSubmit}>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
+                placeholder={h.newsletter.placeholder}
                 className="flex-1 px-6 py-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3390D5]"
                 required
               />
@@ -609,7 +527,7 @@ const Home: React.FC = () => {
                 disabled={isSubmitting}
                 className="bg-[#3390D5] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#3390D5] transition disabled:opacity-60"
               >
-                {isSubmitting ? "Subscribing..." : "Subscribe"}
+                {isSubmitting ? "..." : h.newsletter.buttonText}
               </button>
             </form>
             {submitMsg && (
@@ -625,15 +543,15 @@ const Home: React.FC = () => {
       <section id="faq" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Find answers to common questions about OneMAI</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">{h.faq.title}</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">{h.faq.subtitle}</p>
           </div>
-          <div className="mt-10">
+          <div className="mt-10 text-center">
             <Link
               to="/faq"
               className="inline-block px-6 py-3 bg-[#3390D5] text-white rounded-lg font-semibold hover:bg-[#3390D5]"
             >
-              Read FAQs
+              {h.faq.buttonText}
             </Link>
           </div>
         </div>
