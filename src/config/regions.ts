@@ -640,9 +640,9 @@ export const REGIONS: Record<Region, RegionData> = {
         testimonials: [
             {
                 img: chidi,
-                title: "Chidi's Story",
+                title: "Olusegun's Story",
                 role: "Trader in Lagos",
-                quote: `"OneMAI has transformed how we do Ajo in our market. It's secure, transparent, and we don't have to worry about anyone running away with our money."`,
+                quote: `"OneMAI has transformed how we do Ajo in our market. It's secure, transparent, and we don't have to worry about anyone running away with our money.\nuna do well"`,
                 detail: "",
             },
             {

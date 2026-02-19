@@ -612,7 +612,7 @@ const StoryCard = ({
       {/* Decorative shape */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-[#2563eb] rounded-bl-full z-0 opacity-50 transform translate-x-8 -translate-y-8"></div>
 
-      <blockquote className="text-xl md:text-2xl italic font-light leading-relaxed mb-8 relative z-10">
+      <blockquote className="text-xl md:text-2xl italic font-light leading-relaxed mb-8 relative z-10 whitespace-pre-line">
         {quote}
       </blockquote>
 
