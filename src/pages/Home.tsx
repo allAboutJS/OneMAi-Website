@@ -186,7 +186,7 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Text */}
             <div className="flex flex-col justify-center">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-normal text-white mb-6">
                 {regionData.heroTitle}
               </h1>
               <p className="text-xl sm:text-2xl text-white mb-8">
@@ -221,7 +221,7 @@ const Home: React.FC = () => {
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">You already Know how it works</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal text-gray-900 mb-4">You already Know how it works</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">{h.howItWorksSubtitle}</p>
           </div>
           <img
@@ -242,7 +242,7 @@ const Home: React.FC = () => {
                         {step.step}
                       </span>
                     </div>
-                    <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">{step.title}</h3>
+                    <h3 className="text-3xl lg:text-4xl font-normal text-gray-900 mb-6">{step.title}</h3>
                     <p className="text-lg text-gray-500 mb-8 leading-relaxed">
                       {step.description}
                     </p>
@@ -286,10 +286,10 @@ const Home: React.FC = () => {
         </div>
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 max-w-5xl leading-tight tracking-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-white mb-6 max-w-5xl leading-tight tracking-tight">
             {h.financialHome.title}
           </h2>
-          <p className="text-2xl md:text-3xl text-gray-200 mt-4 font-serif italic">
+          <p className="text-2xl md:text-3xl text-gray-200 mt-4 italic">
             {h.financialHome.subtitle}
           </p>
 
@@ -309,7 +309,7 @@ const Home: React.FC = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">{h.testimonialsText.title}</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal text-gray-900 mb-4">{h.testimonialsText.title}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               {h.testimonialsText.subtitle}
             </p>
@@ -380,7 +380,7 @@ const Home: React.FC = () => {
       {/* CTA + Newsletter */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="relative max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal text-black mb-8">
             {h.poweredByTitle}
           </h2>
           <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
@@ -509,7 +509,7 @@ const Home: React.FC = () => {
               <div className="absolute -right-10 -top-10 w-64 h-64 bg-gray-700 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
 
               <div className="relative z-10">
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif text-white leading-tight mb-8">
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-normal text-white leading-tight mb-8">
                   {h.trustedAnchorsCard.title}
                 </h3>
                 <p className="text-lg text-gray-300 mb-8 font-light">
@@ -568,7 +568,7 @@ const Home: React.FC = () => {
       <section id="faq" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">{h.faq.title}</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal text-gray-900 mb-4">{h.faq.title}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">{h.faq.subtitle}</p>
           </div>
           <div className="mt-10 text-center">

@@ -47,7 +47,7 @@ export default function Navbar() {
           <div className="flex justify-between h-20">
             {/* Logo */}
             <div className="flex items-center">
-              <Link to="/" className="text-2xl font-bold text-brand-600">
+              <Link to="/" className="text-2xl font-normal text-brand-600">
                 <img src={logo} alt="MAI" className="w-10" />
               </Link>
             </div>
@@ -81,7 +81,7 @@ export default function Navbar() {
               </button>
               <button
                 onClick={() => handleAuthClick('register')}
-                className="px-6 py-2 bg-[#3390D5] text-white rounded-lg font-semibold hover:bg-brand-700 transition duration-300"
+                className="px-6 py-2 bg-[#3390D5] text-white rounded-lg font-medium hover:bg-brand-700 transition duration-300"
               >
                 Register
               </button>
@@ -137,7 +137,7 @@ export default function Navbar() {
               </button>
               <button
                 onClick={() => handleAuthClick('register')}
-                className="block w-full text-center mt-2 px-4 py-2 bg-[#3390D5] text-white rounded-lg font-semibold hover:bg-brand-700"
+                className="block w-full text-center mt-2 px-4 py-2 bg-[#3390D5] text-white rounded-lg font-medium hover:bg-brand-700"
               >
                 Register
               </button>
@@ -166,7 +166,7 @@ export default function Navbar() {
 
             {/* Modal Content */}
             <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+              <h2 className="text-2xl font-normal text-gray-800 mb-2">
                 {modalType === 'signin' ? 'Sign In As' : 'Register As'}
               </h2>
               <p className="text-gray-600">
@@ -178,7 +178,7 @@ export default function Navbar() {
             <div className="space-y-4">
               <button
                 onClick={() => handleSelection('user')}
-                className="w-full py-4 px-6 bg-[#3390D5] text-white rounded-xl font-semibold hover:bg-brand-700 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                className="w-full py-4 px-6 bg-[#3390D5] text-white rounded-xl font-medium hover:bg-brand-700 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
               >
                 <div className="flex items-center justify-center space-x-3">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -190,7 +190,7 @@ export default function Navbar() {
 
               <button
                 onClick={() => handleSelection('affiliate')}
-                className="w-full py-4 px-6 bg-white border-2 border-[#3390D5] text-[#3390D5] rounded-xl font-semibold hover:bg-blue-50 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                className="w-full py-4 px-6 bg-white border-2 border-[#3390D5] text-[#3390D5] rounded-xl font-medium hover:bg-blue-50 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
               >
                 <div className="flex items-center justify-center space-x-3">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

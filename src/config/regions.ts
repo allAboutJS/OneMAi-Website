@@ -337,9 +337,9 @@ export const REGIONS: Record<Region, RegionData> = {
                 },
                 {
                     step: 'Step 3',
-                    title: 'Contribute and Receive Funds',
-                    description: 'Begin contributing and receive funds in line with your community’s established rules.',
-                    points: ['Step in profile', 'Join or create a community', 'Set parameters', 'Contribute and receive funds']
+                    title: 'Contribute and Receive Payouts',
+                    description: 'Begin contributing and receiving payouts in line with your community’s established rules. You can also request a position change from a member of your pod.',
+                    points: ['Activate your pod when members are complete.', 'Contribute to Pod', 'Receive your payout']
                 }
             ],
             financialHome: {
@@ -497,7 +497,7 @@ export const REGIONS: Record<Region, RegionData> = {
                     text: 'Define members, monthly/weekly contribution, payout order, and circle rules clearly in the app.'
                 },
                 {
-                    title: '3) Automate Contributions and Receive Funds',
+                    title: '3) Automate Contributions and receiving payouts',
                     text: 'Payments are collected automatically. Your payout is sent directly to your bank when it is your turn.'
                 }
             ],
@@ -581,9 +581,9 @@ export const REGIONS: Record<Region, RegionData> = {
             howItWorksSteps: [
                 {
                     step: 'Step 1',
-                    title: 'Create and Join an Ajo Circle',
-                    description: 'Start by creating your own Ajo circle or joining an existing one. Connect with like-minded individuals who share your financial goals.',
-                    points: ['Create a new circle in minutes', 'Join existing thrift circles']
+                    title: 'Create and Join a Pod',
+                    description: 'Start by creating your own Pod or joining an existing one. Connect with like-minded individuals who share your financial goals.',
+                    points: ['Create a new Pod in minutes', 'Join existing Pod']
                 },
                 {
                     step: 'Step 2',
@@ -593,9 +593,9 @@ export const REGIONS: Record<Region, RegionData> = {
                 },
                 {
                     step: 'Step 3',
-                    title: 'Contribute and Receive Funds',
-                    description: 'Begin contributing and receive funds in line with your community’s established rules.',
-                    points: ['Step in profile', 'Join or create a circle', 'Set parameters', 'Contribute and receive funds']
+                    title: 'Contribute and Receive Payouts',
+                    description: 'Begin contributing and receiving payouts in line with your community’s established rules. You can also request a position change from a member of your pod.',
+                    points: ['Activate your pod when members are complete.', 'Contribute to Pod', 'Receive your payout']
                 }
             ],
             financialHome: {
@@ -819,9 +819,9 @@ export const REGIONS: Record<Region, RegionData> = {
                 },
                 {
                     step: 'Step 3',
-                    title: 'Contribute and Receive Funds',
-                    description: 'Begin contributing and receive funds in line with your community’s established rules.',
-                    points: ['Step in profile', 'Join or create a community', 'Set parameters', 'Contribute and receive funds']
+                    title: 'Contribute and Receive Payouts',
+                    description: 'Begin contributing and receiving payouts in line with your community’s established rules. You can also request a position change from a member of your pod.',
+                    points: ['Activate your pod when members are complete.', 'Contribute to Pod', 'Receive your payout']
                 }
             ],
             financialHome: {

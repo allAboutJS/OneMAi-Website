@@ -80,7 +80,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-bold text-white mb-4">OneMAI</h3>
+            <h3 className="text-2xl font-normal text-white mb-4">OneMAI</h3>
             <p className="text-gray-400 mb-4 max-w-md">
               Empowering communities through zero-interest and secured democratic financial solutions.
             </p>
@@ -147,7 +147,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
+            <h4 className="text-lg font-normal text-white mb-4">Quick Links</h4>
             <ul className="space-y-3">
               <li>
                 <Link
@@ -181,7 +181,7 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-4">Legal</h4>
+            <h4 className="text-lg font-normal text-white mb-4">Legal</h4>
             <ul className="space-y-3">
               <li>
                 <Link
@@ -225,7 +225,7 @@ export default function Footer() {
 
         {/* Newsletter */}
         <div className="mt-12 border-t border-gray-800 pt-8">
-          <h4 className="text-lg font-semibold text-white mb-4">Subscribe to Our Newsletter</h4>
+          <h4 className="text-lg font-normal text-white mb-4">Subscribe to Our Newsletter</h4>
           <p className="text-gray-400 mb-4">Stay updated with the latest features and releases.</p>
 
           <form
@@ -243,7 +243,7 @@ export default function Footer() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="px-6 py-3 bg-[#3390D5] text-white rounded-lg font-semibold hover:opacity-90 transition duration-300 disabled:opacity-60"
+              className="px-6 py-3 bg-[#3390D5] text-white rounded-lg font-medium hover:opacity-90 transition duration-300 disabled:opacity-60"
             >
               {isSubmitting ? "Subscribing..." : "Subscribe"}
             </button>
