@@ -198,7 +198,7 @@ const Home: React.FC = () => {
               </p>
               <button
                 onClick={() => setShowAuthModal(true)}
-                className="inline-block bg-[#3390D5] text-white px-4 py-2 rounded-lg text-lg text-center font-semibold hover:bg-brand-700 transition duration-300 ease-in-out transform hover:-translate-y-1 w-50"
+                className="inline-block bg-[#3390D5] text-white px-4 py-2 rounded-lg text-lg text-center font-medium hover:bg-brand-700 transition duration-300 ease-in-out transform hover:-translate-y-1 w-50"
               >
                 {regionData.ctaTitle}
               </button>
@@ -238,7 +238,7 @@ const Home: React.FC = () => {
                 <div className={`w-full lg:w-4/12 order-2 ${idx % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
                   <div className="bg-white rounded-2xl shadow-lg p-8">
                     <div className="text-brand-600 mb-6">
-                      <span className="inline-block px-6 py-3 rounded-full bg-brand-100 text-brand-600 text-lg font-bold">
+                      <span className="inline-block px-6 py-3 rounded-full bg-brand-100 text-brand-600 text-lg font-medium">
                         {step.step}
                       </span>
                     </div>
@@ -298,7 +298,7 @@ const Home: React.FC = () => {
             href="https://linktr.ee/joinonemai"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-10 px-8 py-4 bg-white text-black font-bold rounded-full text-lg transition-all duration-300 hover:bg-gray-200 hover:scale-105 shadow-lg"
+            className="mt-10 px-8 py-4 bg-white text-black font-medium rounded-full text-lg transition-all duration-300 hover:bg-gray-200 hover:scale-105 shadow-lg"
           >
             {h.financialHome.buttonText}
           </a>
@@ -416,7 +416,7 @@ const Home: React.FC = () => {
                 <div className="space-y-4">
                   <button
                     onClick={() => handleAuthSelection('user')}
-                    className="w-full py-4 px-6 bg-[#3390D5] text-white rounded-xl font-semibold hover:bg-brand-700 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                    className="w-full py-4 px-6 bg-[#3390D5] text-white rounded-xl font-medium hover:bg-brand-700 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                   >
                     <div className="flex items-center justify-center space-x-3">
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -428,7 +428,7 @@ const Home: React.FC = () => {
 
                   <button
                     onClick={() => handleAuthSelection('affiliate')}
-                    className="w-full py-4 px-6 bg-white border-2 border-[#3390D5] text-[#3390D5] rounded-xl font-semibold hover:bg-blue-50 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                    className="w-full py-4 px-6 bg-white border-2 border-[#3390D5] text-[#3390D5] rounded-xl font-medium hover:bg-blue-50 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                   >
                     <div className="flex items-center justify-center space-x-3">
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -491,7 +491,7 @@ const Home: React.FC = () => {
                 </div>
                 <button
                   onClick={() => setShowSocialPopup(false)}
-                  className="mt-6 bg-[#3390D5] text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-700 transition"
+                  className="mt-6 bg-[#3390D5] text-white px-6 py-2 rounded-lg font-medium hover:bg-brand-700 transition"
                 >
                   {h.socialPopup.closeButton}
                 </button>
@@ -517,7 +517,7 @@ const Home: React.FC = () => {
                 </p>
                 <button
                   onClick={() => handleAuthSelection('affiliate')}
-                  className="inline-block bg-gray-100 text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-white transition transform hover:-translate-y-1 shadow-lg"
+                  className="inline-block bg-gray-100 text-gray-900 px-8 py-4 rounded-full font-medium hover:bg-white transition transform hover:-translate-y-1 shadow-lg"
                 >
                   {h.trustedAnchorsCard.buttonText}
                 </button>
@@ -550,7 +550,7 @@ const Home: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-[#3390D5] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#3390D5] transition disabled:opacity-60"
+                className="bg-[#3390D5] text-white px-8 py-4 rounded-lg font-medium hover:bg-[#3390D5] transition disabled:opacity-60"
               >
                 {isSubmitting ? "..." : h.newsletter.buttonText}
               </button>
@@ -574,7 +574,7 @@ const Home: React.FC = () => {
           <div className="mt-10 text-center">
             <Link
               to="/faq"
-              className="inline-block px-6 py-3 bg-[#3390D5] text-white rounded-lg font-semibold hover:bg-[#3390D5]"
+              className="inline-block px-6 py-3 bg-[#3390D5] text-white rounded-lg font-medium hover:bg-[#3390D5]"
             >
               {h.faq.buttonText}
             </Link>
@@ -588,7 +588,7 @@ const Home: React.FC = () => {
 // ===== UI bits =====
 const Stat = ({ value, label }: { value: string; label: string }) => (
   <div className="text-center">
-    <div className="text-4xl font-bold text-brand-600 mb-2">{value}</div>
+    <div className="text-4xl font-normal text-brand-600 mb-2">{value}</div>
     <p className="text-gray-600">{label}</p>
   </div>
 );
@@ -618,7 +618,7 @@ const StoryCard = ({
 
       <div className="mt-auto relative z-10">
         <h3 className="text-xl md:text-2xl font-normal mb-1">{title}</h3>
-        <p className="text-blue-100 uppercase tracking-wider text-sm font-semibold">{role}</p>
+        <p className="text-blue-100 uppercase tracking-wider text-sm font-medium">{role}</p>
         {detail && <p className="text-blue-200 text-sm mt-2">{detail}</p>}
       </div>
     </div>

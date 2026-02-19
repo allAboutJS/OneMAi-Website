@@ -119,7 +119,7 @@ export default function Navbar() {
                   to={href}
                   onClick={() => setOpen(false)}
                   className={`block px-4 py-3 text-lg font-medium transition-all duration-200 ${isActive
-                    ? "text-white bg-[#3390D5] shadow-inner font-semibold"
+                    ? "text-white bg-[#3390D5] shadow-inner font-medium"
                     : "text-gray-700 hover:bg-blue-50 hover:text-brand-600"
                     }`}
                 >

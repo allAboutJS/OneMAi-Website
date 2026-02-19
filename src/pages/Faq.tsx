@@ -50,7 +50,7 @@ export default function FAQPage() {
       {/* Hero (compact) */}
       <section className="bg-gray-50 border-b">
         <div ref={topRef} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">{regionData.faqHeroTitle}</h1>
+          <h1 className="text-3xl sm:text-4xl font-normal text-gray-900">{regionData.faqHeroTitle}</h1>
           <p className="mt-3 text-gray-600 text-lg">
             {regionData.faqHeroSubtitle}
           </p>
@@ -179,7 +179,7 @@ function FaqItem({
         aria-controls={`${id}-content`}
         className="w-full px-5 py-4 text-left flex items-center justify-between hover:bg-gray-50 focus:outline-none"
       >
-        <span className="font-semibold text-gray-900">{question}</span>
+        <span className="font-medium text-gray-900">{question}</span>
         <ChevronIcon className={`h-6 w-6 text-gray-400 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
 

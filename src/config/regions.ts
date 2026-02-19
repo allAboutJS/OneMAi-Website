@@ -455,17 +455,17 @@ export const REGIONS: Record<Region, RegionData> = {
             {
                 id: "general-4",
                 question: "How can I contact support?",
-                answer: "You can reach our support team via the contact page or by emailing support@joinOneMAI.com.",
+                answer: "You can reach our support team via the contact page or by emailing hello@joinonemai.com.",
             },
             {
                 id: "ng-money-hold",
                 question: "Does OneMAI hold my money?",
-                answer: "No. OneMAI does not hold your money",
+                answer: "Funds contributed through OneMAI are held by regulated financial partners (CBN-licensed financial institutions where applicable). OneMAI does not take deposits or custody customer funds; it simply provides the rules and workflow that trigger releases via those regulated partners, in compliance with CBN frameworks.",
             },
             {
                 id: "ng-payment-fail",
                 question: "What happens if a payment fails?",
-                answer: "if a payment fails, nothing is lost. The payment will simply not go through and the money will remain with the sender.",
+                answer: "If a member misses a scheduled contribution:The system flags the default and notifies the group.Where applicable, recovery may be initiated under the GSI framework of the Central Bank of Nigeria, subject to regulatory conditions. Group-agreed penalties may apply. Continued default may result in suspension or removal. All recovery actions are handled by regulated financial partners in line with CBN regulations.",
             },
             {
                 id: "ng-access",
@@ -475,12 +475,12 @@ export const REGIONS: Record<Region, RegionData> = {
             {
                 id: "ng-password",
                 question: "What if I forget my password?",
-                answer: "just tap “forgot password” on the login screen and follow the steps to reset it using your phone number or email and you’ll be back into your account in few minutes.",
+                answer: "Just tap “forgot password” on the login screen and follow the steps to reset it using your phone number or email and you’ll be back into your account in few minutes.",
             },
             {
                 id: "ng-multi-group",
-                question: "Can I belong to more than one group?",
-                answer: "Yes, you can join or create multiple groups at the same time and track each one seperately on OneMAI.",
+                question: "Can I belong to more than one Pod ?",
+                answer: "Yes, you can join or create multiple Pods at the same time and track each one seperately on OneMAI.",
             },
         ],
         howItWorks: {

@@ -16,7 +16,7 @@ const Portfolio = () => {
     },
     {
       title: "Healthcare App",
-      category: "Mobile Development", 
+      category: "Mobile Development",
       description: "Mobile application for healthcare providers with patient management and appointment scheduling.",
       technologies: ["React Native", "Firebase", "TypeScript"],
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop",
@@ -63,14 +63,14 @@ const Portfolio = () => {
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-6xl font-normal mb-6">
             Our{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
               Portfolio
             </span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Explore our latest projects and see how we've helped businesses 
+            Explore our latest projects and see how we've helped businesses
             transform their digital presence with innovative solutions.
           </p>
         </div>
@@ -90,7 +90,7 @@ const Portfolio = () => {
 
         {/* Featured Projects */}
         <div className="mb-16">
-          <h2 className="text-2xl font-bold mb-8">Featured Projects</h2>
+          <h2 className="text-2xl font-normal mb-8">Featured Projects</h2>
           <div className="grid lg:grid-cols-2 gap-8">
             {projects.filter(project => project.featured).map((project, index) => (
               <Card key={index} className="border-0 shadow-elegant hover:shadow-glow transition-all duration-300 overflow-hidden">
@@ -107,9 +107,9 @@ const Portfolio = () => {
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+                  <h3 className="text-xl font-medium mb-3">{project.title}</h3>
                   <p className="text-muted-foreground mb-4">{project.description}</p>
-                  
+
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech) => (
                       <Badge key={tech} variant="secondary">
@@ -130,7 +130,7 @@ const Portfolio = () => {
 
         {/* All Projects */}
         <div className="mb-16">
-          <h2 className="text-2xl font-bold mb-8">All Projects</h2>
+          <h2 className="text-2xl font-normal mb-8">All Projects</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.filter(project => !project.featured).map((project, index) => (
               <Card key={index} className="border-0 shadow-elegant hover:shadow-glow transition-all duration-300 overflow-hidden">
@@ -147,9 +147,9 @@ const Portfolio = () => {
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
+                  <h3 className="text-lg font-medium mb-2">{project.title}</h3>
                   <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
-                  
+
                   <div className="flex flex-wrap gap-1 mb-4">
                     {project.technologies.slice(0, 3).map((tech) => (
                       <Badge key={tech} variant="secondary" className="text-xs">
@@ -183,7 +183,7 @@ const Portfolio = () => {
               { number: "99%", label: "Success Rate" }
             ].map((stat, index) => (
               <div key={index} className="space-y-2">
-                <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+                <div className="text-3xl font-normal bg-gradient-primary bg-clip-text text-transparent">
                   {stat.number}
                 </div>
                 <div className="text-muted-foreground">{stat.label}</div>
@@ -194,12 +194,12 @@ const Portfolio = () => {
 
         {/* CTA Section */}
         <div className="text-center bg-background rounded-2xl p-8 md:p-12 shadow-elegant">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start Your Project?</h2>
+          <h2 className="text-3xl font-normal mb-4">Ready to Start Your Project?</h2>
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
             Let's create something amazing together. Contact us to discuss your project requirements.
           </p>
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             className="bg-gradient-primary border-0 shadow-elegant hover:shadow-glow transition-all duration-300"
             asChild
           >

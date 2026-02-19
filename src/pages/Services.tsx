@@ -1,12 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Globe, 
-  Smartphone, 
-  ShoppingCart, 
-  Search, 
-  Palette, 
+import {
+  Globe,
+  Smartphone,
+  ShoppingCart,
+  Search,
+  Palette,
   Code,
   ArrowRight,
   CheckCircle
@@ -66,7 +66,7 @@ const Services = () => {
       description: "We start by understanding your business goals, target audience, and project requirements."
     },
     {
-      step: "02", 
+      step: "02",
       title: "Planning",
       description: "We create a detailed project plan with timelines, milestones, and clear deliverables."
     },
@@ -97,14 +97,14 @@ const Services = () => {
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-6xl font-normal mb-6">
             Our{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
               Services
             </span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            From concept to launch, we provide comprehensive digital solutions 
+            From concept to launch, we provide comprehensive digital solutions
             that help your business succeed in the digital landscape.
           </p>
         </div>
@@ -123,7 +123,7 @@ const Services = () => {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">{service.description}</p>
-                  
+
                   <div className="space-y-2">
                     {service.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center space-x-2">
@@ -152,9 +152,9 @@ const Services = () => {
         {/* Process Section */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Our Process</h2>
+            <h2 className="text-3xl font-normal mb-4">Our Process</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              We follow a proven methodology to ensure every project is delivered on time, 
+              We follow a proven methodology to ensure every project is delivered on time,
               within budget, and exceeds expectations.
             </p>
           </div>
@@ -165,9 +165,9 @@ const Services = () => {
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
                     <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center mr-4">
-                      <span className="text-primary-foreground font-bold">{step.step}</span>
+                      <span className="text-primary-foreground font-medium">{step.step}</span>
                     </div>
-                    <h3 className="font-semibold text-lg">{step.title}</h3>
+                    <h3 className="font-medium text-lg">{step.title}</h3>
                   </div>
                   <p className="text-muted-foreground">{step.description}</p>
                 </CardContent>
@@ -178,13 +178,13 @@ const Services = () => {
 
         {/* CTA Section */}
         <div className="text-center bg-gradient-secondary rounded-2xl p-8 md:p-12">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start Your Project?</h2>
+          <h2 className="text-3xl font-normal mb-4">Ready to Start Your Project?</h2>
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
             Let's discuss your requirements and create a custom solution that perfectly fits your needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-gradient-primary border-0 shadow-elegant hover:shadow-glow transition-all duration-300"
               asChild
             >

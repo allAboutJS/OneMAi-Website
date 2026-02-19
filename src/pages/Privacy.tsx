@@ -5,7 +5,7 @@ export default function Privacy() {
   return (
     <main className="">
       <section className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-6">Privacy Policy</h1>
+        <h1 className="text-4xl font-normal text-gray-900 mb-6">Privacy Policy</h1>
 
         <p className="text-lg text-gray-700 mb-4">
           This Privacy Policy explains what personal data we collect when you use OneMAI, why we collect it, how it is
@@ -22,7 +22,7 @@ export default function Privacy() {
           Last Updated: January 27, 2026
         </h3>
 
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">1. What Personal Data We Collect</h2>
+        <h2 className="text-2xl font-normal text-gray-900 mb-4">1. What Personal Data We Collect</h2>
         <p className="text-lg text-gray-700 mb-4">
           While using our services, we may ask you to provide certain personal information to protect you and other
           users. This may include, but is not limited to:
@@ -36,15 +36,15 @@ export default function Privacy() {
           <li>Device and usage data</li>
         </ul>
 
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Why We Collect Your Data</h2>
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">Core Purposes</h3>
+        <h2 className="text-2xl font-normal text-gray-900 mb-4">2. Why We Collect Your Data</h2>
+        <h3 className="text-xl font-medium text-gray-900 mb-2">Core Purposes</h3>
         <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-1">
           <li>To verify your identity and keep the platform secure.</li>
           <li>To manage savings groups, contributions, and payouts.</li>
           <li>To contact you with important updates and service messages.</li>
         </ul>
 
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">Additional Purposes</h3>
+        <h3 className="text-xl font-medium text-gray-900 mb-2">Additional Purposes</h3>
         <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-1">
           <li>To handle your requests and support tickets.</li>
           <li>
@@ -56,7 +56,7 @@ export default function Privacy() {
           We only collect the minimum data needed for each purpose and always aim to keep it accurate and up to date.
         </p>
 
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">3. How Your Data Is Stored</h2>
+        <h2 className="text-2xl font-normal text-gray-900 mb-4">3. How Your Data Is Stored</h2>
         <p className="text-lg text-gray-700 mb-3">
           We take data security seriously and follow industry best practices to protect your information at all times.
         </p>
@@ -75,13 +75,13 @@ export default function Privacy() {
           When data is no longer needed, we securely delete or anonymise it in line with our retention policies.
         </p>
 
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Who Your Data Is Shared With</h2>
+        <h2 className="text-2xl font-normal text-gray-900 mb-4">4. Who Your Data Is Shared With</h2>
         <p className="text-lg text-gray-700 mb-8">
           We do not sell your personal information. However, to run our platform safely and smoothly, we may share some
           of your data with trusted third parties under strict privacy and security agreements.
         </p>
 
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Types of Recipients</h2>
+        <h2 className="text-2xl font-normal text-gray-900 mb-4">5. Types of Recipients</h2>
         <p className="text-lg text-gray-700 mb-3">
           Depending on how you use OneMAI, your data may be shared with the following categories of recipients:
         </p>
@@ -105,7 +105,7 @@ export default function Privacy() {
           </li>
         </ul>
 
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Transparency and Your Rights</h2>
+        <h2 className="text-2xl font-normal text-gray-900 mb-4">6. Transparency and Your Rights</h2>
         <p className="text-lg text-gray-700 mb-3">
           We believe your personal data belongs to you. As a user protected by GDPR, you have strong rights over how
           your information is used.
@@ -128,7 +128,7 @@ export default function Privacy() {
           </li>
         </ul>
 
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact and Data Requests</h2>
+        <h2 className="text-2xl font-normal text-gray-900 mb-4">Contact and Data Requests</h2>
         <p className="text-lg text-gray-700 mb-2">
           If you have any questions about this Privacy Policy, or if you wish to exercise your GDPR rights (access,
           rectification, erasure, restriction, portability, or objection), you can contact us at:

@@ -48,7 +48,7 @@ export default function Benefits() {
 
                 <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 w-full">
                     <div className="max-w-2xl">
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-normal text-white leading-tight">
                             {b.heroTitle}
                         </h1>
                         <p className="mt-6 text-lg sm:text-xl md:text-2xl text-white opacity-95">
@@ -62,9 +62,9 @@ export default function Benefits() {
             <section id="benefits" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12 sm:mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+                        <h2 className="text-3xl sm:text-4xl font-normal text-gray-900 mb-3 sm:mb-4">
                             {b.sectionTitle.split(" - ")[0]} - <br />
-                            <span className="text-[#3390D5] font-semibold">{b.sectionTitle.split(" - ")[1]}</span>
+                            <span className="text-[#3390D5] font-normal">{b.sectionTitle.split(" - ")[1]}</span>
                         </h2>
                     </div>
 
@@ -75,7 +75,7 @@ export default function Benefits() {
                                 <div className="p-3 bg-brand-600 rounded-2xl mr-4">
                                     <SvgUsers className="h-7 w-7 text-white" />
                                 </div>
-                                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{b.userBenefits.title}</h3>
+                                <h3 className="text-xl sm:text-2xl font-normal text-gray-900">{b.userBenefits.title}</h3>
                             </div>
 
                             <div className="space-y-6">
@@ -95,7 +95,7 @@ export default function Benefits() {
                                 <div className="p-3 bg-brand-600 rounded-2xl mr-4">
                                     <SvgBuilding className="h-7 w-7 text-white" />
                                 </div>
-                                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{b.orgBenefits.title}</h3>
+                                <h3 className="text-xl sm:text-2xl font-normal text-gray-900">{b.orgBenefits.title}</h3>
                             </div>
 
                             <div className="space-y-6">
@@ -219,7 +219,7 @@ function BenefitItem({ title, text }: { title: string; text: string }) {
                 <SvgCheck className="h-6 w-6 text-brand-600" />
             </div>
             <div className="ml-4">
-                <h4 className="text-lg font-semibold text-gray-900">{title}</h4>
+                <h4 className="text-lg font-medium text-gray-900">{title}</h4>
                 <p className="mt-2 text-gray-600">{text}</p>
             </div>
         </div>

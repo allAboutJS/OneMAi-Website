@@ -36,7 +36,7 @@ const BlogPost = () => {
                         throw new Error('Failed to fetch posts');
                     }
                     const data = await response.json();
-                    const foundPost = data.posts.find((p: Post) => p._id === id);
+                    const foundPost = (data.data || []).find((p: Post) => p._id === id);
                     if (foundPost) {
                         setPost(foundPost);
                     } else {
@@ -64,7 +64,7 @@ const BlogPost = () => {
     if (error || !post) {
         return (
             <div className="min-h-screen py-20 flex flex-col justify-center items-center">
-                <h1 className="text-2xl font-bold mb-4">{error || "Post not found"}</h1>
+                <h1 className="text-2xl font-normal mb-4">{error || "Post not found"}</h1>
                 <Button onClick={() => navigate('/blog')}>Back to Blog</Button>
             </div>
         );
@@ -96,7 +96,7 @@ const BlogPost = () => {
                     <Badge className="bg-gradient-primary border-0 mb-4">
                         Blog
                     </Badge>
-                    <h1 className="text-3xl md:text-5xl font-bold mb-6">
+                    <h1 className="text-3xl md:text-5xl font-normal mb-6">
                         {post.title}
                     </h1>
 
@@ -112,7 +112,7 @@ const BlogPost = () => {
                     </div>
 
                     <div className="flex flex-wrap items-center gap-4 py-6 border-y border-border mb-8">
-                        <span className="text-sm font-semibold text-muted-foreground mr-2 flex items-center gap-2">
+                        <span className="text-sm font-medium text-muted-foreground mr-2 flex items-center gap-2">
                             <Share2 className="w-4 h-4" /> Share this post:
                         </span>
                         <div className="flex items-center gap-2">
@@ -182,8 +182,8 @@ const BlogPost = () => {
                     <ReactMarkdown
                         remarkPlugins={[remarkGfm]}
                         components={{
-                            h1: ({ node, ...props }) => <h1 className="text-3xl font-bold mb-6 mt-8" {...props} />,
-                            h2: ({ node, ...props }) => <h2 className="text-2xl font-bold mb-4 mt-8" {...props} />,
+                            h1: ({ node, ...props }) => <h1 className="text-3xl font-normal mb-6 mt-8" {...props} />,
+                            h2: ({ node, ...props }) => <h2 className="text-2xl font-normal mb-4 mt-8" {...props} />,
                             p: ({ node, ...props }) => <p className="mb-6 leading-relaxed whitespace-pre-wrap" {...props} />,
                             blockquote: ({ node, ...props }) => (
                                 <blockquote className="border-l-4 border-blue-500 pl-4 py-2 my-6 italic bg-muted/30 rounded-r-lg" {...props} />
@@ -192,7 +192,7 @@ const BlogPost = () => {
                             ol: ({ node, ...props }) => <ol className="list-decimal pl-6 mb-6 space-y-2" {...props} />,
                             li: ({ node, ...props }) => <li className="mb-1" {...props} />,
                             a: ({ node, ...props }) => <a className="text-blue-500 hover:text-blue-600 underline transition-colors" target="_blank" rel="noopener noreferrer" {...props} />,
-                            strong: ({ node, ...props }) => <strong className="font-bold text-foreground" {...props} />,
+                            strong: ({ node, ...props }) => <strong className="font-semibold text-foreground" {...props} />,
                             em: ({ node, ...props }) => <em className="italic" {...props} />,
                         }}
                     >
@@ -202,7 +202,7 @@ const BlogPost = () => {
 
                 {/* Bottom Share Section */}
                 <div className="mt-16 pt-8 border-t border-border">
-                    <h3 className="text-xl font-bold mb-6">Found this helpful? Share it with your community</h3>
+                    <h3 className="text-xl font-normal mb-6">Found this helpful? Share it with your community</h3>
                     <div className="flex flex-wrap gap-4">
                         <Button
                             variant="outline"

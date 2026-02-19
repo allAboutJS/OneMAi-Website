@@ -21,7 +21,7 @@ export default function About() {
                     <div className="grid lg:grid-cols-2 gap-8 items-center">
                         {/* Left Content */}
                         <div className="space-y-6">
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal leading-tight">
                                 {a.heroTitle}
                             </h1>
                             <p className="text-lg md:text-xl opacity-90 leading-relaxed max-w-2xl">
@@ -52,7 +52,7 @@ export default function About() {
                 <div className="grid lg:grid-cols-12 gap-12 items-start">
                     {/* Our Story */}
                     <div className="lg:col-span-7 space-y-6">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">{a.storyTitle}</h2>
+                        <h2 className="text-3xl md:text-4xl font-normal text-gray-900">{a.storyTitle}</h2>
                         <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
                             {a.storyParagraphs.map((p, idx) => (
                                 <p key={idx}>{p}</p>
@@ -63,7 +63,7 @@ export default function About() {
                     {/* What we facilitate Card */}
                     <div className="lg:col-span-5">
                         <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-8">
-                            <h3 className="text-2xl font-bold mb-6 text-gray-900 leading-tight">
+                            <h3 className="text-2xl font-normal mb-6 text-gray-900 leading-tight">
                                 {a.facilitationTitle} <br />
                                 <span className="text-[#3390D5]">{a.facilitationSubtitle}</span>
                             </h3>
@@ -86,14 +86,14 @@ export default function About() {
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid gap-8 md:grid-cols-2 items-start">
                         <div>
-                            <h2 className="text-2xl md:text-3xl font-bold mb-4">{a.missionTitle}</h2>
+                            <h2 className="text-2xl md:text-3xl font-normal mb-4">{a.missionTitle}</h2>
                             <p className="text-gray-700 leading-relaxed">
                                 {a.missionText}
                             </p>
                         </div>
 
                         <div className="bg-white rounded-xl shadow p-6">
-                            <h3 className="text-xl font-semibold mb-3">{a.valuesTitle}</h3>
+                            <h3 className="text-xl font-normal mb-3">{a.valuesTitle}</h3>
                             <ul className="space-y-3 text-gray-700">
                                 {a.valuesList.map((val, idx) => (
                                     <li key={idx}>
@@ -110,7 +110,7 @@ export default function About() {
             <section className="max-w-7xl mx-auto px-6 pb-8">
                 <div className="bg-blue-50 border border-blue-100 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between">
                     <div>
-                        <h3 className="text-2xl font-bold mb-2">{a.ctaTitle}</h3>
+                        <h3 className="text-2xl font-normal mb-2">{a.ctaTitle}</h3>
                         <p className="text-gray-700">
                             {a.ctaText}
                         </p>
@@ -119,7 +119,7 @@ export default function About() {
                         <a
                             href="https://linktr.ee/joinonemai"
                             onClick={scrollToTop}
-                            className="px-6 py-3 bg-[#3390D5] text-white rounded-lg font-semibold hover:bg-blue-700"
+                            className="px-6 py-3 bg-[#3390D5] text-white rounded-lg font-medium hover:bg-blue-700"
                         >
                             Join the Movement
                         </a>

@@ -62,7 +62,7 @@ const Blog = () => {
           throw new Error('Failed to fetch posts');
         }
         const data = await response.json();
-        setPosts(data.posts);
+        setPosts(data.data || []);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');
       } finally {
@@ -110,7 +110,7 @@ const Blog = () => {
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-6xl font-normal mb-6">
             Our{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
               Blog
@@ -142,7 +142,7 @@ const Blog = () => {
                   <Badge variant="secondary" className="w-fit mb-4">
                     Blog
                   </Badge>
-                  <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                  <h2 className="text-2xl md:text-3xl font-normal mb-4">
                     {featuredPost.title}
                   </h2>
                   <div className="text-muted-foreground mb-6 line-clamp-3 text-sm">
@@ -225,7 +225,7 @@ const Blog = () => {
                 </div>
 
                 <CardHeader className="pb-3">
-                  <h3 className="text-lg font-semibold line-clamp-2">
+                  <h3 className="text-lg font-medium line-clamp-2">
                     {post.title}
                   </h3>
                 </CardHeader>
@@ -294,7 +294,7 @@ const Blog = () => {
 
         {/* Newsletter Section */}
         <div className="bg-gradient-secondary rounded-2xl p-8 md:p-12 text-center">
-          <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
+          <h2 className="text-3xl font-normal mb-4">Stay Updated</h2>
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
             Subscribe to our newsletter and get the latest articles, tips, and insights
             delivered straight to your inbox.
