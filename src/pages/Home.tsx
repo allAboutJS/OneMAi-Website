@@ -345,7 +345,7 @@ const Home: React.FC = () => {
 
       {/* Partners */}
       <section className="bg-gray-50 rounded-2xl p-8 md:p-12">
-        <h1 className="text-xl font-semibold text-gray-900 text-center mb-8">{h.partnersTitle}</h1>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal text-gray-900 text-center mb-8">{h.partnersTitle}</h2>
         <div className="flex flex-wrap justify-center items-center gap-8 opacity-75">
           {regionData.region === "NG" ? (
             <div className="px-10 py-6 bg-white rounded-2xl shadow-sm flex items-center justify-center">
@@ -404,7 +404,7 @@ const Home: React.FC = () => {
 
                 {/* Modal Content */}
                 <div className="text-center mb-6">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                  <h2 className="text-2xl font-normal text-gray-800 mb-2">
                     {h.authModal.title}
                   </h2>
                   <p className="text-gray-600">
@@ -450,7 +450,7 @@ const Home: React.FC = () => {
           {showSocialPopup && (
             <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
               <div className="bg-white rounded-lg p-8 max-w-md w-full text-center">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">{h.socialPopup.title}</h3>
+                <h3 className="text-xl font-normal text-gray-900 mb-6">{h.socialPopup.title}</h3>
                 <div className="flex justify-center space-x-6">
                   <a
                     href="https://www.linkedin.com/company/joinonemai/"
@@ -537,7 +537,7 @@ const Home: React.FC = () => {
 
           {/* Newsletter (static) */}
           <div className="mt-16 max-w-xl mx-auto">
-            <h3 className="text-xl font-semibold text-white mb-6">{h.newsletter.title}</h3>
+            <h3 className="text-xl font-normal text-white mb-6">{h.newsletter.title}</h3>
             <form className="flex flex-col sm:flex-row gap-4" onSubmit={handleEmailSubmit}>
               <input
                 type="email"
@@ -617,7 +617,7 @@ const StoryCard = ({
       </blockquote>
 
       <div className="mt-auto relative z-10">
-        <h3 className="text-xl md:text-2xl font-bold mb-1">{title}</h3>
+        <h3 className="text-xl md:text-2xl font-normal mb-1">{title}</h3>
         <p className="text-blue-100 uppercase tracking-wider text-sm font-semibold">{role}</p>
         {detail && <p className="text-blue-200 text-sm mt-2">{detail}</p>}
       </div>
