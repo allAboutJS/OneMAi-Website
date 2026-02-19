@@ -286,7 +286,7 @@ const Home: React.FC = () => {
         </div>
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-white mb-6 max-w-5xl leading-tight tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-6 max-w-5xl leading-tight tracking-tight">
             {h.financialHome.title}
           </h2>
           <p className="text-2xl md:text-3xl text-gray-200 mt-4 italic">
