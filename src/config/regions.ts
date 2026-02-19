@@ -427,13 +427,13 @@ export const REGIONS: Record<Region, RegionData> = {
         whatsappNumber: '+234 123 456 7890',
         whatsappLink: 'https://wa.me/2341234567890',
         socialLinks: {
-            facebook: 'https://web.facebook.com/joinonemai',
-            instagram: 'https://www.instagram.com/joinonemai',
-            linkedin: 'https://www.linkedin.com/company/joinonemai/',
+            facebook: 'https://web.facebook.com/onemai.ng/',
+            instagram: 'https://www.instagram.com/onemai.ng/?fbclid=IwY2xjawQBMNpleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAEwAAEeNT2KDP7M_Byhumj349Kt_aUnnocBoj3CXBCIT0e60D8chS9mmn_moKm-2sY_aem_pntEB98VXF643-5WciffkQ',
+            linkedin: 'https://www.linkedin.com/company/onemaing/',
             telegram: 'https://t.me/joinonemai',
         },
-        heroTitle: "Community Financing for Nigeria's Future",
-        heroSubtitle: 'Build Wealth with your community in Nigeria',
+        heroTitle: "Community Financing for Your Future",
+        heroSubtitle: 'Build Wealth with your community',
         faqHeroTitle: 'Frequently Asked Questions (Nigeria)',
         faqHeroSubtitle: 'Modernizing Ajo and Esusu with security and transparency.',
         faqs: [
@@ -450,7 +450,7 @@ export const REGIONS: Record<Region, RegionData> = {
             {
                 id: "general-3",
                 question: "Is there a free trial?",
-                answer: "Yes, we offer a 14-day free trial for all new users so you can experience the platform before committing.",
+                answer: "Yes, your first payout is completely free so you can experience the platform before committing.",
             },
             {
                 id: "general-4",
@@ -564,17 +564,17 @@ export const REGIONS: Record<Region, RegionData> = {
                 'Licensed custodial protection'
             ],
             missionTitle: 'Our Mission',
-            missionText: 'To modernize community finance in Nigeria through transparent, community-powered coordination built on trust and accessibility.',
+            missionText: 'To modernize community finance through transparent, community-powered coordination built on trust and accessibility.',
             valuesTitle: 'Our Values',
             valuesList: [
                 { label: 'Integrity', text: 'honoring every contribution' },
                 { label: 'Transparency', text: 'real-time visibility for every member' },
                 { label: 'Community', text: 'strengthening the bonds that build wealth' },
                 { label: 'Security', text: 'protecting group funds with technology' },
-                { label: 'Prosperity', text: 'helping every Nigerian reach their goals' }
+                { label: 'Prosperity', text: 'helping every member of a community reach their goals' }
             ],
-            ctaTitle: 'Start Your Circle',
-            ctaText: 'Bring your Ajo group online and experience the ease of automated coordination and secure payouts.'
+            ctaTitle: 'Start Your Community Circle',
+            ctaText: 'Bring your Ajo community online and experience the ease of automated coordination and secure payouts.'
         },
         home: {
             howItWorksSubtitle: 'Get started with OneMAI in three simple steps',

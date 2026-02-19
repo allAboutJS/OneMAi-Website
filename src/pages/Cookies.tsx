@@ -5,93 +5,79 @@ export default function Cookies() {
   return (
     <main className="">
       <section className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8">MAI Cookie Policy</h1>
+        <h1 className="text-4xl font-bold text-gray-900 mb-6">Cookie Policy</h1>
 
         <p className="text-lg text-gray-700 mb-4">
-          Welcome to OneMAI! Your privacy is our priority. This page explains how we use cookies and similar
-          technologies when you use our services. By accessing <strong>www.joinonemai.com</strong> or using our
-          platform, you consent to the practices outlined here. If you disagree with any part, please discontinue use of
-          our services.
+          This Cookie Policy explains how OneMAI uses cookies and similar technologies to recognise you when you visit
+          our website or use the app, what types of cookies we use, and how you can control them.
         </p>
 
-        <h3 className="text-xl text-gray-700 mb-4">
-          Effective Date: February 8, 2025
-          <br />
-          Last Updated: February 8, 2025
+        <h3 className="text-xl text-gray-700 mb-8">
+          Last Updated: January 27, 2026
         </h3>
 
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Who We Are</h2>
-        <p className="text-lg text-gray-700 mb-4">
-          OneMAI operates as a digital community-based financial platform. We comply with GDPR and applicable local
-          laws. Contact us at{" "}
-          <a href="mailto:hello@joinonemai.com" className="underline">joinonemai.com</a>.
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">1. What Are Cookies?</h2>
+        <p className="text-lg text-gray-700 mb-8">
+          Cookies are small text files stored on your device when you visit a website or use an app. They help the site
+          remember your actions and preferences over time so you do not have to re-enter information every time you
+          return.
         </p>
 
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Information We Collect</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Types of Cookies We Use</h2>
+
+        <h3 className="text-xl font-semibold text-gray-900 mb-1">Strictly Necessary Cookies</h3>
+        <p className="text-sm text-gray-600 mb-1">These cookies are essential for the basic functioning of the service.</p>
         <p className="text-lg text-gray-700 mb-4">
-          We collect information to enhance your experience and ensure platform security:
+          They enable core features such as security, network management, and allowing you to log in and move around the
+          platform. You cannot opt out of these cookies as the service would not work without them.
         </p>
 
-        <h3 className="text-xl font-bold text-gray-900 mb-2">Personal Information</h3>
-        <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-1">
-          <li>Name, email address, phone number</li>
-          <li>Nationality, identification documents (if required for verification)</li>
-          <li>Banking details (for transactions and security purposes)</li>
+        <h3 className="text-xl font-semibold text-gray-900 mb-1">Performance and Analytics Cookies</h3>
+        <p className="text-sm text-gray-600 mb-1">Used to understand how the platform is used.</p>
+        <p className="text-lg text-gray-700 mb-4">
+          These cookies help us measure traffic, identify popular features, and understand where users might be
+          experiencing errors, so we can improve performance and reliability.
+        </p>
+
+        <h3 className="text-xl font-semibold text-gray-900 mb-1">Functional and Preference Cookies</h3>
+        <p className="text-sm text-gray-600 mb-1">Used to remember your choices.</p>
+        <p className="text-lg text-gray-700 mb-8">
+          These cookies remember things like your preferred language, region, or display settings so that your
+          experience is smoother and more personalised.
+        </p>
+
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Third-Party Tools and Services</h2>
+        <p className="text-lg text-gray-700 mb-8">
+          We may use trusted third-party tools (such as analytics providers) that place their own cookies to help us
+          understand usage patterns, detect fraud, or integrate with services like payment providers. These third
+          parties are bound by data protection and confidentiality obligations.
+        </p>
+
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Your Choices and Control</h2>
+        <p className="text-lg text-gray-700 mb-3">
+          You can control cookies through your browser or device settings. Most browsers allow you to block or delete
+          cookies, and some let you decide which sites may use them.
+        </p>
+        <ul className="list-disc pl-6 text-gray-700 mb-8 space-y-1">
+          <li>You can choose to block all cookies, but some features of OneMAI may not function properly.</li>
+          <li>You can clear cookies from your device at any time using your browser settings.</li>
+          <li>For mobile apps, your operating system may provide additional controls over tracking technologies.</li>
         </ul>
 
-        <h3 className="text-xl font-bold text-gray-900 mb-2">Usage Data</h3>
-        <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-1">
-          <li>Device information (IP address, browser type, operating system)</li>
-          <li>Interaction history (pages visited, time spent on the platform)</li>
-          <li>Log-in timestamps and preferences</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-gray-900 mb-2">Third-Party Integrations</h3>
-        <p className="text-lg text-gray-700 mb-4">
-          If you register using Google, Facebook, LinkedIn, WhatsApp or Twitter, we may collect basic details linked to
-          these accounts.
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Updates to This Cookie Policy</h2>
+        <p className="text-lg text-gray-700 mb-6">
+          We may update this Cookie Policy from time to time to reflect changes in technology, law, or how we use
+          cookies. When we make significant changes, we will notify you through the website, app, or by email where
+          appropriate.
         </p>
 
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">3. How We Use Your Data</h2>
-        <p className="text-lg text-gray-700 mb-4">
-          Data helps us deliver seamless services and maintain security (e.g., transactions, verification, communication,
-          analytics). We do <strong>not</strong> sell your personal information.
-        </p>
-
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Data Security &amp; Retention</h2>
-        <p className="text-lg text-gray-700 mb-4">
-          We use encryption, access controls, and fraud prevention. Data is retained only as long as necessary for
-          compliance and service improvement.
-        </p>
-
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Sharing Your Information</h2>
-        <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-1">
-          <li>Banking &amp; Financial Partners – secure transaction processing</li>
-          <li>Regulatory Authorities – when required by law</li>
-          <li>Third-Party Service Providers – analytics, fraud detection, or cloud storage</li>
-        </ul>
-        <p className="text-lg text-gray-700 mb-4">
-          All third parties are held to GDPR-compliant confidentiality standards.
-        </p>
-
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Your Rights &amp; Control</h2>
-        <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-1">
-          <li>Access &amp; Correction</li>
-          <li>Data Deletion</li>
-          <li>Opt-Out of marketing emails</li>
-        </ul>
-
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Use of Cookies &amp; Tracking</h2>
-        <p className="text-gray-700 mb-4">
-          We use cookies to improve experience, personalize content, and analyze traffic. You can disable cookies in your
-          browser; certain features may be affected.
-        </p>
-
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Policy Updates</h2>
-        <p className="text-gray-700">
-          We may update this policy periodically and will notify users of significant changes on the site or via email.
-          For cookie/privacy questions, contact{" "}
-          <a href="mailto:hello@joinonemai.com" className="underline">joinonemai.com</a>.
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Cookie and Privacy Questions</h2>
+        <p className="text-lg text-gray-700">
+          If you have questions about how we use cookies or how they relate to your privacy, contact us at{" "}
+          <a href="mailto:hello@joinonemai.com" className="underline">
+            hello@joinonemai.com
+          </a>
+          .
         </p>
       </section>
     </main>

@@ -11,6 +11,7 @@ import receiveFundImg from "@/assets/images/receive-fund.jpeg";
 import startUpLogo from "@/assets/images/partners/start-up.png";
 import eitLogo from "@/assets/images/partners/eit.png";
 import lisbonLogo from "@/assets/images/partners/lisbon.png";
+import embedlyLogo from "@/assets/images/embedly.png";
 import pageimage from "@/assets/firstimage.png"
 
 // Swiper
@@ -346,9 +347,33 @@ const Home: React.FC = () => {
       <section className="bg-gray-50 rounded-2xl p-8 md:p-12">
         <h1 className="text-xl font-semibold text-gray-900 text-center mb-8">{h.partnersTitle}</h1>
         <div className="flex flex-wrap justify-center items-center gap-8 opacity-75">
-          <img src={startUpLogo} alt="Start-up" className="max-h-20 grayscale hover:grayscale-0 transition-all" />
-          <img src={eitLogo} alt="EIT" className="max-h-20 grayscale hover:grayscale-0 transition-all" />
-          <img src={lisbonLogo} alt="Lisbon" className="max-h-20 grayscale hover:grayscale-0 transition-all" />
+          {regionData.region === "NG" ? (
+            <div className="px-10 py-6 bg-white rounded-2xl shadow-sm flex items-center justify-center">
+              <img
+                src={embedlyLogo}
+                alt="Embedly"
+                className="max-h-16 object-contain grayscale hover:grayscale-0 transition-all"
+              />
+            </div>
+          ) : (
+            <>
+              <img
+                src={startUpLogo}
+                alt="Start-up"
+                className="max-h-20 grayscale hover:grayscale-0 transition-all"
+              />
+              <img
+                src={eitLogo}
+                alt="EIT"
+                className="max-h-20 grayscale hover:grayscale-0 transition-all"
+              />
+              <img
+                src={lisbonLogo}
+                alt="Lisbon"
+                className="max-h-20 grayscale hover:grayscale-0 transition-all"
+              />
+            </>
+          )}
         </div>
       </section>
 

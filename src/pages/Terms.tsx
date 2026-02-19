@@ -5,81 +5,97 @@ export default function Terms() {
   return (
     <main className="">
       <section className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8">Terms of Use</h1>
+        <h1 className="text-4xl font-bold text-gray-900 mb-6">Terms of Use</h1>
 
         <p className="text-lg text-gray-700 mb-4">
           These Terms of Use (&quot;Terms&quot;) govern your access to and use of the OneMAI platform and services. By
           accessing or using our services, you agree to be bound by these Terms.
         </p>
 
-        <h3 className="text-xl text-gray-700 mb-4">
-          Effective Date: February 8, 2025
-          <br />
-          Last Updated: February 8, 2025
+        <h3 className="text-xl text-gray-700 mb-8">
+          Last Updated: January 27, 2026
         </h3>
 
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Eligibility</h2>
-        <p className="text-lg text-gray-700 mb-4">To use OneMAI services, you must:</p>
-        <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-1">
-          <li>Be at least 18 years old</li>
-          <li>Have legal capacity to enter into contracts</li>
-          <li>Provide accurate and complete registration information</li>
-        </ul>
-
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Account Registration</h2>
-        <p className="text-lg text-gray-700 mb-2">You must register for an account to access certain features. You are responsible for:</p>
-        <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-1">
-          <li>Maintaining the confidentiality of your account credentials</li>
-          <li>All activities that occur under your account</li>
-          <li>Promptly notifying us of any unauthorized use</li>
-        </ul>
-
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Prohibited Activities</h2>
-        <p className="text-lg text-gray-700 mb-2">You agree not to:</p>
-        <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-1">
-          <li>Use the service for illegal purposes</li>
-          <li>Attempt to gain unauthorized access to our systems</li>
-          <li>Interfere with the proper working of the service</li>
-          <li>Engage in fraudulent financial activities</li>
-        </ul>
-
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Financial Transactions</h2>
-        <p className="text-lg text-gray-700 mb-2">OneMAI provides a platform for community-based financial services. You acknowledge that:</p>
-        <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-1">
-          <li>We are not a bank or financial institution</li>
-          <li>All transactions are between community members</li>
-          <li>We may impose transaction limits for security</li>
-        </ul>
-
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Intellectual Property</h2>
-        <p className="text-lg text-gray-700 mb-6">
-          All content on the OneMAI platform, including text, graphics, logos, and software, is our property or the
-          property of our licensors and is protected by intellectual property laws.
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Regulatory Position</h2>
+        <p className="text-lg text-gray-700 mb-8">
+          OneMAI is not a bank, lender, or financial institution and does not hold or safeguard customer funds.
+          Regulated financial services are provided by licensed Electronic Money Institutions (EMIs) or Payment
+          Institutions (PIs) in accordance with EU law, including PSD2.
         </p>
 
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Limitation of Liability</h2>
-        <p className="text-lg text-gray-700 mb-6">
-          To the maximum extent permitted by law, OneMAI shall not be liable for any indirect, incidental, special,
-          consequential, or punitive damages resulting from your use of the service.
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Eligibility and Account Responsibility</h2>
+        <p className="text-lg text-gray-700 mb-3">
+          To use OneMAI and participate in community savings groups, you must meet basic eligibility criteria:
+        </p>
+        <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-1">
+          <li>Be at least 18 years old with full legal capacity.</li>
+          <li>Provide accurate identification and maintain a valid bank account or payout method.</li>
+          <li>Not be subject to sanctions or prior bans from OneMAI services.</li>
+          <li>Keep your login credentials confidential. You are responsible for all activity carried out through your account.</li>
+        </ul>
+
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Community Participation and Contributions</h2>
+        <p className="text-lg text-gray-700 mb-8">
+          By joining a group or Pot, you agree to contribute in line with the rules shown in the app. Contributions,
+          payouts, and rotation order are managed transparently through the platform. Commission structures, where
+          applicable, are based on actual usage, not just sign-ups.
         </p>
 
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Modifications to Terms</h2>
-        <p className="text-lg text-gray-700 mb-6">
-          We reserve the right to modify these Terms at any time. We will provide notice of material changes through our
-          platform or via email.
-        </p>
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Prohibited Conduct</h2>
+        <h3 className="text-xl font-semibold text-gray-900 mb-2">Things You Must Not Do</h3>
+        <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-1">
+          <li>Create fake, duplicate, or self-referral accounts.</li>
+          <li>Promise profits, loans, or guaranteed returns to other users.</li>
+          <li>Use spam, bots, or deceptive advertising to bring people into the platform.</li>
+          <li>Collect or store user personal data outside approved OneMAI processes.</li>
+        </ul>
 
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Governing Law</h2>
-        <p className="text-lg text-gray-700 mb-6">
-          These Terms shall be governed by and construed in accordance with the laws of Portugal, without regard to its
-          conflict of law provisions.
-        </p>
+        <h3 className="text-xl font-semibold text-gray-900 mb-2">Misrepresentation</h3>
+        <ul className="list-disc pl-6 text-gray-700 mb-8 space-y-1">
+          <li>Claiming to be an employee, agent, or financial advisor of OneMAI.</li>
+          <li>Using OneMAI branding in a way that confuses or misleads people.</li>
+          <li>Giving personal financial or investment advice in OneMAI’s name.</li>
+          <li>Misrepresenting how our savings groups or payouts work.</li>
+        </ul>
 
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Contact Information</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Payouts, Suspension, and Termination</h2>
+        <p className="text-lg text-gray-700 mb-3">
+          Payouts and commissions (where applicable) are subject to verification and compliance checks.
+        </p>
+        <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-1">
+          <li>
+            We may suspend or terminate access if these Terms are violated or if there are regulatory concerns.
+          </li>
+          <li>
+            Serious violations may result in immediate forfeiture of unpaid commissions or removal from groups.
+          </li>
+          <li>You are responsible for any taxes or reporting obligations related to payouts you receive.</li>
+        </ul>
+
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Governing Law</h2>
+        <p className="text-lg text-gray-700 mb-3">
+          These Terms are governed by the laws of the European Union and the applicable national laws of OneMAI’s
+          registered operating entity.
+        </p>
+        <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-1">
+          <li>
+            Any disputes will be handled under the jurisdiction of the courts where OneMAI’s primary operating entity is
+            established.
+          </li>
+          <li>Local consumer protection laws in your country of residence may also grant you additional rights.</li>
+        </ul>
+
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Contact and Changes to These Terms</h2>
+        <p className="text-lg text-gray-700 mb-3">
+          We may update these Terms from time to time, for example to reflect changes in law, features, or business
+          practices. When we make material changes, we will notify you through the app or by email.
+        </p>
+        <p className="text-lg text-gray-700 mb-4">
+          If you have questions about these Terms or how they apply to you, contact us at:
+        </p>
         <p className="text-lg text-gray-700">
-          For questions about these Terms, please contact us at:{" "}
           <a href="mailto:hello@joinonemai.com" className="text-brand-600 underline">
-            joinonemai.com
+            hello@joinonemai.com
           </a>
         </p>
       </section>
