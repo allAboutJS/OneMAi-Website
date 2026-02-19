@@ -321,7 +321,7 @@ export const REGIONS: Record<Region, RegionData> = {
             ctaText: 'You don’t have to do it alone. Coordinate money with people you trust in a clear and secure way.'
         },
         home: {
-            howItWorksSubtitle: 'Get started with OneMAI in three simple steps',
+            howItWorksSubtitle: "it's that simple",
             howItWorksSteps: [
                 {
                     step: 'Step 1',
@@ -577,7 +577,7 @@ export const REGIONS: Record<Region, RegionData> = {
             ctaText: 'Bring your Ajo community online and experience the ease of automated coordination and secure payouts.'
         },
         home: {
-            howItWorksSubtitle: 'Get started with OneMAI in three simple steps',
+            howItWorksSubtitle: "it's that simple",
             howItWorksSteps: [
                 {
                     step: 'Step 1',
@@ -803,7 +803,7 @@ export const REGIONS: Record<Region, RegionData> = {
             ctaText: 'You don’t have to do it alone. Coordinate money with people you trust in a clear and secure way.'
         },
         home: {
-            howItWorksSubtitle: 'Get started with OneMAI in three simple steps',
+            howItWorksSubtitle: "it's that simple",
             howItWorksSteps: [
                 {
                     step: 'Step 1',

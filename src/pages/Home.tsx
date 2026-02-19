@@ -221,7 +221,7 @@ const Home: React.FC = () => {
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">You already Know how it works</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">{h.howItWorksSubtitle}</p>
           </div>
           <img
