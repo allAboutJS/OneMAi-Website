@@ -65,9 +65,19 @@ export default function About() {
                     {/* Our Story */}
                     <div className="lg:col-span-7 space-y-6">
                         <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
-                            {a.storyParagraphs.map((p, idx) => (
-                                <p key={idx}>{p}</p>
-                            ))}
+                            {a.storyParagraphs.map((p, idx) => {
+                                const lines = p.split('\n');
+                                return (
+                                    <p key={idx}>
+                                        {lines.map((line, lineIdx) => (
+                                            <React.Fragment key={lineIdx}>
+                                                {line}
+                                                {lineIdx < lines.length - 1 && <br />}
+                                            </React.Fragment>
+                                        ))}
+                                    </p>
+                                );
+                            })}
                         </div>
                     </div>
 
