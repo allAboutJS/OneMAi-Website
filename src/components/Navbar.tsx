@@ -1,13 +1,19 @@
 // src/components/Navbar.tsx
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "@/assets/MAI.png";
+import defaultLogo from "@/assets/MAI.png";
+import ngLogo from "@/assets/mai-ng.jpeg";
+import euLogo from "@/assets/mai-eu.jpeg";
+import { useRegion } from "@/context/RegionContext";
 
 export default function Navbar() {
+  const { region } = useRegion();
   const [open, setOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState<'signin' | 'register'>('signin');
   const location = useLocation();
+
+  const logoSrc = region === "NG" ? ngLogo : region === "EU" ? euLogo : defaultLogo;
 
   const links = [
     { label: "Home", href: "/" },
@@ -48,7 +54,7 @@ export default function Navbar() {
             {/* Logo */}
             <div className="flex items-center">
               <Link to="/" className="text-2xl font-normal text-brand-600">
-                <img src={logo} alt="MAI" className="w-10" />
+                <img src={logoSrc} alt="MAI" className="w-10" />
               </Link>
             </div>
 

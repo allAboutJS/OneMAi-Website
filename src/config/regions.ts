@@ -518,13 +518,13 @@ export const REGIONS: Record<Region, RegionData> = {
         },
         benefits: {
             heroTitle: 'Benefits of OneMAI',
-            heroSubtitle: 'Harness the power of community to build wealth and financial security in Nigeria.',
-            sectionTitle: 'Modernizing Ajo & Esusu - Strengthened by Technology',
+            heroSubtitle: 'Harness the power of community to build wealth and financial security.',
+            sectionTitle: 'A Trusted Tradition Strengthened by Technology',
             userBenefits: {
                 title: 'For Individuals & Groups',
                 items: [
                     { title: 'Access to Zero-interest Capital', text: 'Get access to bulk funds for business or personal needs without the burden of high interest rates.' },
-                    { title: 'Eliminate "Runaway" Risks', text: 'Every contribution is tracked and payouts are automated, ensuring maximum security for your Ajo.' },
+                    { title: 'Eliminate "Runaway" Risks', text: 'Every contribution is tracked and payouts are automated, ensuring maximum security for your Pods.' },
                     { title: 'Build Your Credit Profile', text: 'Formalize your informal savings history to unlock better financial opportunities in the future.' },
                     { title: 'Community Financial Safety Net', text: 'A trusted environment where members support each other to reach financial milestones.' }
                 ]
@@ -534,7 +534,7 @@ export const REGIONS: Record<Region, RegionData> = {
                 items: [
                     { title: 'Automated Cooperative Management', text: 'Digitalize your cooperative society or staff thrift group for better efficiency and less paperwork.' },
                     { title: 'Employee Financial Stability', text: 'Help your staff manage their finances better through structured group savings.' },
-                    { title: 'Reduced Administrative Stress', text: 'Focus on growth while our platform handles collections and payout schedules.' },
+                    { title: 'Reduced Administrative Stress', text: 'Focus on growth while our platform handles collection and payout schedules.' },
                     { title: 'Transparent Record Keeping', text: 'Real-time dashboards for all contributions and payout cycles.' }
                 ]
             },
@@ -542,7 +542,7 @@ export const REGIONS: Record<Region, RegionData> = {
                 'Funds protected through licensed financial partners',
                 'Automated bank collections and direct payouts',
                 'Security frameworks to handle missed payments',
-                'Full visibility into every Ajo cycle progress',
+                'Full visibility into every Pod cycle progress',
                 'Easy onboarding with your phone number and BVN verification'
             ]
         },
