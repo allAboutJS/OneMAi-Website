@@ -7,6 +7,7 @@ import { useRegion } from "../context/RegionContext";
 export default function HowItWorks() {
     const { regionData } = useRegion();
     const hw = regionData.howItWorks;
+    const [sectionMain, sectionEmphasis] = hw.sectionTitle.split(/—|-/);
 
     return (
         <main className="">
@@ -39,7 +40,15 @@ export default function HowItWorks() {
             <section className="max-w-7xl mx-auto px-6 py-14">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl sm:text-4xl font-normal text-gray-900 mb-4">
-                        {hw.sectionTitle}
+                        {sectionMain?.trim()}
+                        {sectionEmphasis && (
+                            <>
+                                <br />
+                                <span className="text-[#3390D5] font-normal">
+                                    {sectionEmphasis.trim()}
+                                </span>
+                            </>
+                        )}
                     </h2>
                 </div>
 

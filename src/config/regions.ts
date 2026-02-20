@@ -423,7 +423,7 @@ export const REGIONS: Record<Region, RegionData> = {
         ctaText: 'Bring your Ajo group online and experience the ease of automated coordination and secure payouts.',
         domain: '.ng',
         name: 'Nigeria',
-        contactEmail: 'ng@joinonemai.com',
+        contactEmail: 'hello@joinonemai.com',
         whatsappNumber: '+234 123 456 7890',
         whatsappLink: 'https://wa.me/2341234567890',
         socialLinks: {
@@ -485,16 +485,16 @@ export const REGIONS: Record<Region, RegionData> = {
         ],
         howItWorks: {
             heroTitle: 'How OneMAI Works',
-            heroSubtitle: 'Step-by-step to group savings (Ajo/Esusu/Thrift), transparent coordination, and secure payouts in Nigeria.',
-            sectionTitle: 'A Structured Way to Ajo — Driven by Trust',
+            heroSubtitle: 'Step-by-step to group savings.',
+            sectionTitle: 'A Structured Way to save — Driven by Trust',
             steps: [
                 {
                     title: '1) Verify & Set Up',
-                    text: 'Create an account and complete KYC. This ensures only trusted members participate in your Ajo circles.'
+                    text: 'Create an account and complete KYC. This ensures only traceable members participate in your Pod.'
                 },
                 {
-                    title: '2) Join or Create a Thrift/Ajo Circle',
-                    text: 'Define members, monthly/weekly contribution, payout order, and circle rules clearly in the app.'
+                    title: '2) Join or Create a Pod',
+                    text: 'Define members, Frequency, contribution, and circle rules clearly in the app.'
                 },
                 {
                     title: '3) Automate Contributions and receiving payouts',
@@ -504,15 +504,15 @@ export const REGIONS: Record<Region, RegionData> = {
             responsibilities: {
                 title: 'Circle Responsibilities',
                 items: [
-                    'Admins: set fair rules, monitor circle health, and coordinate with members.',
-                    'Members: pay on time, respect the rotation order, and maintain community trust.'
+                    'Admins: create Pod.',
+                    'Members: maintain community trust.'
                 ]
             },
             disputes: {
                 title: 'Defaults & Resolution',
                 items: [
                     'Payment delays trigger reminders; repeated defaults restrict access and can pause payouts.',
-                    'Resolve within your circle → escalate to admin → OneMAI logs provide evidence for mediation.'
+                    'Resolve within your circle → escalate to admin → contact OneMAI support.'
                 ]
             }
         },
@@ -575,8 +575,8 @@ export const REGIONS: Record<Region, RegionData> = {
                 { label: 'Security', text: 'protecting group funds with technology' },
                 { label: 'Prosperity', text: 'helping every member of a community reach their goals' }
             ],
-            ctaTitle: 'Start Your Community Circle',
-            ctaText: 'Bring your Ajo community online and experience the ease of automated coordination and secure payouts.'
+            ctaTitle: 'Start Your Pod',
+            ctaText: 'Bring your community online and experience the ease of automated coordination for contribution and secure payouts.'
         },
         home: {
             howItWorksSubtitle: "it's that simple",
