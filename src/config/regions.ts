@@ -551,9 +551,11 @@ export const REGIONS: Record<Region, RegionData> = {
             heroSubtitle: 'Ajo. Esusu. Adashe built our communities.\nOneMAI structures and strengthens them.\n\nWe digitize traditional group savings without losing trust. We add automated contributions, transparent records, secure banking infrastructure, and integrated financial literacy tools.\n\nPooled money.\nStructured growth.\nFinancial awareness.\nCommunity elevation.',
             storyTitle: 'Our Story',
             storyParagraphs: [
-                'Tunde is a trader in Ariaria Market, Aba. He has participated in Ajo circles for years to grow his business capital. However, he always worried about the lack of records and the risk of a collector "disappearing." With OneMAI, Tunde now manages his market union\'s contributions with full digital transparency.',
-                'Across Nigeria, millions of people rely on Ajo and Esusu to save and access bulk funds. It is a powerful community engine, but one that often lacks formal protection.',
-                'OneMAI honors this tradition by providing the digital layer it deserves. We combine the trust of your existing community with the security of modern financial technology, ensuring every Naira is accounted for and every payout is protected.'
+                'We met Tunde.\nA trader in Ariaria Market, Aba.\nAmbitious. Ready to grow.',
+                'He has relied on Ajo before, but the friction was always there.\nLate payments.\nIncomplete payouts.\nNo clear records.\nTrust existed. Structure did not.',
+                'Now, Tunde is starting a new chapter with OneMAI as an affiliate partner, coordinating his market union\'s contributions with full digital transparency.\nEvery payment tracked.\nEvery member accountable.\nEvery payout structured.\nHe is just getting started. And we are building with him.',
+                'Across Nigeria, millions rely on Ajo/ Esusu/ Adashe. Powerful systems built on community trust.\nOneMAI strengthens them.',
+                'We provide structure, secure financial infrastructure, and integrated financial literacy tools to support Tunde and other affiliates ready to lead their communities forward.\nTradition remains.\nStructure begins.\nGrowth follows.'
             ],
             facilitationTitle: 'What we facilitate —',
             facilitationSubtitle: 'Traditional Trust, Digital Security',

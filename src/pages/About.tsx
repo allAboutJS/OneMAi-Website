@@ -25,9 +25,19 @@ export default function About() {
                                 {a.heroTitle}
                             </h1>
                             <div className="space-y-3 md:space-y-4 text-lg md:text-xl opacity-90 leading-relaxed max-w-2xl">
-                                {a.heroSubtitle.split('\n\n').map((para, idx) => (
-                                    <p key={idx}>{para}</p>
-                                ))}
+                                {a.heroSubtitle.split('\n\n').map((para, idx) => {
+                                    const lines = para.split('\n');
+                                    return (
+                                        <p key={idx}>
+                                            {lines.map((line, lineIdx) => (
+                                                <React.Fragment key={lineIdx}>
+                                                    {line}
+                                                    {lineIdx < lines.length - 1 && <br />}
+                                                </React.Fragment>
+                                            ))}
+                                        </p>
+                                    );
+                                })}
                             </div>
                         </div>
 
@@ -54,7 +64,6 @@ export default function About() {
                 <div className="grid lg:grid-cols-12 gap-12 items-start">
                     {/* Our Story */}
                     <div className="lg:col-span-7 space-y-6">
-                        <h2 className="text-3xl md:text-4xl font-normal text-gray-900">{a.storyTitle}</h2>
                         <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
                             {a.storyParagraphs.map((p, idx) => (
                                 <p key={idx}>{p}</p>
@@ -63,8 +72,8 @@ export default function About() {
                     </div>
 
                     {/* What we facilitate Card */}
-                    <div className="lg:col-span-5">
-                        <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-8">
+                    <div className="lg:col-span-5 flex justify-start lg:justify-end">
+                        <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-8 w-full max-w-md">
                             <h3 className="text-2xl font-normal mb-6 text-gray-900 leading-tight">
                                 {a.facilitationTitle} <br />
                                 <span className="text-[#3390D5]">{a.facilitationSubtitle}</span>
@@ -94,7 +103,7 @@ export default function About() {
                             </p>
                         </div>
 
-                        <div className="bg-white rounded-xl shadow p-6">
+                        <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-6 md:p-8 w-full md:max-w-md md:ml-auto">
                             <h3 className="text-xl font-normal mb-3">{a.valuesTitle}</h3>
                             <ul className="space-y-3 text-gray-700">
                                 {a.valuesList.map((val, idx) => (
