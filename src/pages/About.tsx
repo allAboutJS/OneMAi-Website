@@ -24,9 +24,11 @@ export default function About() {
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal leading-tight">
                                 {a.heroTitle}
                             </h1>
-                            <p className="text-lg md:text-xl opacity-90 leading-relaxed max-w-2xl">
-                                {a.heroSubtitle}
-                            </p>
+                            <div className="space-y-3 md:space-y-4 text-lg md:text-xl opacity-90 leading-relaxed max-w-2xl">
+                                {a.heroSubtitle.split('\n\n').map((para, idx) => (
+                                    <p key={idx}>{para}</p>
+                                ))}
+                            </div>
                         </div>
 
                         {/* Right Phone Visual */}

@@ -548,7 +548,7 @@ export const REGIONS: Record<Region, RegionData> = {
         },
         about: {
             heroTitle: 'OneMAI The Story',
-            heroSubtitle: 'Deeply rooted in the Nigerian tradition of group savings, OneMAI brings structure, transparency, and digital security to Ajo, Esusu, and Thrift coordination.',
+            heroSubtitle: 'Ajo. Esusu. Adashe built our communities.\nOneMAI structures and strengthens them.\n\nWe digitize traditional group savings without losing trust. We add automated contributions, transparent records, secure banking infrastructure, and integrated financial literacy tools.\n\nPooled money.\nStructured growth.\nFinancial awareness.\nCommunity elevation.',
             storyTitle: 'Our Story',
             storyParagraphs: [
                 'Tunde is a trader in Ariaria Market, Aba. He has participated in Ajo circles for years to grow his business capital. However, he always worried about the lack of records and the risk of a collector "disappearing." With OneMAI, Tunde now manages his market union\'s contributions with full digital transparency.',
