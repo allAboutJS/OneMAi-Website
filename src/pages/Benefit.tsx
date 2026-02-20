@@ -62,10 +62,12 @@ export default function Benefits() {
             <section id="benefits" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12 sm:mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-normal text-gray-900 mb-3 sm:mb-4">
-                            {b.sectionTitle.split(" - ")[0]} - <br />
-                            <span className="text-[#3390D5] font-normal">{b.sectionTitle.split(" - ")[1]}</span>
+                        <h2 className="text-3xl sm:text-4xl font-normal text-gray-900 mb-3 sm:mb-1">
+                            A Trusted Tradition
                         </h2>
+                        <p className="text-xl sm:text-2xl text-[#3390D5] font-normal">
+                            Strengthened by Technology
+                        </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
