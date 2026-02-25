@@ -2,8 +2,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import defaultLogo from "@/assets/MAI.png";
-import ngLogo from "@/assets/mai-ng.jpeg";
-import euLogo from "@/assets/mai-eu.jpeg";
+import ngLogo from "@/assets/mai-eu.png";
+import euLogo from "@/assets/mai-eu.png";
 import { useRegion } from "@/context/RegionContext";
 
 export default function Navbar() {
