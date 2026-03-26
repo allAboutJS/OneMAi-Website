@@ -25,7 +25,7 @@ export default function KnowledgeBasePage() {
     useEffect(() => {
         const fetchFaqs = async () => {
             try {
-                const response = await fetch('https://api.joinonemai.com/api/app/fetch-knowledge-base');
+                const response = await fetch('https://test.joinonemai.com/api/app/fetch-knowledge-base');
                 if (!response.ok) {
                     throw new Error('Failed to fetch Knowledge Base items');
                 }

@@ -57,6 +57,9 @@ export default function About() {
                         </div>
                     </div>
                 </div>
+                <p className="text-white/70 text-sm mt-6 pb-2">
+                    OneMAI is developed and operated by Cortejo Magnata Lda, a technology company based in Portugal, building financial coordination infrastructure for communities.
+                </p>
             </section>
 
             {/* Story and Facilitation Section */}

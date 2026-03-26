@@ -31,7 +31,7 @@ const BlogPost = () => {
             const fetchPost = async () => {
                 setLoading(true);
                 try {
-                    const response = await fetch('https://api.joinonemai.com/api/app/fetch-posts');
+                    const response = await fetch('https://test.joinonemai.com/api/app/fetch-posts');
                     if (!response.ok) {
                         throw new Error('Failed to fetch posts');
                     }
@@ -80,7 +80,7 @@ const BlogPost = () => {
 
     const getImageUrl = (path: string) => {
         if (path.startsWith('http')) return path;
-        return `https://api.joinonemai.com/${path}`;
+        return `https://test.joinonemai.com/${path}`;
     };
 
     return (

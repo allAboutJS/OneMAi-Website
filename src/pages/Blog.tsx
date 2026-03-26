@@ -57,7 +57,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch('https://api.joinonemai.com/api/app/fetch-posts');
+        const response = await fetch('https://test.joinonemai.com/api/app/fetch-posts');
         if (!response.ok) {
           throw new Error('Failed to fetch posts');
         }
@@ -83,7 +83,7 @@ const Blog = () => {
 
   const getImageUrl = (path: string) => {
     if (path.startsWith('http')) return path;
-    return `https://api.joinonemai.com/${path}`;
+    return `https://test.joinonemai.com/${path}`;
   };
 
   if (loading) {

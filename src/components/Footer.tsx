@@ -59,7 +59,7 @@ export default function Footer() {
         throw new Error(data?.error || `Request failed (${res.status})`);
       }
 
-      setMessage({ ok: true, text: "You’re officially on the inside. Expect insights, updates, and a few surprises from OneMAI." });
+      setMessage({ ok: true, text: `You’re officially on the inside. Expect insights, updates, and a few surprises from ${regionData.brandName || "OneMAI"}.` });
       setEmail("");
 
       setTimeout(() => {
@@ -80,9 +80,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-normal text-white mb-4">OneMAI</h3>
+            <h3 className="text-2xl font-normal text-white mb-4">{regionData.brandName || "OneMAI"}</h3>
             <p className="text-gray-400 mb-4 max-w-md">
-              Empowering communities through zero-interest and secured democratic financial solutions.
+              {regionData.footerDescription || "Empowering communities through zero-interest and secured democratic financial solutions."}
             </p>
 
             {/* Social Links */}
@@ -151,11 +151,11 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link
-                  to="/about"
+                  to="/"
                   onClick={scrollToTop}
                   className="text-gray-400 hover:text-white transition-colors duration-300"
                 >
-                  About
+                  Home
                 </Link>
               </li>
               <li>
@@ -174,6 +174,24 @@ export default function Footer() {
                   className="text-gray-400 hover:text-white transition-colors duration-300"
                 >
                   Benefits
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  onClick={scrollToTop}
+                  className="text-gray-400 hover:text-white transition-colors duration-300"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/blog"
+                  onClick={scrollToTop}
+                  className="text-gray-400 hover:text-white transition-colors duration-300"
+                >
+                  Blog
                 </Link>
               </li>
             </ul>
@@ -258,8 +276,15 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="bg-gray-800">
-        <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-center gap-2">
-          <p className="text-gray-400 text-sm">© {new Date().getFullYear()} OneMAI. All rights reserved.</p>
+        <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center gap-2 text-center">
+          {regionData.footerOperatorInfo && (
+            <div className="text-gray-400 text-xs mb-1">
+              {regionData.footerOperatorInfo.split('\n').map((line, i) => (
+                <p key={i}>{line}</p>
+              ))}
+            </div>
+          )}
+          <p className="text-gray-400 text-sm">© {new Date().getFullYear()} {regionData.copyrightName || "OneMAI"}. All rights reserved.</p>
         </div>
       </div>
     </footer>
