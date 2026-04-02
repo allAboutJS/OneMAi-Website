@@ -907,6 +907,10 @@ export const REGIONS: Record<Region, RegionData> = {
             benefitsHero: benefitsHeroImg,
             benefitsIllustration: communityIllustration,
             howItWorksHero: howItWorksHeroImg,
-        }
+        },
+        footerOperatorInfo: "Operated by Cortejo Magnata Lda\nNIF: 518842016.\nRegistered in Portugal.",
+        copyrightName: "Cortejo Magnata Lda",
+        brandName: "Cortejo Magnata Lda",
+        footerDescription: "OneMAI is developed and operated by Cortejo Magnata Lda, a technology company based in Portugal, building financial coordination infrastructure for communities."
     },
 };
