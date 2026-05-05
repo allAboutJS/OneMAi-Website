@@ -14,6 +14,7 @@ export default function Navbar() {
   const location = useLocation();
 
   const logoSrc = region === "NG" ? ngLogo : region === "EU" ? euLogo : defaultLogo;
+  const authTld = region === "NG" ? "ng" : region === "EU" ? "eu" : "com";
 
   const links = [
     { label: "Home", href: "/" },
@@ -33,12 +34,12 @@ export default function Navbar() {
   const handleSelection = (role: 'user' | 'affiliate') => {
     const urls = {
       signin: {
-        user: 'https://app.joinonemai.com/signin',
-        affiliate: 'https://x.joinonemai.com/signin'
+        user: `https://app.joinonemai.${authTld}/signin`,
+        affiliate: `https://x.joinonemai.${authTld}/signin`
       },
       register: {
-        user: 'https://app.joinonemai.com/signup',
-        affiliate: 'https://x.joinonemai.com/affilator-create-account'
+        user: `https://app.joinonemai.${authTld}/signup`,
+        affiliate: `https://x.joinonemai.${authTld}/affilator-create-account`
       }
     };
 

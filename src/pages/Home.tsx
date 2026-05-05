@@ -26,7 +26,7 @@ const SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbyzjYnO2dy0slHRNpXQbj097OlsTqjhoJtVCPxEYCPcXUSHnqU85fFVC6zr_eKPfTff/exec"; // Google Apps Script endpoint
 
 const Home: React.FC = () => {
-  const { regionData } = useRegion();
+  const { region, regionData } = useRegion();
   // Back-to-top
   const [showTop, setShowTop] = useState(false);
   useEffect(() => {
@@ -52,9 +52,10 @@ const Home: React.FC = () => {
 
   // Handle auth modal selection
   const handleAuthSelection = (role: 'user' | 'affiliate') => {
+    const authTld = region === "NG" ? "ng" : region === "EU" ? "eu" : "com";
     const urls = {
-      user: 'https://app.joinonemai.com/signup',
-      affiliate: 'https://x.joinonemai.com/affilator-create-account'
+      user: `https://app.joinonemai.${authTld}/signup`,
+      affiliate: `https://x.joinonemai.${authTld}/affilator-create-account`
     };
 
     if (role === 'affiliate') {
