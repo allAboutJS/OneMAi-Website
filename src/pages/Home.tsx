@@ -247,7 +247,7 @@ const Home: React.FC = () => {
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 						{/* Text */}
 						<div className="flex flex-col justify-center">
-							<p className="text-sm py-2 px-6 rounded-full w-fit bg-white text-blue-500 mb-6">
+							<p className="text-sm pt-12 pb-2 px-6 rounded-full w-fit bg-white text-blue-500 mb-6">
 								Financial Infrastructure for Trusted Communities
 							</p>
 							<h1 className="text-4xl sm:text-5xl md:text-7xl font-normal text-white mb-6">
