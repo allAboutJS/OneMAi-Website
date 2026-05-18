@@ -65,6 +65,29 @@ const Home: React.FC = () => {
 	} | null>(null);
 	const [isSubmitting, setIsSubmitting] = useState(false);
 
+	const steps = [
+		{
+			image: "/images/screen 2.jpeg",
+			desc: "Communities, associations, employers, or friends form a trusted savings group and define the rules — contribution amount, payout order, and cycle length.",
+		},
+		{
+			image: "/images/screen 1.jpeg",
+			desc: "Members onboard securely. KYC is handled end-to-end by our regulated banking partners.",
+		},
+		{
+			image: "/images/screen 3.jpeg",
+			desc: "OneMAI orchestrates scheduled contributions, sends reminders, tracks payments in real time, and maintains a transparent audit trail for every member.",
+		},
+		{
+			image: "/images/screen 4.jpeg",
+			desc: "When your turn comes, funds are disbursed automatically through our payment rails — no manual transfers, no chasing organisers.",
+		},
+		{
+			image: "/images/screen 1.jpeg",
+			desc: "Every completed cycle creates a verified record of financial behaviour — the foundation for future credit access and group credibility.",
+		},
+	];
+
 	// Handle auth modal selection
 	const handleAuthSelection = (role: "user" | "affiliate") => {
 		const authTld = region === "NG" ? "ng" : region === "EU" ? "eu" : "com";
@@ -412,39 +435,30 @@ const Home: React.FC = () => {
 								desc: "Every completed cycle creates a verified record of financial behaviour, the foundation for future credit access and group credibility.",
 							},
 						][activeTab] && (
-							<div>
-								<h3 className="text-4xl font-semibold text-blue-900 mb-4">
-									{
-										[
-											"Create or join a circle",
-											"Verify identity",
-											"Automate contributions",
-											"Receive your payout",
-											"Build financial history",
-										][activeTab]
-									}
-								</h3>
-								<p className="text-xl text-black leading-relaxed">
-									{
-										[
-											{
-												desc: "Communities, associations, employers, or friends form a trusted savings group and define the rules — contribution amount, payout order, and cycle length.",
-											},
-											{
-												desc: "Members onboard securely. KYC is handled end-to-end by our regulated banking partners.",
-											},
-											{
-												desc: "OneMAI orchestrates scheduled contributions, sends reminders, tracks payments in real time, and maintains a transparent audit trail for every member.",
-											},
-											{
-												desc: "When your turn comes, funds are disbursed automatically through our payment rails — no manual transfers, no chasing organisers.",
-											},
-											{
-												desc: "Every completed cycle creates a verified record of financial behaviour — the foundation for future credit access and group credibility.",
-											},
-										][activeTab].desc
-									}
-								</p>
+							<div className="flex gap-4 items-center">
+								<div className="p-2 rounded-lg bg-white">
+									<img
+										className="aspect-[1/2] max-w-[248px]"
+										src={steps[activeTab].image}
+										alt=""
+									/>
+								</div>
+								<div>
+									<h3 className="text-4xl font-semibold text-blue-900 mb-4">
+										{
+											[
+												"Create or join a circle",
+												"Verify identity",
+												"Automate contributions",
+												"Receive your payout",
+												"Build financial history",
+											][activeTab]
+										}
+									</h3>
+									<p className="text-xl text-black leading-relaxed">
+										{steps[activeTab].desc}
+									</p>
+								</div>
 							</div>
 						)}
 					</div>
