@@ -378,17 +378,18 @@ const Home: React.FC = () => {
 				</div>
 			</section>
 
+			{/* Improved */}
 			<section id="how" className="py-24 bg-teal-500 text-white">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<h2 className="text-3xl sm:text-4xl md:text-6xl font-normal mb-2 max-w-2xl">
 						From group to payout
 					</h2>
-					<p className="text-xl md:text-2xl mb-16 text-zinc-200">
+					<p className="text-xl md:text-2xl mb-12 text-zinc-100">
 						Fully coordinated.
 					</p>
 
-					{/* Tab Navigation */}
-					<div className="flex mb-2 overflow-x-auto">
+					{/* Tab Navigation - Improved Styling */}
+					<div className="flex mb-2 overflow-x-auto gap-2 pb-2 scrollbar-hide">
 						{[
 							"Create Circle",
 							"Verify",
@@ -400,10 +401,10 @@ const Home: React.FC = () => {
 								type="button"
 								key={tab}
 								onClick={() => setActiveTab(idx)}
-								className={`px-6 py-3 text-sm font-bold whitespace-nowrap first:rounded-l-lg last:rounded-r-lg transition ${
+								className={`px-6 py-3 text-sm font-bold whitespace-nowrap rounded-lg transition duration-300 transform hover:scale-105 ${
 									activeTab === idx
-										? "bg-blue-600 text-white"
-										: "bg-gray-900 text-gray-400 hover:text-gray-200"
+										? "bg-white text-teal-600"
+										: "bg-white/20 text-white hover:bg-white/30"
 								}`}
 							>
 								{tab}
@@ -411,8 +412,8 @@ const Home: React.FC = () => {
 						))}
 					</div>
 
-					{/* Tab Content */}
-					<div className="bg-white/50 rounded-2xl p-12">
+					{/* Tab Content - Improved Layout */}
+					<div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-2xl">
 						{[
 							{
 								title: "Create or join a circle",
@@ -435,16 +436,28 @@ const Home: React.FC = () => {
 								desc: "Every completed cycle creates a verified record of financial behaviour, the foundation for future credit access and group credibility.",
 							},
 						][activeTab] && (
-							<div className="flex gap-4 items-center">
-								<div className="p-2 rounded-lg bg-white">
-									<img
-										className="aspect-[1/2] max-w-[248px]"
-										src={steps[activeTab].image}
-										alt=""
-									/>
+							<div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+								<div className="flex justify-center md:justify-start order-2 md:order-1">
+									<div className="relative">
+										<div className="relative bg-white rounded-3xl p-3 shadow-2xl border-8 border-white overflow-hidden transform hover:scale-105 transition duration-300">
+											<img
+												className="aspect-[1/2] w-full max-w-xs rounded-2xl object-cover"
+												src={steps[activeTab].image}
+												alt=""
+											/>
+										</div>
+									</div>
 								</div>
-								<div>
-									<h3 className="text-4xl font-semibold text-blue-900 mb-4">
+
+								<div className="order-1 md:order-2">
+									<div className="inline-block mb-6 px-4 py-2 bg-white/20 rounded-full border border-white/30">
+										<span className="text-xs font-bold text-white uppercase tracking-wide">
+											Step {activeTab + 1} of 5
+										</span>
+									</div>
+
+									{/* Heading */}
+									<h3 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-900 mb-6 leading-tight">
 										{
 											[
 												"Create or join a circle",
@@ -455,12 +468,39 @@ const Home: React.FC = () => {
 											][activeTab]
 										}
 									</h3>
-									<p className="text-xl text-black leading-relaxed">
+
+									{/* Description */}
+									<p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
 										{steps[activeTab].desc}
 									</p>
+
+									{/* CTA Button */}
+									<a
+										href="https://app.joinonemai.com"
+										className="inline-flex items-center px-6 py-3 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-lg transition duration-300 transform hover:translate-y-[-2px] hover:shadow-lg"
+									>
+										Learn more →
+									</a>
 								</div>
 							</div>
 						)}
+					</div>
+
+					{/* Progress indicator dots */}
+					<div className="flex justify-center gap-2 mt-8">
+						{[0, 1, 2, 3, 4].map((idx) => (
+							<button
+								type="button"
+								key={idx}
+								onClick={() => setActiveTab(idx)}
+								className={`h-3 rounded-full transition duration-300 ${
+									activeTab === idx
+										? "w-8 bg-white"
+										: "w-3 bg-white/40 hover:bg-white/60"
+								}`}
+								aria-label={`Go to step ${idx + 1}`}
+							/>
+						))}
 					</div>
 				</div>
 			</section>
